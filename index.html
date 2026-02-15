@@ -965,27 +965,12 @@
             </div>
 
             <!-- Eversports Widget Integration -->
-            <div id="eversports-widget" style="background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08); padding: 20px;">
+            <div style="background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08); padding: 20px;">
+                <div data-eversports-widget-id="9d8b2bb9-baa3-4062-b570-d366e1ca2ae5">
+                    <div style="height: 100%; display: block;"></div>
+                </div>
+                <script type="module" src="https://widget-static.eversports.io/loader.js" async defer></script>
             </div>
-            
-            <script>
-                (function() {
-                    // Load Eversports widget script
-                    var script = document.createElement('script');
-                    script.src = 'https://plugin.eversports.com/plugin.js';
-                    script.async = true;
-                    script.onload = function() {
-                        if (typeof EversportsPlugin !== 'undefined') {
-                            EversportsPlugin.createSchedule({
-                                target: 'eversports-widget',
-                                apiKey: 'cszggb',
-                                lang: 'fr'
-                            });
-                        }
-                    };
-                    document.head.appendChild(script);
-                })();
-            </script>
             
             <div style="text-align: center; margin-top: 2rem; padding: 1.5rem; background: var(--sand); border-radius: 15px;">
                 <p style="margin: 0; font-size: 1.1rem;">
