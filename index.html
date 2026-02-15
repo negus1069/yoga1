@@ -1,0 +1,1537 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Angèle OM Yoga - Studio de Yoga à La Rochelle</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=Inter:wght@400;500;600&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Palette chaleureuse et naturelle */
+            --terre-douce: #D4A574;
+            --terracotta: #C77B58;
+            --sage: #8B9D83;
+            --cream: #F7F3EE;
+            --charcoal: #3A3A3A;
+            --warm-white: #FEFCF9;
+            --sand: #E8DED0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--warm-white);
+            color: var(--charcoal);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 252, 249, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1.5rem 5%;
+            border-bottom: 1px solid rgba(212, 165, 116, 0.2);
+        }
+
+        nav .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Sora', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--terracotta);
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--charcoal);
+            text-decoration: none;
+            font-size: 1.05rem;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--terracotta);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .cta-nav {
+            background: var(--terracotta);
+            color: white !important;
+            padding: 0.7rem 1.8rem;
+            border-radius: 30px;
+            transition: all 0.3s;
+        }
+
+        .cta-nav::after {
+            display: none;
+        }
+
+        .cta-nav:hover {
+            background: var(--terre-douce);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            min-height: 90vh;
+            background: linear-gradient(135deg, var(--cream) 0%, var(--sand) 100%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(199, 123, 88, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(-50px, 30px) rotate(5deg); }
+        }
+
+        .hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 5%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text h1 {
+            font-family: 'Sora', sans-serif;
+            font-size: 4.5rem;
+            font-weight: 300;
+            color: var(--charcoal);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-text h1 strong {
+            font-weight: 700;
+            color: var(--terracotta);
+            display: block;
+        }
+
+        .hero-text p {
+            font-size: 1.3rem;
+            color: var(--charcoal);
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 0.3s forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 1.5rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 0.6s forwards;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border-radius: 40px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+        }
+
+        .btn-primary {
+            background: var(--terracotta);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--terre-douce);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(199, 123, 88, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--charcoal);
+            border: 2px solid var(--charcoal);
+        }
+
+        .btn-secondary:hover {
+            background: var(--charcoal);
+            color: white;
+        }
+
+        .hero-image {
+            position: relative;
+            opacity: 0;
+            animation: fadeIn 1.2s ease-out 0.4s forwards;
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        .hero-image img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Event Banner - Facilement modifiable */
+        .event-banner {
+            background: linear-gradient(135deg, var(--sage) 0%, var(--terre-douce) 100%);
+            color: white;
+            padding: 2rem 5%;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .event-banner::before {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
+            left: 5%;
+            top: -50px;
+            border-radius: 50%;
+        }
+
+        .event-banner::after {
+            content: '';
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, transparent 70%);
+            right: 8%;
+            bottom: -30px;
+            border-radius: 50%;
+        }
+
+        .event-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .event-label {
+            font-size: 0.9rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            opacity: 0.9;
+        }
+
+        .event-title {
+            font-family: 'Sora', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .event-details {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Valeurs / À propos */
+        .about {
+            padding: 8rem 5%;
+            background: var(--warm-white);
+        }
+
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .section-label {
+            font-size: 0.9rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--terracotta);
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-family: 'Sora', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            color: var(--charcoal);
+        }
+
+        .about-text {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 4rem;
+            line-height: 1.8;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .value-card {
+            text-align: center;
+            padding: 2rem;
+            transition: transform 0.3s;
+        }
+
+        .value-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .value-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 1.5rem;
+            background: var(--sand);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+        }
+
+        .value-icon svg {
+            width: 32px;
+            height: 32px;
+            stroke: var(--terracotta);
+            stroke-width: 2;
+            fill: none;
+        }
+
+        .value-card h3 {
+            font-family: 'Sora', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--terracotta);
+        }
+
+        /* Professeurs */
+        .teachers {
+            padding: 8rem 5%;
+            background: var(--cream);
+        }
+
+        .teachers-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .teachers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .teacher-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.4s;
+            position: relative;
+        }
+
+        .teacher-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+        }
+
+        .teacher-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            position: relative;
+        }
+
+        .teacher-info {
+            padding: 2rem;
+        }
+
+        .teacher-name {
+            font-family: 'Sora', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--charcoal);
+        }
+
+        .teacher-specialty {
+            color: var(--terracotta);
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        .teacher-bio {
+            color: var(--charcoal);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .teacher-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tag {
+            background: var(--sand);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: var(--charcoal);
+        }
+
+        /* Planning / Booking */
+        .booking {
+            padding: 8rem 5%;
+            background: var(--warm-white);
+        }
+
+        .booking-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .booking-interface {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+            margin-top: 3rem;
+        }
+
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 2px solid var(--sand);
+        }
+
+        .calendar-title {
+            font-family: 'Sora', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--charcoal);
+        }
+
+        .calendar-nav {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .nav-btn {
+            background: var(--sand);
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .nav-btn:hover {
+            background: var(--terracotta);
+            color: white;
+        }
+
+        .schedule-grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .class-item {
+            display: grid;
+            grid-template-columns: 150px 1fr auto;
+            gap: 2rem;
+            padding: 1.5rem;
+            background: var(--cream);
+            border-radius: 15px;
+            align-items: center;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .class-item:hover {
+            background: var(--sand);
+            transform: translateX(5px);
+        }
+
+        .class-time {
+            font-family: 'Sora', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--terracotta);
+        }
+
+        .class-day {
+            font-size: 0.9rem;
+            color: var(--charcoal);
+            opacity: 0.7;
+        }
+
+        .class-details h4 {
+            font-family: 'Sora', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--charcoal);
+        }
+
+        .class-teacher {
+            color: var(--sage);
+            font-size: 1rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .class-info {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.95rem;
+            color: var(--charcoal);
+            opacity: 0.7;
+        }
+
+        .spots-left {
+            background: var(--sage);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 30px;
+            font-size: 0.95rem;
+        }
+
+        .spots-left.limited {
+            background: var(--terracotta);
+        }
+
+        /* Tarifs */
+        .pricing {
+            padding: 8rem 5%;
+            background: var(--cream);
+        }
+
+        .pricing-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .pricing-card {
+            background: white;
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.4s;
+            position: relative;
+        }
+
+        .pricing-card.featured {
+            background: var(--terracotta);
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .pricing-card.featured:hover {
+            transform: translateY(-10px) scale(1.05);
+        }
+
+        .plan-name {
+            font-family: 'Sora', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .plan-price {
+            font-size: 3.5rem;
+            font-family: 'Sora', sans-serif;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .plan-period {
+            opacity: 0.7;
+            margin-bottom: 2rem;
+        }
+
+        .plan-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .plan-features li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .pricing-card.featured .plan-features li {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        /* Contact */
+        .contact {
+            padding: 8rem 5%;
+            background: var(--warm-white);
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+        }
+
+        .contact-info h3 {
+            font-family: 'Sora', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--terracotta);
+        }
+
+        .contact-details {
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-icon {
+            font-size: 1.5rem;
+            color: var(--terracotta);
+        }
+
+        .contact-form {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--charcoal);
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid var(--sand);
+            border-radius: 10px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--terracotta);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--charcoal);
+            color: white;
+            padding: 4rem 5% 2rem;
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-about h3 {
+            font-family: 'Sora', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--terre-douce);
+        }
+
+        .footer-section h4 {
+            font-family: 'Sora', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--terre-douce);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--terracotta);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.6;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            color: var(--charcoal);
+            cursor: pointer;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .hero-text h1 {
+                font-size: 3.5rem;
+            }
+
+            .contact-container,
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero-text h1 {
+                font-size: 2.8rem;
+            }
+
+            .section-title {
+                font-size: 2.5rem;
+            }
+
+            .class-item {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+        }
+
+        /* Admin Panel Hint */
+        .admin-hint {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--terracotta);
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(199, 123, 88, 0.3);
+            transition: all 0.3s;
+            z-index: 999;
+        }
+
+        .admin-hint:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(199, 123, 88, 0.4);
+        }
+    
+        .inline-icon {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            vertical-align: middle;
+            margin-right: 4px;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .contact-icon {
+            width: 24px;
+            height: 24px;
+        }
+
+        .contact-icon svg {
+            width: 100%;
+            height: 100%;
+            stroke: var(--terracotta);
+            fill: none;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .admin-hint svg {
+            width: 20px;
+            height: 20px;
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 6px;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="#" class="logo">ANGÈLE OM YOGA</a>
+            <ul class="nav-links">
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#equipe">L'Équipe</a></li>
+                <li><a href="#planning">Planning</a></li>
+                <li><a href="#tarifs">Tarifs</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#" class="cta-nav">Réserver un cours</a></li>
+            </ul>
+            <button class="mobile-menu-btn">☰</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <!-- 
+    ╔═══════════════════════════════════════════════════════════════════════════╗
+    ║  COMMENT REMPLACER LES IMAGES :                                           ║
+    ║                                                                           ║
+    ║  1. Pour l'image Hero (ci-dessous) :                                     ║
+    ║     Remplacez le src="https://placehold.co/..."                          ║
+    ║     Par le chemin vers votre vraie photo du studio                       ║
+    ║                                                                           ║
+    ║  2. Pour les photos des professeurs (section teachers) :                 ║
+    ║     Même principe - remplacez chaque placeholder                         ║
+    ║     Par le chemin vers la vraie photo du professeur                      ║
+    ║                                                                           ║
+    ║  Format recommandé : JPEG ou WebP, taille ~800px de largeur              ║
+    ╚═══════════════════════════════════════════════════════════════════════════╝
+    -->
+    <section class="hero" id="accueil">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>
+                    Votre voyage vers <strong>l'équilibre intérieur</strong>
+                </h1>
+                <p>Studio de yoga intimiste au cœur de La Rochelle. Des professeurs passionnés, une approche personnalisée, une communauté chaleureuse.</p>
+                <div class="hero-ctas">
+                    <a href="#planning" class="btn btn-primary">Découvrir les cours</a>
+                    <a href="#equipe" class="btn btn-secondary">Rencontrer l'équipe</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://angele.yoga/wp-content/uploads/angele-yoga-rochelle-web-4.jpg" alt="Yoga studio">
+            </div>
+        </div>
+    </section>
+
+    <!-- Event Banner - FACILEMENT MODIFIABLE -->
+    <section class="event-banner">
+        <div class="event-content">
+            <div class="event-label">Événement à venir</div>
+            <h2 class="event-title">Retraite Yoga & Méditation</h2>
+            <p class="event-details">&#128197; 9-11 Novembre 2024 | &#127969; Terre Poitevine | &#10024; Places limitées</p>
+            <a href="#contact" class="btn btn-primary">Je m'inscris</a>
+        </div>
+    </section>
+
+    <!-- À propos / Valeurs -->
+    <section class="about" id="apropos">
+        <div class="about-container">
+            <div class="section-label">Notre philosophie</div>
+            <h2 class="section-title">Bien plus qu'un studio</h2>
+            <p class="about-text">
+                Angèle OM Yoga est un espace chaleureux et authentique au cœur de La Rochelle. 
+                Nous croyons que le yoga est un voyage personnel, pas une performance. 
+                Ici, chacun est accueilli avec bienveillance, quel que soit son niveau ou son expérience.
+            </p>
+            
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3>Convivialité</h3>
+                    <p>Un studio à taille humaine où chaque élève compte. Pas d'usine à sport, juste une vraie communauté.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M12 16v-4M12 8h.01" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3>Approche personnalisée</h3>
+                    <p>Nos professeurs prennent le temps de vous connaître et d'adapter leur enseignement à vos besoins.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3>Passion & Expertise</h3>
+                    <p>Une équipe de professeurs formés, passionnés et en formation continue pour vous offrir le meilleur.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Professeurs -->
+    <section class="teachers" id="equipe">
+        <div class="teachers-container">
+            <div style="text-align: center; margin-bottom: 3rem;">
+                <div class="section-label">Rencontrez</div>
+                <h2 class="section-title">Notre Équipe</h2>
+            </div>
+            
+            <div class="teachers-grid">
+                <div class="teacher-card">
+                    <img src="https://angele.yoga/wp-content/uploads/moi-photo-annie-1-1024x1024-216x234.jpg" alt="Angèle" class="teacher-image">
+                    <div class="teacher-info">
+                        <h3 class="teacher-name">Angèle</h3>
+                        <p class="teacher-specialty">Fondatrice · Hatha & Yin Yoga</p>
+                        <p class="teacher-bio">
+                            Professeure certifiée depuis 2015, Angèle a créé ce studio pour partager sa passion du yoga dans un cadre bienveillant et authentique. 
+                            Elle enseigne un yoga doux et accessible à tous.
+                        </p>
+                        <div class="teacher-tags">
+                            <span class="tag">Hatha Yoga</span>
+                            <span class="tag">Yin Yoga</span>
+                            <span class="tag">Yoga Nidra</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="teacher-card">
+                    <img src="https://angele.yoga/wp-content/uploads/Mathilde-1-945x1024-217x230.jpg" alt="Mathilde" class="teacher-image">
+                    <div class="teacher-info">
+                        <h3 class="teacher-name">Mathilde</h3>
+                        <p class="teacher-specialty">Mahashakti Yoga</p>
+                        <p class="teacher-bio">
+                            Spécialiste du Hatha Flow et des postures d'équilibre, Mathilde apporte dynamisme et précision dans son enseignement. 
+                            Elle propose également des ateliers thématiques.
+                        </p>
+                        <div class="teacher-tags">
+                            <span class="tag">Hatha Flow</span>
+                            <span class="tag">Équilibres</span>
+                            <span class="tag">Ateliers</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="teacher-card">
+                    <img src="https://angele.yoga/wp-content/uploads/20240907_162947-889x1024-260x250.jpg" alt="Émilie" class="teacher-image">
+                    <div class="teacher-info">
+                        <h3 class="teacher-name">Émilie</h3>
+                        <p class="teacher-specialty">Vinyasa Dynamique</p>
+                        <p class="teacher-bio">
+                            Ancienne danseuse, Émilie propose des cours de Vinyasa toniques et fluides. 
+                            Son cours du vendredi matin est une pépite pour développer force et souplesse !
+                        </p>
+                        <div class="teacher-tags">
+                            <span class="tag">Vinyasa</span>
+                            <span class="tag">Power Yoga</span>
+                            <span class="tag">Dynamique</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="teacher-card">
+                    <img src="https://angele.yoga/wp-content/uploads/vanessa-NB-web-241x235.jpg" alt="Vanessa" class="teacher-image">
+                    <div class="teacher-info">
+                        <h3 class="teacher-name">Vanessa</h3>
+                        <p class="teacher-specialty">Méditation Pleine Conscience</p>
+                        <p class="teacher-bio">
+                            Instructrice certifiée en méditation MBSR, Vanessa guide des séances de méditation tous les vendredis. 
+                            Une pause ressourçante au milieu de la semaine.
+                        </p>
+                        <div class="teacher-tags">
+                            <span class="tag">Méditation</span>
+                            <span class="tag">MBSR</span>
+                            <span class="tag">Pleine conscience</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="teacher-card">
+                    <img src="https://angele.yoga/wp-content/uploads/c1f7b083-5c54-430a-a59d-2aaf080ce177-683x1024-260x250.jpg" alt="Aveline" class="teacher-image">
+                    <div class="teacher-info">
+                        <h3 class="teacher-name">Aveline</h3>
+                        <p class="teacher-specialty">Pilates</p>
+                        <p class="teacher-bio">
+                            Professeure de Pilates certifiée, Aveline propose des cours axés sur le renforcement en profondeur et la posture. 
+                            Idéal en complément du yoga !
+                        </p>
+                        <div class="teacher-tags">
+                            <span class="tag">Pilates</span>
+                            <span class="tag">Renforcement</span>
+                            <span class="tag">Posture</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="teacher-card">
+                    <img src="https://angele.yoga/wp-content/uploads/angele-om-yoga-rochelle-prenatal-1-1024x683-260x250.jpg" alt="Sarah" class="teacher-image">
+                    <div class="teacher-info">
+                        <h3 class="teacher-name">Sarah</h3>
+                        <p class="teacher-specialty">Yoga Prénatal & Postnatal</p>
+                        <p class="teacher-bio">
+                            Spécialisée dans l'accompagnement des femmes enceintes et jeunes mamans, Sarah crée un espace sécurisant et adapté aux besoins de chacune.
+                        </p>
+                        <div class="teacher-tags">
+                            <span class="tag">Prénatal</span>
+                            <span class="tag">Postnatal</span>
+                            <span class="tag">Périnatalité</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Planning & Booking -->
+    <section class="booking" id="planning">
+        <div class="booking-container">
+            <div style="text-align: center; margin-bottom: 2rem;">
+                <div class="section-label">Réservation</div>
+                <h2 class="section-title">Planning des Cours</h2>
+                <p style="max-width: 700px; margin: 0 auto; font-size: 1.2rem;">
+                    Réservez votre cours en quelques clics. Places limitées pour garantir un enseignement de qualité.
+                </p>
+            </div>
+
+            <div class="booking-interface">
+                <div class="calendar-header">
+                    <h3 class="calendar-title">Semaine du 12 au 18 Février</h3>
+                    <div class="calendar-nav">
+                        <button class="nav-btn">← Semaine précédente</button>
+                        <button class="nav-btn">Semaine suivante →</button>
+                    </div>
+                </div>
+
+                <div class="schedule-grid">
+                    <!-- LUNDI -->
+                    <div class="class-item">
+                        <div>
+                            <div class="class-time">11:15</div>
+                            <div class="class-day">Lundi</div>
+                        </div>
+                        <div class="class-details">
+                            <h4>Yoga Doux</h4>
+                            <p class="class-teacher">avec Angèle</p>
+                            <div class="class-info">
+                                <span>&#8987; 1h15</span>
+                                <span>&#128205; Studio</span>
+                                <span>&#128101; 12 pers. max</span>
+                            </div>
+                        </div>
+                        <div class="spots-left">5 places restantes</div>
+                    </div>
+
+                    <div class="class-item">
+                        <div>
+                            <div class="class-time">12:30</div>
+                            <div class="class-day">Lundi</div>
+                        </div>
+                        <div class="class-details">
+                            <h4>Power Yoga Renfo Muscu</h4>
+                            <p class="class-teacher">avec Angèle</p>
+                            <div class="class-info">
+                                <span>&#8987; 1h15</span>
+                                <span>&#128205; Studio</span>
+                                <span>&#128101; 12 pers. max</span>
+                            </div>
+                        </div>
+                        <div class="spots-left">8 places restantes</div>
+                    </div>
+
+                    <div class="class-item">
+                        <div>
+                            <div class="class-time">18:30</div>
+                            <div class="class-day">Lundi</div>
+                        </div>
+                        <div class="class-details">
+                            <h4>Hatha Yoga</h4>
+                            <p class="class-teacher">avec Angèle</p>
+                            <div class="class-info">
+                                <span>&#8987; 1h15</span>
+                                <span>&#128205; Studio</span>
+                                <span>&#128101; 15 pers. max</span>
+                            </div>
+                        </div>
+                        <div class="spots-left limited">2 places restantes</div>
+                    </div>
+
+                    <!-- MARDI -->
+                    <div class="class-item">
+                        <div>
+                            <div class="class-time">12:30</div>
+                            <div class="class-day">Mardi</div>
+                        </div>
+                        <div class="class-details">
+                            <h4>Pilates</h4>
+                            <p class="class-teacher">avec Aveline</p>
+                            <div class="class-info">
+                                <span>&#8987; 1h</span>
+                                <span>&#128205; Studio</span>
+                                <span>&#128101; 12 pers. max</span>
+                            </div>
+                        </div>
+                        <div class="spots-left">6 places restantes</div>
+                    </div>
+
+                    <div class="class-item">
+                        <div>
+                            <div class="class-time">18:30</div>
+                            <div class="class-day">Mardi</div>
+                        </div>
+                        <div class="class-details">
+                            <h4>Yin Yoga & Voyage Sonore</h4>
+                            <p class="class-teacher">avec Mathilde</p>
+                            <div class="class-info">
+                                <span>&#8987; 1h30</span>
+                                <span>&#128205; Studio</span>
+                                <span>&#128101; 15 pers. max</span>
+                            </div>
+                        </div>
+                        <div class="spots-left limited">3 places restantes</div>
+                    </div>
+
+                    <!-- VENDREDI -->
+                    <div class="class-item">
+                        <div>
+                            <div class="class-time">09:30</div>
+                            <div class="class-day">Vendredi</div>
+                        </div>
+                        <div class="class-details">
+                            <h4>Vinyasa Yoga Dynamique ⭐</h4>
+                            <p class="class-teacher">avec Émilie</p>
+                            <div class="class-info">
+                                <span>&#8987; 1h15</span>
+                                <span>&#128205; Studio</span>
+                                <span>&#128101; 12 pers. max</span>
+                            </div>
+                        </div>
+                        <div class="spots-left">7 places restantes</div>
+                    </div>
+
+                    <div class="class-item">
+                        <div>
+                            <div class="class-time">12:15</div>
+                            <div class="class-day">Vendredi</div>
+                        </div>
+                        <div class="class-details">
+                            <h4>Méditation Pleine Conscience</h4>
+                            <p class="class-teacher">avec Vanessa</p>
+                            <div class="class-info">
+                                <span>&#8987; 45 min</span>
+                                <span>&#128205; Studio</span>
+                                <span>&#128101; 15 pers. max</span>
+                            </div>
+                        </div>
+                        <div class="spots-left">10 places restantes</div>
+                    </div>
+
+                    <!-- SAMEDI -->
+                    <div class="class-item">
+                        <div>
+                            <div class="class-time">10:00</div>
+                            <div class="class-day">Samedi</div>
+                        </div>
+                        <div class="class-details">
+                            <h4>Hatha Flow 1</h4>
+                            <p class="class-teacher">avec Mathilde</p>
+                            <div class="class-info">
+                                <span>&#8987; 1h15</span>
+                                <span>&#128205; Studio</span>
+                                <span>&#128101; 15 pers. max</span>
+                            </div>
+                        </div>
+                        <div class="spots-left">12 places restantes</div>
+                    </div>
+
+                    <div class="class-item">
+                        <div>
+                            <div class="class-time">11:15</div>
+                            <div class="class-day">Samedi</div>
+                        </div>
+                        <div class="class-details">
+                            <h4>Hatha Flow 2</h4>
+                            <p class="class-teacher">avec Mathilde</p>
+                            <div class="class-info">
+                                <span>&#8987; 1h15</span>
+                                <span>&#128205; Studio</span>
+                                <span>&#128101; 15 pers. max</span>
+                            </div>
+                        </div>
+                        <div class="spots-left">9 places restantes</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tarifs -->
+    <section class="pricing" id="tarifs">
+        <div class="pricing-container">
+            <div style="text-align: center; margin-bottom: 3rem;">
+                <div class="section-label">Formules</div>
+                <h2 class="section-title">Nos Tarifs</h2>
+            </div>
+
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3 class="plan-name">Cours à l'unité</h3>
+                    <div class="plan-price">18€</div>
+                    <p class="plan-period">par cours</p>
+                    <ul class="plan-features">
+                        <li>Accès à tous les cours</li>
+                        <li>Valable 3 mois</li>
+                        <li>Réservation en ligne</li>
+                        <li>Idéal pour découvrir</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary">Réserver</a>
+                </div>
+
+                <div class="pricing-card featured">
+                    <h3 class="plan-name">Carte 10 cours</h3>
+                    <div class="plan-price">150€</div>
+                    <p class="plan-period">15€ / cours</p>
+                    <ul class="plan-features">
+                        <li>10 cours au choix</li>
+                        <li>Valable 4 mois</li>
+                        <li>Tous niveaux</li>
+                        <li>Économie de 30€</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary">Acheter</a>
+                </div>
+
+                <div class="pricing-card">
+                    <h3 class="plan-name">Abonnement Mensuel</h3>
+                    <div class="plan-price">85€</div>
+                    <p class="plan-period">par mois</p>
+                    <ul class="plan-features">
+                        <li>Cours illimités</li>
+                        <li>Sans engagement</li>
+                        <li>Priorité de réservation</li>
+                        <li>Meilleur rapport qualité/prix</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary">S'abonner</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact" id="contact">
+        <div class="contact-container">
+            <div class="contact-info">
+                <div class="section-label">Contactez-nous</div>
+                <h2 class="section-title">Venez nous voir</h2>
+                <p style="font-size: 1.2rem; margin-bottom: 2rem;">
+                    Notre studio est situé au cœur de La Rochelle, dans une cour calme et verdoyante.
+                </p>
+
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <span class="contact-icon">&#128205;</span>
+                        <div>
+                            <strong>Adresse</strong><br>
+                            1 bis rue Fleuriau<br>
+                            17000 La Rochelle<br>
+                            (au fond de la cour)
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <span class="contact-icon">&#128222;</span>
+                        <div>
+                            <strong>Téléphone</strong><br>
+                            06 08 66 07 00
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <span class="contact-icon">&#9993;</span>
+                        <div>
+                            <strong>Email</strong><br>
+                            <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="d2b1bdbca6b3b1a692b3bcb5b7beb7fcabbdb5b3">[email&#160;protected]</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <span class="contact-icon">&#128248;</span>
+                        <div>
+                            <strong>Instagram</strong><br>
+                            @angele_om_yoga
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form">
+                <h3 style="font-family: 'Sora', sans-serif; font-size: 1.8rem; font-weight: 600; margin-bottom: 1.5rem; color: var(--charcoal);">
+                    Une question ?
+                </h3>
+                <form>
+                    <div class="form-group">
+                        <label for="name">Nom & Prénom</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Téléphone</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Envoyer</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-about">
+                <h3>ANGÈLE OM YOGA</h3>
+                <p style="opacity: 0.8; margin-bottom: 1.5rem;">
+                    Votre studio de yoga au cœur de La Rochelle. 
+                    Un espace authentique et bienveillant pour votre pratique.
+                </p>
+                <div class="social-links">
+                    <a href="#">&#128216;</a>
+                    <a href="#">&#128248;</a>
+                    <a href="#">&#9654;</a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h4>Navigation</h4>
+                <ul class="footer-links">
+                    <li><a href="#accueil">Accueil</a></li>
+                    <li><a href="#equipe">L'Équipe</a></li>
+                    <li><a href="#planning">Planning</a></li>
+                    <li><a href="#tarifs">Tarifs</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Cours</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Hatha Yoga</a></li>
+                    <li><a href="#">Vinyasa</a></li>
+                    <li><a href="#">Yin Yoga</a></li>
+                    <li><a href="#">Méditation</a></li>
+                    <li><a href="#">Pilates</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Informations</h4>
+                <ul class="footer-links">
+                    <li><a href="#">CGV</a></li>
+                    <li><a href="#">Politique de confidentialité</a></li>
+                    <li><a href="#">Mentions légales</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2024 Angèle OM Yoga - Tous droits réservés</p>
+        </div>
+    </footer>
+
+    <!-- Admin Hint -->
+    <div class="admin-hint" onclick="alert('Interface admin : Ici vous pourrez facilement modifier la bannière événement, ajouter/modifier des cours au planning, et gérer les réservations - sans coder !')">
+        &#9881; Mode Admin
+    </div>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Class booking simulation
+        document.querySelectorAll('.class-item').forEach(item => {
+            item.addEventListener('click', function() {
+                const className = this.querySelector('h4').textContent;
+                const teacher = this.querySelector('.class-teacher').textContent;
+                const time = this.querySelector('.class-time').textContent;
+                const day = this.querySelector('.class-day').textContent;
+                
+                if(confirm(`Réserver : ${className}\n${teacher}\n${day} à ${time}\n\nContinuer vers le paiement ?`)) {
+                    alert('Redirection vers Stripe pour le paiement sécurisé...');
+                }
+            });
+        });
+
+        // Form submission
+        document.querySe
