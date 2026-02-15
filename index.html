@@ -965,15 +965,27 @@
             </div>
 
             <!-- Eversports Widget Integration -->
-            <div style="background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);">
-                <iframe 
-                    src="https://www.eversports.fr/e/angele-om-yoga" 
-                    style="width: 100%; min-height: 1800px; border: none; display: block;"
-                    title="Planning Angèle OM Yoga - Réservation des cours"
-                    allow="payment"
-                    loading="lazy">
-                </iframe>
+            <div id="eversports-widget" style="background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08); padding: 20px;">
             </div>
+            
+            <script>
+                (function() {
+                    // Load Eversports widget script
+                    var script = document.createElement('script');
+                    script.src = 'https://plugin.eversports.com/plugin.js';
+                    script.async = true;
+                    script.onload = function() {
+                        if (typeof EversportsPlugin !== 'undefined') {
+                            EversportsPlugin.createSchedule({
+                                target: 'eversports-widget',
+                                apiKey: 'cszggb',
+                                lang: 'fr'
+                            });
+                        }
+                    };
+                    document.head.appendChild(script);
+                })();
+            </script>
             
             <div style="text-align: center; margin-top: 2rem; padding: 1.5rem; background: var(--sand); border-radius: 15px;">
                 <p style="margin: 0; font-size: 1.1rem;">
