@@ -239,7 +239,7 @@
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
         }
 
-        /* Event Banner - Facilement modifiable */
+        /* Event Banner */
         .event-banner {
             background: linear-gradient(135deg, var(--sage) 0%, var(--terre-douce) 100%);
             color: white;
@@ -298,7 +298,7 @@
             margin-bottom: 1.5rem;
         }
 
-        /* Valeurs / À propos */
+        /* À propos */
         .about {
             padding: 8rem 5%;
             background: var(--warm-white);
@@ -360,14 +360,6 @@
             align-items: center;
             justify-content: center;
             font-size: 1.8rem;
-        }
-
-        .value-icon svg {
-            width: 32px;
-            height: 32px;
-            stroke: var(--terracotta);
-            stroke-width: 2;
-            fill: none;
         }
 
         .value-card h3 {
@@ -455,130 +447,36 @@
             color: var(--charcoal);
         }
 
-        /* Planning / Booking */
+        /* Planning Section - Eversports Widget */
         .booking {
             padding: 8rem 5%;
             background: var(--warm-white);
         }
 
         .booking-container {
-            max-width: 1400px;
+            max-width: 1600px;
             margin: 0 auto;
         }
 
-        .booking-interface {
-            background: white;
-            border-radius: 20px;
-            padding: 3rem;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
-            margin-top: 3rem;
+        .booking-header {
+            text-align: center;
+            margin-bottom: 3rem;
         }
 
-        .calendar-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 2rem;
-            padding-bottom: 1.5rem;
-            border-bottom: 2px solid var(--sand);
-        }
-
-        .calendar-title {
-            font-family: 'Sora', sans-serif;
-            font-size: 1.8rem;
-            font-weight: 600;
+        .booking-subtitle {
+            max-width: 900px;
+            margin: 1rem auto;
+            font-size: 1.1rem;
+            font-style: italic;
             color: var(--charcoal);
+            opacity: 0.8;
         }
 
-        .calendar-nav {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .nav-btn {
-            background: var(--sand);
-            border: none;
-            padding: 0.8rem 1.5rem;
-            border-radius: 30px;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-family: 'Inter', sans-serif;
-            font-size: 1rem;
-            font-weight: 500;
-        }
-
-        .nav-btn:hover {
-            background: var(--terracotta);
-            color: white;
-        }
-
-        .schedule-grid {
-            display: grid;
-            gap: 1.5rem;
-        }
-
-        .class-item {
-            display: grid;
-            grid-template-columns: 150px 1fr auto;
-            gap: 2rem;
-            padding: 1.5rem;
-            background: var(--cream);
-            border-radius: 15px;
-            align-items: center;
-            transition: all 0.3s;
-            cursor: pointer;
-        }
-
-        .class-item:hover {
-            background: var(--sand);
-            transform: translateX(5px);
-        }
-
-        .class-time {
-            font-family: 'Sora', sans-serif;
-            font-size: 1.8rem;
-            font-weight: 600;
-            color: var(--terracotta);
-        }
-
-        .class-day {
-            font-size: 0.9rem;
-            color: var(--charcoal);
-            opacity: 0.7;
-        }
-
-        .class-details h4 {
-            font-family: 'Sora', sans-serif;
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: var(--charcoal);
-        }
-
-        .class-teacher {
-            color: var(--sage);
-            font-size: 1rem;
-            margin-bottom: 0.3rem;
-        }
-
-        .class-info {
-            display: flex;
-            gap: 1rem;
+        .cancellation-policy {
+            max-width: 800px;
+            margin: 1rem auto;
             font-size: 0.95rem;
-            color: var(--charcoal);
-            opacity: 0.7;
-        }
-
-        .spots-left {
-            background: var(--sage);
-            color: white;
-            padding: 0.8rem 1.5rem;
-            border-radius: 30px;
-            font-size: 0.95rem;
-        }
-
-        .spots-left.limited {
-            background: var(--terracotta);
+            line-height: 1.6;
         }
 
         /* Tarifs */
@@ -640,20 +538,6 @@
         .plan-period {
             opacity: 0.7;
             margin-bottom: 2rem;
-        }
-
-        .plan-features {
-            list-style: none;
-            margin-bottom: 2rem;
-        }
-
-        .plan-features li {
-            padding: 0.8rem 0;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-        }
-
-        .pricing-card.featured .plan-features li {
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         /* Contact */
@@ -858,67 +742,9 @@
                 font-size: 2.5rem;
             }
 
-            .class-item {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-
             .pricing-card.featured {
                 transform: scale(1);
             }
-        }
-
-        /* Admin Panel Hint */
-        .admin-hint {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: var(--terracotta);
-            color: white;
-            padding: 1rem 1.5rem;
-            border-radius: 30px;
-            cursor: pointer;
-            box-shadow: 0 10px 30px rgba(199, 123, 88, 0.3);
-            transition: all 0.3s;
-            z-index: 999;
-        }
-
-        .admin-hint:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(199, 123, 88, 0.4);
-        }
-    
-        .inline-icon {
-            display: inline-block;
-            width: 16px;
-            height: 16px;
-            vertical-align: middle;
-            margin-right: 4px;
-            stroke-linecap: round;
-            stroke-linejoin: round;
-        }
-
-        .contact-icon {
-            width: 24px;
-            height: 24px;
-        }
-
-        .contact-icon svg {
-            width: 100%;
-            height: 100%;
-            stroke: var(--terracotta);
-            fill: none;
-            stroke-width: 2;
-            stroke-linecap: round;
-            stroke-linejoin: round;
-        }
-
-        .admin-hint svg {
-            width: 20px;
-            height: 20px;
-            display: inline-block;
-            vertical-align: middle;
-            margin-right: 6px;
         }
 
     </style>
@@ -927,7 +753,9 @@
     <!-- Navigation -->
     <nav>
         <div class="container">
-            <a href="#" class="logo">ANGÈLE OM YOGA</a>
+            <a href="#" class="logo">
+                <img src="logo-angele-om-yoga-la-rochelle-1.jpg" alt="Angèle OM Yoga" style="height: 60px; width: auto;">
+            </a>
             <ul class="nav-links">
                 <li><a href="#accueil">Accueil</a></li>
                 <li><a href="#equipe">L'Équipe</a></li>
@@ -941,21 +769,6 @@
     </nav>
 
     <!-- Hero Section -->
-    <!-- 
-    ╔═══════════════════════════════════════════════════════════════════════════╗
-    ║  COMMENT REMPLACER LES IMAGES :                                           ║
-    ║                                                                           ║
-    ║  1. Pour l'image Hero (ci-dessous) :                                     ║
-    ║     Remplacez le src="https://placehold.co/..."                          ║
-    ║     Par le chemin vers votre vraie photo du studio                       ║
-    ║                                                                           ║
-    ║  2. Pour les photos des professeurs (section teachers) :                 ║
-    ║     Même principe - remplacez chaque placeholder                         ║
-    ║     Par le chemin vers la vraie photo du professeur                      ║
-    ║                                                                           ║
-    ║  Format recommandé : JPEG ou WebP, taille ~800px de largeur              ║
-    ╚═══════════════════════════════════════════════════════════════════════════╝
-    -->
     <section class="hero" id="accueil">
         <div class="hero-content">
             <div class="hero-text">
@@ -974,17 +787,17 @@
         </div>
     </section>
 
-    <!-- Event Banner - FACILEMENT MODIFIABLE -->
+    <!-- Event Banner -->
     <section class="event-banner">
         <div class="event-content">
             <div class="event-label">Événement à venir</div>
             <h2 class="event-title">Retraite Yoga & Méditation</h2>
-            <p class="event-details">&#128197; 9-11 Novembre 2024 | &#127969; Terre Poitevine | &#10024; Places limitées</p>
+            <p class="event-details">📅 9-11 Novembre 2024 | 🏡 Terre Poitevine | ✨ Places limitées</p>
             <a href="#contact" class="btn btn-primary">Je m'inscris</a>
         </div>
     </section>
 
-    <!-- À propos / Valeurs -->
+    <!-- À propos -->
     <section class="about" id="apropos">
         <div class="about-container">
             <div class="section-label">Notre philosophie</div>
@@ -997,30 +810,17 @@
             
             <div class="values-grid">
                 <div class="value-card">
-                    <div class="value-icon">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </div>
+                    <div class="value-icon">👥</div>
                     <h3>Convivialité</h3>
                     <p>Un studio à taille humaine où chaque élève compte. Pas d'usine à sport, juste une vraie communauté.</p>
                 </div>
                 <div class="value-card">
-                    <div class="value-icon">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M12 16v-4M12 8h.01" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </div>
+                    <div class="value-icon">⭐</div>
                     <h3>Approche personnalisée</h3>
                     <p>Nos professeurs prennent le temps de vous connaître et d'adapter leur enseignement à vos besoins.</p>
                 </div>
                 <div class="value-card">
-                    <div class="value-icon">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </div>
+                    <div class="value-icon">❤️</div>
                     <h3>Passion & Expertise</h3>
                     <p>Une équipe de professeurs formés, passionnés et en formation continue pour vous offrir le meilleur.</p>
                 </div>
@@ -1072,17 +872,17 @@
                 </div>
 
                 <div class="teacher-card">
-                    <img src="https://angele.yoga/wp-content/uploads/20240907_162947-889x1024-260x250.jpg" alt="Émilie" class="teacher-image">
+                    <img src="https://angele.yoga/wp-content/uploads/20240907_162947-889x1024-260x250.jpg" alt="Audrey" class="teacher-image">
                     <div class="teacher-info">
-                        <h3 class="teacher-name">Émilie</h3>
-                        <p class="teacher-specialty">Vinyasa Dynamique</p>
+                        <h3 class="teacher-name">Audrey</h3>
+                        <p class="teacher-specialty">Vinyasa Yoga</p>
                         <p class="teacher-bio">
-                            Ancienne danseuse, Émilie propose des cours de Vinyasa toniques et fluides. 
-                            Son cours du vendredi matin est une pépite pour développer force et souplesse !
+                            Passionnée de yoga dynamique, Audrey propose des cours de Vinyasa toniques et fluides. 
+                            Son énergie positive rayonne dans chaque séance !
                         </p>
                         <div class="teacher-tags">
                             <span class="tag">Vinyasa</span>
-                            <span class="tag">Power Yoga</span>
+                            <span class="tag">Flow</span>
                             <span class="tag">Dynamique</span>
                         </div>
                     </div>
@@ -1123,17 +923,18 @@
                 </div>
 
                 <div class="teacher-card">
-                    <img src="https://angele.yoga/wp-content/uploads/angele-om-yoga-rochelle-prenatal-1-1024x683-260x250.jpg" alt="Sarah" class="teacher-image">
+                    <img src="https://angele.yoga/wp-content/uploads/Oceane-Joly-260x250.jpg" alt="Océane" class="teacher-image">
                     <div class="teacher-info">
-                        <h3 class="teacher-name">Sarah</h3>
-                        <p class="teacher-specialty">Yoga Prénatal & Postnatal</p>
+                        <h3 class="teacher-name">Océane</h3>
+                        <p class="teacher-specialty">Shakta Tantra Yoga</p>
                         <p class="teacher-bio">
-                            Spécialisée dans l'accompagnement des femmes enceintes et jeunes mamans, Sarah crée un espace sécurisant et adapté aux besoins de chacune.
+                            Spécialisée dans le Shakta Tantra Yoga, Océane vous accompagne dans une pratique profonde et spirituelle, 
+                            alliant postures, respiration et méditation.
                         </p>
                         <div class="teacher-tags">
-                            <span class="tag">Prénatal</span>
-                            <span class="tag">Postnatal</span>
-                            <span class="tag">Périnatalité</span>
+                            <span class="tag">Tantra Yoga</span>
+                            <span class="tag">Spirituel</span>
+                            <span class="tag">Méditation</span>
                         </div>
                     </div>
                 </div>
@@ -1141,184 +942,44 @@
         </div>
     </section>
 
-    <!-- Planning & Booking -->
+    <!-- Planning & Booking - Eversports Widget -->
     <section class="booking" id="planning">
         <div class="booking-container">
-            <div style="text-align: center; margin-bottom: 2rem;">
+            <div class="booking-header">
                 <div class="section-label">Réservation</div>
-                <h2 class="section-title">Planning des Cours</h2>
-                <p style="max-width: 700px; margin: 0 auto; font-size: 1.2rem;">
-                    Réservez votre cours en quelques clics. Places limitées pour garantir un enseignement de qualité.
+                <h2 class="section-title">Trouver les cours qui vous conviennent</h2>
+                
+                <p class="booking-subtitle">
+                    <em>Annulation d'une réservation présentiel inscription en ligne :</em>
                 </p>
+                
+                <div class="cancellation-policy">
+                    <p>
+                        Toute réservation d'une séance collective peut être annulée par le pratiquant <strong>jusqu'à 4 h avant l'heure du cours</strong> 
+                        directement sur le Site pour les cours en studio.
+                    </p>
+                    <p style="margin-top: 0.8rem;">
+                        L'annulation d'une réservation hors délais ne pourra en tout état de cause donner lieu à aucun remboursement.
+                    </p>
+                </div>
             </div>
 
-            <div class="booking-interface">
-                <div class="calendar-header">
-                    <h3 class="calendar-title">Semaine du 12 au 18 Février</h3>
-                    <div class="calendar-nav">
-                        <button class="nav-btn">← Semaine précédente</button>
-                        <button class="nav-btn">Semaine suivante →</button>
-                    </div>
-                </div>
-
-                <div class="schedule-grid">
-                    <!-- LUNDI -->
-                    <div class="class-item">
-                        <div>
-                            <div class="class-time">11:15</div>
-                            <div class="class-day">Lundi</div>
-                        </div>
-                        <div class="class-details">
-                            <h4>Yoga Doux</h4>
-                            <p class="class-teacher">avec Angèle</p>
-                            <div class="class-info">
-                                <span>&#8987; 1h15</span>
-                                <span>&#128205; Studio</span>
-                                <span>&#128101; 12 pers. max</span>
-                            </div>
-                        </div>
-                        <div class="spots-left">5 places restantes</div>
-                    </div>
-
-                    <div class="class-item">
-                        <div>
-                            <div class="class-time">12:30</div>
-                            <div class="class-day">Lundi</div>
-                        </div>
-                        <div class="class-details">
-                            <h4>Power Yoga Renfo Muscu</h4>
-                            <p class="class-teacher">avec Angèle</p>
-                            <div class="class-info">
-                                <span>&#8987; 1h15</span>
-                                <span>&#128205; Studio</span>
-                                <span>&#128101; 12 pers. max</span>
-                            </div>
-                        </div>
-                        <div class="spots-left">8 places restantes</div>
-                    </div>
-
-                    <div class="class-item">
-                        <div>
-                            <div class="class-time">18:30</div>
-                            <div class="class-day">Lundi</div>
-                        </div>
-                        <div class="class-details">
-                            <h4>Hatha Yoga</h4>
-                            <p class="class-teacher">avec Angèle</p>
-                            <div class="class-info">
-                                <span>&#8987; 1h15</span>
-                                <span>&#128205; Studio</span>
-                                <span>&#128101; 15 pers. max</span>
-                            </div>
-                        </div>
-                        <div class="spots-left limited">2 places restantes</div>
-                    </div>
-
-                    <!-- MARDI -->
-                    <div class="class-item">
-                        <div>
-                            <div class="class-time">12:30</div>
-                            <div class="class-day">Mardi</div>
-                        </div>
-                        <div class="class-details">
-                            <h4>Pilates</h4>
-                            <p class="class-teacher">avec Aveline</p>
-                            <div class="class-info">
-                                <span>&#8987; 1h</span>
-                                <span>&#128205; Studio</span>
-                                <span>&#128101; 12 pers. max</span>
-                            </div>
-                        </div>
-                        <div class="spots-left">6 places restantes</div>
-                    </div>
-
-                    <div class="class-item">
-                        <div>
-                            <div class="class-time">18:30</div>
-                            <div class="class-day">Mardi</div>
-                        </div>
-                        <div class="class-details">
-                            <h4>Yin Yoga & Voyage Sonore</h4>
-                            <p class="class-teacher">avec Mathilde</p>
-                            <div class="class-info">
-                                <span>&#8987; 1h30</span>
-                                <span>&#128205; Studio</span>
-                                <span>&#128101; 15 pers. max</span>
-                            </div>
-                        </div>
-                        <div class="spots-left limited">3 places restantes</div>
-                    </div>
-
-                    <!-- VENDREDI -->
-                    <div class="class-item">
-                        <div>
-                            <div class="class-time">09:30</div>
-                            <div class="class-day">Vendredi</div>
-                        </div>
-                        <div class="class-details">
-                            <h4>Vinyasa Yoga Dynamique ⭐</h4>
-                            <p class="class-teacher">avec Émilie</p>
-                            <div class="class-info">
-                                <span>&#8987; 1h15</span>
-                                <span>&#128205; Studio</span>
-                                <span>&#128101; 12 pers. max</span>
-                            </div>
-                        </div>
-                        <div class="spots-left">7 places restantes</div>
-                    </div>
-
-                    <div class="class-item">
-                        <div>
-                            <div class="class-time">12:15</div>
-                            <div class="class-day">Vendredi</div>
-                        </div>
-                        <div class="class-details">
-                            <h4>Méditation Pleine Conscience</h4>
-                            <p class="class-teacher">avec Vanessa</p>
-                            <div class="class-info">
-                                <span>&#8987; 45 min</span>
-                                <span>&#128205; Studio</span>
-                                <span>&#128101; 15 pers. max</span>
-                            </div>
-                        </div>
-                        <div class="spots-left">10 places restantes</div>
-                    </div>
-
-                    <!-- SAMEDI -->
-                    <div class="class-item">
-                        <div>
-                            <div class="class-time">10:00</div>
-                            <div class="class-day">Samedi</div>
-                        </div>
-                        <div class="class-details">
-                            <h4>Hatha Flow 1</h4>
-                            <p class="class-teacher">avec Mathilde</p>
-                            <div class="class-info">
-                                <span>&#8987; 1h15</span>
-                                <span>&#128205; Studio</span>
-                                <span>&#128101; 15 pers. max</span>
-                            </div>
-                        </div>
-                        <div class="spots-left">12 places restantes</div>
-                    </div>
-
-                    <div class="class-item">
-                        <div>
-                            <div class="class-time">11:15</div>
-                            <div class="class-day">Samedi</div>
-                        </div>
-                        <div class="class-details">
-                            <h4>Hatha Flow 2</h4>
-                            <p class="class-teacher">avec Mathilde</p>
-                            <div class="class-info">
-                                <span>&#8987; 1h15</span>
-                                <span>&#128205; Studio</span>
-                                <span>&#128101; 15 pers. max</span>
-                            </div>
-                        </div>
-                        <div class="spots-left">9 places restantes</div>
-                    </div>
-                </div>
+            <!-- Eversports Widget Integration -->
+            <div style="background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);">
+                <iframe 
+                    src="https://www.eversports.fr/e/angele-om-yoga" 
+                    style="width: 100%; min-height: 1800px; border: none; display: block;"
+                    title="Planning Angèle OM Yoga - Réservation des cours"
+                    allow="payment"
+                    loading="lazy">
+                </iframe>
+            </div>
+            
+            <div style="text-align: center; margin-top: 2rem; padding: 1.5rem; background: var(--sand); border-radius: 15px;">
+                <p style="margin: 0; font-size: 1.1rem;">
+                    <strong>💡 Astuce :</strong> Vous pouvez aussi réserver directement sur 
+                    <a href="https://www.eversports.fr/s/angele-om-yoga" target="_blank" rel="noopener" style="color: var(--terracotta); text-decoration: underline;">Eversports</a>
+                </p>
             </div>
         </div>
     </section>
@@ -1329,47 +990,56 @@
             <div style="text-align: center; margin-bottom: 3rem;">
                 <div class="section-label">Formules</div>
                 <h2 class="section-title">Nos Tarifs</h2>
+                <p style="max-width: 800px; margin: 0 auto; font-size: 1.1rem; color: var(--charcoal);">
+                    Cours d'essai à 15 € · Tarif étudiant et demandeur d'emploi : me contacter<br>
+                    Carte non remboursable · Facilité de paiement disponible
+                </p>
             </div>
 
-            <div class="pricing-grid">
-                <div class="pricing-card">
-                    <h3 class="plan-name">Cours à l'unité</h3>
-                    <div class="plan-price">18€</div>
-                    <p class="plan-period">par cours</p>
-                    <ul class="plan-features">
-                        <li>Accès à tous les cours</li>
-                        <li>Valable 3 mois</li>
-                        <li>Réservation en ligne</li>
-                        <li>Idéal pour découvrir</li>
-                    </ul>
-                    <a href="#contact" class="btn btn-primary">Réserver</a>
+            <div style="display: grid; gap: 3rem; max-width: 1000px; margin: 0 auto;">
+                
+                <!-- YOGA -->
+                <div class="pricing-category">
+                    <h3 style="font-family: 'Sora', sans-serif; font-size: 2rem; font-weight: 600; color: var(--terracotta); margin-bottom: 2rem; text-align: center;">
+                        🧘 Yoga
+                    </h3>
+                    <div class="pricing-grid">
+                        <div class="pricing-card">
+                            <h4 class="plan-name">Cours à l'unité</h4>
+                            <div class="plan-price">15€</div>
+                            <p class="plan-period">« Venez quand vous voulez »</p>
+                        </div>
+                        
+                        <div class="pricing-card">
+                            <h4 class="plan-name">Carte 6 cours</h4>
+                            <div class="plan-price">80€</div>
+                            <p class="plan-period">Valable 3 mois</p>
+                        </div>
+                        
+                        <div class="pricing-card featured">
+                            <h4 class="plan-name">Carte 10 cours</h4>
+                            <div class="plan-price">130€</div>
+                            <p class="plan-period">Valable 6 mois</p>
+                        </div>
+                        
+                        <div class="pricing-card">
+                            <h4 class="plan-name">Carte 20 cours</h4>
+                            <div class="plan-price">259€</div>
+                            <p class="plan-period">Valable 1 an</p>
+                        </div>
+                        
+                        <div class="pricing-card">
+                            <h4 class="plan-name">Carte 40 cours</h4>
+                            <div class="plan-price">512€</div>
+                            <p class="plan-period">Valable 1 an</p>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="pricing-card featured">
-                    <h3 class="plan-name">Carte 10 cours</h3>
-                    <div class="plan-price">150€</div>
-                    <p class="plan-period">15€ / cours</p>
-                    <ul class="plan-features">
-                        <li>10 cours au choix</li>
-                        <li>Valable 4 mois</li>
-                        <li>Tous niveaux</li>
-                        <li>Économie de 30€</li>
-                    </ul>
-                    <a href="#contact" class="btn btn-primary">Acheter</a>
-                </div>
+            </div>
 
-                <div class="pricing-card">
-                    <h3 class="plan-name">Abonnement Mensuel</h3>
-                    <div class="plan-price">85€</div>
-                    <p class="plan-period">par mois</p>
-                    <ul class="plan-features">
-                        <li>Cours illimités</li>
-                        <li>Sans engagement</li>
-                        <li>Priorité de réservation</li>
-                        <li>Meilleur rapport qualité/prix</li>
-                    </ul>
-                    <a href="#contact" class="btn btn-primary">S'abonner</a>
-                </div>
+            <div style="text-align: center; margin-top: 4rem;">
+                <a href="#contact" class="btn btn-primary" style="font-size: 1.2rem; padding: 1.2rem 3rem;">Réserver un cours</a>
             </div>
         </div>
     </section>
@@ -1386,7 +1056,7 @@
 
                 <div class="contact-details">
                     <div class="contact-item">
-                        <span class="contact-icon">&#128205;</span>
+                        <span class="contact-icon">📍</span>
                         <div>
                             <strong>Adresse</strong><br>
                             1 bis rue Fleuriau<br>
@@ -1396,7 +1066,7 @@
                     </div>
 
                     <div class="contact-item">
-                        <span class="contact-icon">&#128222;</span>
+                        <span class="contact-icon">📞</span>
                         <div>
                             <strong>Téléphone</strong><br>
                             06 08 66 07 00
@@ -1404,15 +1074,15 @@
                     </div>
 
                     <div class="contact-item">
-                        <span class="contact-icon">&#9993;</span>
+                        <span class="contact-icon">✉️</span>
                         <div>
                             <strong>Email</strong><br>
-                            <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="d2b1bdbca6b3b1a692b3bcb5b7beb7fcabbdb5b3">[email&#160;protected]</a>
+                            contact@angele-om-yoga.com
                         </div>
                     </div>
 
                     <div class="contact-item">
-                        <span class="contact-icon">&#128248;</span>
+                        <span class="contact-icon">📸</span>
                         <div>
                             <strong>Instagram</strong><br>
                             @angele_om_yoga
@@ -1458,9 +1128,9 @@
                     Un espace authentique et bienveillant pour votre pratique.
                 </p>
                 <div class="social-links">
-                    <a href="#">&#128216;</a>
-                    <a href="#">&#128248;</a>
-                    <a href="#">&#9654;</a>
+                    <a href="#">📘</a>
+                    <a href="#">📸</a>
+                    <a href="#">▶️</a>
                 </div>
             </div>
 
@@ -1502,12 +1172,7 @@
         </div>
     </footer>
 
-    <!-- Admin Hint -->
-    <div class="admin-hint" onclick="alert('Interface admin : Ici vous pourrez facilement modifier la bannière événement, ajouter/modifier des cours au planning, et gérer les réservations - sans coder !')">
-        &#9881; Mode Admin
-    </div>
-
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script>
         // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -1519,19 +1184,12 @@
             });
         });
 
-        // Class booking simulation
-        document.querySelectorAll('.class-item').forEach(item => {
-            item.addEventListener('click', function() {
-                const className = this.querySelector('h4').textContent;
-                const teacher = this.querySelector('.class-teacher').textContent;
-                const time = this.querySelector('.class-time').textContent;
-                const day = this.querySelector('.class-day').textContent;
-                
-                if(confirm(`Réserver : ${className}\n${teacher}\n${day} à ${time}\n\nContinuer vers le paiement ?`)) {
-                    alert('Redirection vers Stripe pour le paiement sécurisé...');
-                }
-            });
-        });
-
         // Form submission
-        document.querySe
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Merci pour votre message ! Nous vous répondrons rapidement.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
