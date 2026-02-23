@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ocean Flow Yoga - La Rochelle & Ile de Re</title>
+    <meta name="description" content="Template alternatif premium pour studio de yoga a La Rochelle et sur l'Ile de Re.">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
+
+        :root {
+            --navy-900: #0f2f4c;
+            --navy-700: #1e4d74;
+            --atlantic-500: #2f7fb4;
+            --foam-200: #d6edf9;
+            --sand-100: #f7f3eb;
+            --white: #ffffff;
+            --text: #1a2f42;
+            --muted: #4b6378;
+            --border: rgba(26, 47, 66, 0.12);
+            --shadow: 0 18px 38px rgba(16, 47, 76, 0.16);
+            --radius-lg: 24px;
+            --radius-md: 16px;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Manrope', sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            background:
+                radial-gradient(circle at 90% 10%, rgba(47, 127, 180, 0.2), transparent 40%),
+                radial-gradient(circle at 8% 22%, rgba(15, 47, 76, 0.12), transparent 42%),
+                var(--sand-100);
+        }
+
+        .container { width: min(1180px, 92vw); margin: 0 auto; }
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            background: rgba(247, 243, 235, 0.92);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-wrap {
+            min-height: 78px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .brand {
+            text-decoration: none;
+            color: var(--navy-900);
+            font-weight: 800;
+            letter-spacing: 0.02em;
+            font-size: 1.1rem;
+        }
+
+        .brand small {
+            display: block;
+            font-weight: 600;
+            font-size: 0.75rem;
+            color: var(--muted);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .links {
+            display: flex;
+            list-style: none;
+            gap: 1.1rem;
+            align-items: center;
+        }
+
+        .links a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .btn {
+            text-decoration: none;
+            border-radius: 999px;
+            padding: 0.75rem 1.2rem;
+            border: 0;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform .2s ease, box-shadow .2s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn:hover { transform: translateY(-2px); }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--navy-700), var(--atlantic-500));
+            color: var(--white);
+            box-shadow: 0 10px 24px rgba(30, 77, 116, 0.34);
+        }
+
+        .btn-outline {
+            border: 1px solid var(--navy-700);
+            color: var(--navy-700);
+            background: var(--white);
+        }
+
+        .hero { padding: 4.4rem 0 2.8rem; }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.05fr 0.95fr;
+            gap: 1.3rem;
+            align-items: stretch;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.8);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow);
+        }
+
+        .hero-copy {
+            padding: clamp(1.2rem, 2.4vw, 2.2rem);
+            display: grid;
+            gap: 1rem;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            width: fit-content;
+            border-radius: 999px;
+            padding: 0.4rem 0.82rem;
+            border: 1px solid rgba(30, 77, 116, 0.28);
+            background: rgba(214, 237, 249, 0.7);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-size: 0.76rem;
+            font-weight: 700;
+            color: var(--navy-900);
+        }
+
+        h1 {
+            font-size: clamp(2rem, 5vw, 4rem);
+            line-height: 0.95;
+            color: var(--navy-900);
+            max-width: 18ch;
+        }
+
+        .hero-copy p {
+            max-width: 52ch;
+            color: var(--muted);
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: .7rem;
+        }
+
+        .hero-points {
+            display: flex;
+            flex-wrap: wrap;
+            gap: .5rem;
+        }
+
+        .chip {
+            border-radius: 999px;
+            padding: 0.34rem 0.7rem;
+            background: var(--foam-200);
+            color: var(--navy-900);
+            font-size: .82rem;
+            font-weight: 700;
+        }
+
+        .hero-photo {
+            min-height: 380px;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+            background:
+                linear-gradient(155deg, rgba(15, 47, 76, 0.42), rgba(47, 127, 180, 0.2)),
+                url('https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
+        }
+
+        section { padding: 3rem 0; }
+
+        .section-head {
+            margin-bottom: 1.3rem;
+            display: grid;
+            gap: .55rem;
+        }
+
+        .section-head h2 {
+            font-size: clamp(1.6rem, 3.1vw, 2.5rem);
+            color: var(--navy-900);
+            line-height: 1.05;
+        }
+
+        .section-head p { color: var(--muted); max-width: 72ch; }
+
+        .pillars {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+
+        .pillar {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 1rem;
+            box-shadow: 0 12px 24px rgba(16, 47, 76, 0.08);
+        }
+
+        .pillar h3 { margin-bottom: .45rem; color: var(--navy-700); }
+        .pillar p { color: var(--muted); }
+
+        .zones {
+            background: var(--white);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .zones-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 1rem;
+        }
+
+        .zones-copy, .zones-list {
+            background: linear-gradient(160deg, rgba(214, 237, 249, 0.54), rgba(255, 255, 255, 0.92));
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 1rem;
+        }
+
+        .zones-list ul {
+            list-style: none;
+            display: grid;
+            gap: .6rem;
+        }
+
+        .zones-list li {
+            padding: .5rem .65rem;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            background: rgba(255, 255, 255, 0.78);
+            font-weight: 600;
+        }
+
+        .classes-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+
+        .class-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 1rem;
+            display: grid;
+            gap: .45rem;
+        }
+
+        .class-card p { color: var(--muted); }
+
+        .badge {
+            width: fit-content;
+            font-size: .78rem;
+            font-weight: 700;
+            border-radius: 999px;
+            padding: .3rem .6rem;
+            background: rgba(47, 127, 180, 0.15);
+            color: var(--navy-700);
+        }
+
+        .cta {
+            background: linear-gradient(140deg, var(--navy-700), var(--atlantic-500));
+            color: var(--white);
+            border-radius: var(--radius-lg);
+            padding: clamp(1.2rem, 2vw, 2rem);
+            display: grid;
+            gap: .8rem;
+            box-shadow: var(--shadow);
+        }
+
+        .cta h2 { font-size: clamp(1.7rem, 4vw, 2.8rem); line-height: 1.03; }
+        .cta p { color: rgba(255, 255, 255, 0.86); max-width: 70ch; }
+
+        .cta-actions { display: flex; flex-wrap: wrap; gap: .7rem; }
+        .cta .btn-outline { border-color: rgba(255,255,255,0.7); color: var(--white); background: transparent; }
+
+        footer { padding: 2rem 0; text-align: center; color: var(--muted); font-size: .9rem; }
+
+        @media (max-width: 980px) {
+            .hero-grid, .zones-grid, .pillars, .classes-grid { grid-template-columns: 1fr; }
+            .links { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container nav-wrap">
+            <a class="brand" href="#home">
+                OCEAN FLOW YOGA
+                <small>La Rochelle · Ile de Re</small>
+            </a>
+            <ul class="links">
+                <li><a href="#concept">Concept</a></li>
+                <li><a href="#zones">Territoire</a></li>
+                <li><a href="#cours">Cours</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a class="btn btn-primary" href="#contact">Cours d'essai</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero" id="home">
+        <div class="container hero-grid">
+            <div class="card hero-copy">
+                <span class="eyebrow">Template alternatif premium</span>
+                <h1>Le yoga oceanique entre La Rochelle et l'Ile de Re.</h1>
+                <p>
+                    Un studio ancre dans l'art de vivre atlantique: pratique precise, accueil humain et programmes
+                    adaptes au rythme local entre Vieux-Port, Les Minimes et les villages retais.
+                </p>
+                <div class="hero-actions">
+                    <a class="btn btn-primary" href="#cours">Voir les offres</a>
+                    <a class="btn btn-outline" href="#concept">Decouvrir l'approche</a>
+                </div>
+                <div class="hero-points">
+                    <span class="chip">Hatha · Vinyasa · Yin</span>
+                    <span class="chip">Cours collectifs & prives</span>
+                    <span class="chip">Fr / En</span>
+                </div>
+            </div>
+            <div class="hero-photo" role="img" aria-label="Pratique yoga esprit atlantique"></div>
+        </div>
+    </header>
+
+    <section id="concept">
+        <div class="container">
+            <div class="section-head">
+                <span class="eyebrow">Positionnement</span>
+                <h2>Une identite locale forte, inspiree de la cote charentaise.</h2>
+                <p>
+                    Ce design met en avant un univers visuel bleu Atlantique, une tonalite haut de gamme et une
+                    communication territoriale claire pour les residents et visiteurs de La Rochelle et l'Ile de Re.
+                </p>
+            </div>
+            <div class="pillars">
+                <article class="pillar">
+                    <h3>Signature maritime</h3>
+                    <p>Codes graphiques bleus, lignes epurees et ambiance lumineuse inspiree de l'ocean.</p>
+                </article>
+                <article class="pillar">
+                    <h3>Positionnement premium</h3>
+                    <p>Mise en page editorialisee, hierarchy claire et CTA adaptes a la reservation.</p>
+                </article>
+                <article class="pillar">
+                    <h3>Conversion orientee local</h3>
+                    <p>Contenu pense pour attirer riverains, actifs rochelais et clientele saisonniere de l'ile.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="zones" id="zones">
+        <div class="container zones-grid">
+            <article class="zones-copy">
+                <div class="section-head">
+                    <span class="eyebrow">Ancrage geo</span>
+                    <h2>La Rochelle & Ile de Re, deux bassins de pratique.</h2>
+                    <p>
+                        Le template valorise vos zones d'intervention et facilite la lecture pour les personnes qui
+                        cherchent des cours proches de leur quartier ou de leur lieu de vacances.
+                    </p>
+                </div>
+                <a class="btn btn-primary" href="#contact">Recevoir le planning local</a>
+            </article>
+            <aside class="zones-list">
+                <ul>
+                    <li>La Rochelle - Vieux-Port</li>
+                    <li>La Rochelle - Les Minimes</li>
+                    <li>Laleu / La Pallice</li>
+                    <li>Pont de l'Ile de Re</li>
+                    <li>Rivedoux-Plage</li>
+                    <li>Saint-Martin-de-Re</li>
+                </ul>
+            </aside>
+        </div>
+    </section>
+
+    <section id="cours">
+        <div class="container">
+            <div class="section-head">
+                <span class="eyebrow">Offres phares</span>
+                <h2>Programmes adaptes au rythme local annuel et saisonnier.</h2>
+            </div>
+            <div class="classes-grid">
+                <article class="class-card">
+                    <span class="badge">Matin ocean</span>
+                    <h3>Sunrise Flow</h3>
+                    <p>Sessions dynamiques avant le travail. Focus energie, souffle et mobilite.</p>
+                    <a class="btn btn-outline" href="#contact">Reserver</a>
+                </article>
+                <article class="class-card">
+                    <span class="badge">Recuperation</span>
+                    <h3>Yin & Respiration</h3>
+                    <p>Format lent ideal pour relacher tensions et recuperer apres sport nautique.</p>
+                    <a class="btn btn-outline" href="#contact">Reserver</a>
+                </article>
+                <article class="class-card">
+                    <span class="badge">Weekend Ile de Re</span>
+                    <h3>Atelier Signature</h3>
+                    <p>Experience longue avec pratique, pranayama et moment convivial en petit groupe.</p>
+                    <a class="btn btn-outline" href="#contact">Reserver</a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <div class="cta">
+                <span class="eyebrow">Demande de template</span>
+                <h2>Version alternative prete a personnaliser pour votre studio.</h2>
+                <p>
+                    Ce fichier est volontairement separe de votre page principale pour faciliter les essais.
+                    Vous pouvez dupliquer ce template et l'adapter par marque, offres, photos et messages.
+                </p>
+                <div class="cta-actions">
+                    <a class="btn btn-outline" href="#home">Retour en haut</a>
+                    <a class="btn btn-primary" href="mailto:contact@studio-yoga.fr">Demarrer la personnalisation</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>Template alternatif - Branding La Rochelle & Ile de Re - Ocean Flow Yoga</p>
+        </div>
+    </footer>
+</body>
+</html>

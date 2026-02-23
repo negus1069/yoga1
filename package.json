@@ -1,0 +1,12 @@
+{
+  "name": "claude-terminal-cli",
+  "version": "0.1.0",
+  "description": "Simple Claude terminal CLI using Anthropic Messages API",
+  "type": "module",
+  "bin": {
+    "claude": "./bin/claude.js"
+  },
+  "author": "",
+  "license": "MIT",
+  "private": false
+}

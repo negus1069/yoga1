@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Angèle - Professeure de Yoga | Angèle OM Yoga La Rochelle</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=Inter:wght@400;500;600&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --terre-douce: #D4A574;
+            --terracotta: #C77B58;
+            --sage: #8B9D83;
+            --cream: #F7F3EE;
+            --charcoal: #3A3A3A;
+            --warm-white: #FEFCF9;
+            --sand: #E8DED0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--warm-white);
+            color: var(--charcoal);
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 5%;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin: 2rem 0;
+            color: var(--terracotta);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .back-link:hover {
+            transform: translateX(-5px);
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, var(--sage) 0%, var(--terre-douce) 100%);
+            color: white;
+            padding: 6rem 5%;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 280px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 48% 52% 45% 55% / 52% 48% 58% 42%;
+            top: -50px;
+            right: 10%;
+        }
+
+        .hero-section h1 {
+            font-family: 'Sora', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-section .subtitle {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            font-style: italic;
+            position: relative;
+            z-index: 1;
+        }
+
+        .profile-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            margin: 4rem 0;
+            align-items: start;
+        }
+
+        .profile-image {
+            position: sticky;
+            top: 2rem;
+        }
+
+        .profile-image img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .profile-info {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+        }
+
+        .section-title {
+            font-family: 'Sora', sans-serif;
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--terracotta);
+            margin: 3rem 0 1.5rem;
+        }
+
+        .section-title:first-child {
+            margin-top: 0;
+        }
+
+        .certification-list {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+
+        .certification-list li {
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--sand);
+            display: flex;
+            align-items: start;
+            gap: 1rem;
+        }
+
+        .certification-list li:last-child {
+            border-bottom: none;
+        }
+
+        .certification-icon {
+            background: var(--sand);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .specialties-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .specialty-card {
+            background: var(--sand);
+            padding: 1.5rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .specialty-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .specialty-card h4 {
+            font-family: 'Sora', sans-serif;
+            font-weight: 600;
+            color: var(--terracotta);
+            margin-bottom: 0.5rem;
+        }
+
+        .philosophy-box {
+            background: linear-gradient(135deg, var(--sage) 0%, var(--terre-douce) 100%);
+            color: white;
+            padding: 3rem;
+            border-radius: 20px;
+            margin: 3rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .philosophy-box::before {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 180px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50% 50% 45% 55% / 52% 48% 52% 48%;
+            bottom: -40px;
+            right: -30px;
+        }
+
+        .philosophy-box p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-section {
+            text-align: center;
+            padding: 4rem 0;
+            background: var(--cream);
+            border-radius: 20px;
+            margin: 4rem 0;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background: var(--terracotta);
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+        }
+
+        .btn-primary:hover {
+            background: var(--terre-douce);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(199, 123, 88, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .hero-section h1 {
+                font-size: 2.5rem;
+            }
+
+            .profile-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .profile-image {
+                position: relative;
+                top: 0;
+            }
+
+            .specialties-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">← Retour à l'accueil</a>
+    </div>
+
+    <section class="hero-section">
+        <h1>Angèle</h1>
+        <p class="subtitle">Fondatrice & Professeure certifiée de Hatha Yoga, Vinyasa & Yogathérapie</p>
+    </section>
+
+    <div class="container">
+        <div class="profile-content">
+            <div class="profile-image">
+                <img src="images/angele.jpg" alt="Angèle - Professeure de Yoga">
+            </div>
+
+            <div class="profile-info">
+                <h2 class="section-title">À propos</h2>
+                <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 2rem;">
+                    Angèle est une professeure de yoga certifiée, fondatrice du studio Angèle OM Yoga à La Rochelle.
+                    Passionnée par le bien-être et l'accompagnement personnalisé, elle a créé un espace chaleureux et authentique
+                    où chaque élève peut développer sa pratique dans le respect de son corps et de son rythme.
+                </p>
+
+                <h2 class="section-title">Formations & Certifications</h2>
+                <ul class="certification-list">
+                    <li>
+                        <div class="certification-icon">🎓</div>
+                        <div>
+                            <strong>Yoga Alliance International & Europe</strong><br>
+                            Diplôme de Hatha Vinyasa Yoga
+                        </div>
+                    </li>
+                    <li>
+                        <div class="certification-icon">🧘</div>
+                        <div>
+                            <strong>Certificat de Yogathérapie</strong><br>
+                            Spécialisation gestion du stress et pathologies digestives<br>
+                            <em>Formation par Emeline Diaz-Roman</em>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="certification-icon">📋</div>
+                        <div>
+                            <strong>CQP ALS AGEE</strong><br>
+                            Qualification professionnelle reconnue par le Ministère des Sports<br>
+                            <em>Activités de la forme et du fitness</em>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="certification-icon">⚕️</div>
+                        <div>
+                            <strong>APSPM</strong><br>
+                            Certification Activité Physique sur Prescription Médicale
+                        </div>
+                    </li>
+                </ul>
+
+                <h2 class="section-title">Influences & Formations complémentaires</h2>
+                <p style="margin-bottom: 1.5rem;">Angèle a enrichi sa pratique auprès de maîtres reconnus :</p>
+                <ul style="margin-left: 2rem; line-height: 2;">
+                    <li><strong>Laurence Schroeder</strong> (Balance Zone) - Techniques de renforcement et d'équilibre</li>
+                    <li><strong>Deepu</strong> - Yogi parisien, disciple du maître yogi Shri Sacha Hansraaj Maharaj Ji, spécialiste du Vinyasa</li>
+                </ul>
+
+                <div class="philosophy-box">
+                    <h3 style="font-family: 'Sora', sans-serif; font-size: 1.8rem; font-weight: 600; margin-bottom: 1.5rem;">Ma philosophie d'enseignement</h3>
+                    <p>
+                        "Mon approche se centre sur l'écoute de chaque élève. J'enseigne un yoga axé sur le bien-être,
+                        combinant asanas (postures) et pranayamas (exercices respiratoires).
+                        Je guide avec douceur et précision, en adaptant les postures individuellement et en modulant
+                        les cours selon le prana (énergie) du moment présent."
+                    </p>
+                </div>
+
+                <h2 class="section-title">Spécialités</h2>
+                <div class="specialties-grid">
+                    <div class="specialty-card">
+                        <h4>Hatha Yoga</h4>
+                        <p>Yoga traditionnel et doux</p>
+                    </div>
+                    <div class="specialty-card">
+                        <h4>Vinyasa</h4>
+                        <p>Flow dynamique et fluide</p>
+                    </div>
+                    <div class="specialty-card">
+                        <h4>Yin Yoga</h4>
+                        <p>Pratique méditative</p>
+                    </div>
+                    <div class="specialty-card">
+                        <h4>Pilates</h4>
+                        <p>Renforcement musculaire</p>
+                    </div>
+                    <div class="specialty-card">
+                        <h4>Yoga Parent-Enfant</h4>
+                        <p>Partage et complicité</p>
+                    </div>
+                    <div class="specialty-card">
+                        <h4>Yoga Enfants</h4>
+                        <p>Éveil et découverte</p>
+                    </div>
+                </div>
+
+                <div class="cta-section">
+                    <h3 style="font-family: 'Sora', sans-serif; font-size: 2rem; font-weight: 600; margin-bottom: 1rem; color: var(--charcoal);">
+                        Envie de pratiquer avec Angèle ?
+                    </h3>
+                    <p style="font-size: 1.1rem; margin-bottom: 2rem; color: var(--charcoal);">
+                        Découvrez les cours et réservez votre place au studio
+                    </p>
+                    <a href="index.html#planning" class="btn-primary">Voir le planning des cours</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0"
+	xmlns:excerpt="http://wordpress.org/export/1.2/excerpt/"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:wp="http://wordpress.org/export/1.2/">
+
+<channel>
+	<title>Angèle OM Yoga</title>
+	<link>https://angele.yoga</link>
+	<description>Studio de Yoga à La Rochelle</description>
+	<pubDate>Sat, 22 Feb 2026 12:00:00 +0000</pubDate>
+	<language>fr-FR</language>
+	<wp:wxr_version>1.2</wp:wxr_version>
+	<wp:base_site_url>https://angele.yoga</wp:base_site_url>
+	<wp:base_blog_url>https://angele.yoga</wp:base_blog_url>
+
+	<!-- Page Accueil -->
+	<item>
+		<title>Accueil</title>
+		<link>https://angele.yoga/</link>
+		<pubDate>Sat, 22 Feb 2026 12:00:00 +0000</pubDate>
+		<dc:creator>admin</dc:creator>
+		<content:encoded><![CDATA[
+<!-- Hero Section -->
+<div class="hero-section" style="background: #F5EFE7; padding: 4rem 2rem; position: relative; min-height: 70vh; display: flex; align-items: center;">
+	<div style="max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
+		<div>
+			<h1 style="font-size: 3.5rem; font-weight: 300; color: #3A3A3A; line-height: 1.1; margin-bottom: 1.5rem;">
+				Votre voyage vers <br><span style="color: #D4A574; font-style: italic; font-weight: 400;">l'équilibre</span><br>intérieur
+			</h1>
+			<p style="font-style: italic; color: #D4A574; font-size: 1.3rem; margin-bottom: 2rem;">douceur, lumière, présence</p>
+			<p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 2rem;">Studio de yoga intimiste au cœur de La Rochelle. Des professeurs passionnés, une approche personnalisée, une communauté chaleureuse.</p>
+			<div style="display: flex; gap: 1.5rem;">
+				<a href="#planning" style="background: #D4A574; color: white; padding: 1rem 2rem; border-radius: 40px; text-decoration: none; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Découvrir les cours</a>
+				<a href="#equipe" style="background: transparent; color: #3A3A3A; padding: 1rem 2rem; border-radius: 40px; text-decoration: none; font-weight: 500; border: 2px solid #3A3A3A; text-transform: uppercase; letter-spacing: 1px;">Rencontrer l'équipe</a>
+			</div>
+		</div>
+		<div>
+			<img src="https://angele.yoga/wp-content/uploads/angele-yoga-rochelle-web-4.jpg" alt="Studio Yoga" style="width: 100%; border-radius: 30px; box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);">
+			<div style="margin-top: 1rem; display: flex; align-items: center; gap: 0.4rem;">
+				<img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google" style="height: 14px; opacity: 0.7;">
+				<span style="font-weight: 600; font-size: 0.85rem; color: #3A3A3A;">5.0</span>
+				<span style="color: #FBBC04; font-size: 0.7rem;">★★★★★</span>
+				<span style="color: #3A3A3A; opacity: 0.5; font-size: 0.75rem;">(140 avis)</span>
+			</div>
+		</div>
+	</div>
+</div>
+		]]></content:encoded>
+		<excerpt:encoded><![CDATA[Votre voyage vers l'équilibre intérieur]]></excerpt:encoded>
+		<wp:post_id>1</wp:post_id>
+		<wp:post_date>2026-02-22 12:00:00</wp:post_date>
+		<wp:post_type>page</wp:post_type>
+		<wp:status>publish</wp:status>
+		<wp:menu_order>0</wp:menu_order>
+	</item>
+
+	<!-- Page À Propos -->
+	<item>
+		<title>À Propos</title>
+		<link>https://angele.yoga/a-propos/</link>
+		<pubDate>Sat, 22 Feb 2026 12:00:00 +0000</pubDate>
+		<dc:creator>admin</dc:creator>
+		<content:encoded><![CDATA[
+<div style="padding: 6rem 2rem; background: #FEFCF9;">
+	<div style="max-width: 1200px; margin: 0 auto; text-align: center;">
+		<p style="font-size: 0.9rem; letter-spacing: 3px; text-transform: uppercase; color: #C77B58; margin-bottom: 1rem;">Notre philosophie</p>
+		<h2 style="font-size: 3rem; font-weight: 600; margin-bottom: 2rem; color: #3A3A3A;">Bien plus qu'un studio</h2>
+		<p style="font-size: 1.2rem; max-width: 800px; margin: 0 auto 4rem; line-height: 1.8;">
+			Angèle OM Yoga est un espace chaleureux et authentique au cœur de La Rochelle.
+			Nous croyons que le yoga est un voyage personnel, pas une performance.
+			Ici, chacun est accueilli avec bienveillance, quel que soit son niveau ou son expérience.
+		</p>
+
+		<!-- Valeurs -->
+		<div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem; margin-bottom: 5rem;">
+			<div style="text-align: center; padding: 2rem;">
+				<div style="width: 60px; height: 60px; margin: 0 auto 1.5rem; background: #E8DED0; border-radius: 16px; display: flex; align-items: center; justify-content: center;">
+					<img src="/wp-content/uploads/bol.png" alt="Convivialité" style="width: 40px; height: 40px; object-fit: contain;">
+				</div>
+				<h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: #C77B58;">Convivialité</h3>
+				<p>Un studio à taille humaine où chaque élève compte. Pas d'usine à sport, juste une vraie communauté.</p>
+			</div>
+			<div style="text-align: center; padding: 2rem;">
+				<div style="width: 60px; height: 60px; margin: 0 auto 1.5rem; background: #E8DED0; border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 1.8rem;">❤️</div>
+				<h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: #C77B58;">Passion & Expertise</h3>
+				<p>Une équipe de professeurs formés, passionnés et en formation continue pour vous offrir le meilleur.</p>
+			</div>
+			<div style="text-align: center; padding: 2rem;">
+				<div style="width: 60px; height: 60px; margin: 0 auto 1.5rem; background: #E8DED0; border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 1.8rem;">⭐</div>
+				<h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: #C77B58;">Approche personnalisée</h3>
+				<p>Nos professeurs prennent le temps de vous connaître et d'adapter leur enseignement à vos besoins.</p>
+			</div>
+		</div>
+
+		<!-- Nos pratiques -->
+		<h3 style="font-size: 2rem; font-weight: 600; color: #3A3A3A; margin-bottom: 2.5rem;">Nos pratiques</h3>
+		<div style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; max-width: 1000px; margin: 0 auto;">
+			<div style="background: #E8DED0; padding: 2rem 2.5rem; border-radius: 30px; min-width: 220px; max-width: 280px; text-align: center;">
+				<h4 style="font-weight: 600; color: #C77B58; margin-bottom: 0.8rem; font-size: 1.2rem;">Hatha Yoga</h4>
+				<p style="font-size: 0.9rem; line-height: 1.6; margin: 0;">Pratique douce et traditionnelle, idéale pour débutants. Postures tenues pour renforcer et assouplir le corps en profondeur.</p>
+			</div>
+			<div style="background: #E8DED0; padding: 2rem 2.5rem; border-radius: 30px; min-width: 220px; max-width: 280px; text-align: center;">
+				<h4 style="font-weight: 600; color: #C77B58; margin-bottom: 0.8rem; font-size: 1.2rem;">Vinyasa</h4>
+				<p style="font-size: 0.9rem; line-height: 1.6; margin: 0;">Yoga dynamique et fluide, synchronisant mouvement et respiration. Un flow énergisant qui tonifie le corps et apaise l'esprit.</p>
+			</div>
+			<div style="background: #E8DED0; padding: 2rem 2.5rem; border-radius: 30px; min-width: 220px; max-width: 280px; text-align: center;">
+				<h4 style="font-weight: 600; color: #C77B58; margin-bottom: 0.8rem; font-size: 1.2rem;">Yin Yoga</h4>
+				<p style="font-size: 0.9rem; line-height: 1.6; margin: 0;">Pratique méditative et relaxante. Postures au sol tenues longuement pour libérer les tensions et cultiver la pleine présence.</p>
+			</div>
+			<div style="background: #E8DED0; padding: 2rem 2.5rem; border-radius: 30px; min-width: 220px; max-width: 280px; text-align: center;">
+				<h4 style="font-weight: 600; color: #C77B58; margin-bottom: 0.8rem; font-size: 1.2rem;">Yoga Nidra</h4>
+				<p style="font-size: 0.9rem; line-height: 1.6; margin: 0;">Relaxation profonde guidée allongé. Une méditation pour réduire le stress, améliorer le sommeil et accéder à un état de conscience apaisé.</p>
+			</div>
+			<div style="background: #E8DED0; padding: 2rem 2.5rem; border-radius: 30px; min-width: 220px; max-width: 280px; text-align: center;">
+				<h4 style="font-weight: 600; color: #C77B58; margin-bottom: 0.8rem; font-size: 1.2rem;">Pilates</h4>
+				<p style="font-size: 0.9rem; line-height: 1.6; margin: 0;">Renforcement musculaire en profondeur ciblant le centre du corps. Améliore la posture, la stabilité et la conscience corporelle.</p>
+			</div>
+			<div style="background: #E8DED0; padding: 2rem 2.5rem; border-radius: 30px; min-width: 220px; max-width: 280px; text-align: center;">
+				<h4 style="font-weight: 600; color: #C77B58; margin-bottom: 0.8rem; font-size: 1.2rem;">Méditation</h4>
+				<p style="font-size: 0.9rem; line-height: 1.6; margin: 0;">Pleine conscience et relaxation mentale. Techniques de méditation MBSR pour calmer l'esprit, réduire l'anxiété et cultiver la présence.</p>
+			</div>
+			<div style="background: #E8DED0; padding: 2rem 2.5rem; border-radius: 30px; min-width: 220px; max-width: 280px; text-align: center;">
+				<h4 style="font-weight: 600; color: #C77B58; margin-bottom: 0.8rem; font-size: 1.2rem;">Bain Sonore</h4>
+				<p style="font-size: 0.9rem; line-height: 1.6; margin: 0;">Voyage de relaxation par les vibrations. Bols tibétains et instruments harmoniques pour un lâcher-prise profond et apaisant.</p>
+			</div>
+			<div style="background: #E8DED0; padding: 2rem 2.5rem; border-radius: 30px; min-width: 220px; max-width: 280px; text-align: center;">
+				<h4 style="font-weight: 600; color: #C77B58; margin-bottom: 0.8rem; font-size: 1.2rem;">Renfo Musculaire</h4>
+				<p style="font-size: 0.9rem; line-height: 1.6; margin: 0;">Cours tonique et dynamique. Renforcement global du corps pour sculpter, tonifier et gagner en force et endurance musculaire.</p>
+			</div>
+		</div>
+	</div>
+</div>
+		]]></content:encoded>
+		<excerpt:encoded><![CDATA[Découvrez notre philosophie et nos pratiques]]></excerpt:encoded>
+		<wp:post_id>2</wp:post_id>
+		<wp:post_date>2026-02-22 12:00:00</wp:post_date>
+		<wp:post_type>page</wp:post_type>
+		<wp:status>publish</wp:status>
+		<wp:menu_order>1</wp:menu_order>
+	</item>
+
+	<!-- Page Méditation à la bougie -->
+	<item>
+		<title>Méditation à la bougie</title>
+		<link>https://angele.yoga/meditation-bougie/</link>
+		<pubDate>Sat, 22 Feb 2026 12:00:00 +0000</pubDate>
+		<dc:creator>admin</dc:creator>
+		<content:encoded><![CDATA[
+<div style="background: linear-gradient(135deg, #3A3A3A 0%, #5A4A3A 100%); padding: 6rem 2rem; color: white;">
+	<div style="max-width: 1200px; margin: 0 auto;">
+		<div style="text-align: center; margin-bottom: 3rem;">
+			<p style="font-size: 0.9rem; letter-spacing: 3px; text-transform: uppercase; color: #D4A574; margin-bottom: 1rem;">Trataka</p>
+			<h2 style="font-size: 3rem; font-weight: 600; margin-bottom: 1.5rem;">Méditation à la bougie</h2>
+			<p style="font-size: 1.2rem; opacity: 0.9; max-width: 700px; margin: 0 auto; font-style: italic;">
+				Une pratique millénaire pour apaiser l'esprit et se connecter à sa lumière intérieure
+			</p>
+		</div>
+
+		<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; margin-top: 4rem;">
+			<div>
+				<img src="https://angele.yoga/wp-content/uploads/mediation_bougie.png" alt="Méditation à la bougie" style="width: 100%; border-radius: 20px; box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);">
+			</div>
+
+			<div>
+				<h3 style="font-size: 1.8rem; font-weight: 600; color: #D4A574; margin-bottom: 2rem;">Pourquoi méditer avec une bougie ?</h3>
+
+				<div style="margin-bottom: 1.5rem;">
+					<h4 style="font-weight: 600; margin-bottom: 0.5rem;">🕯️ Concentration profonde</h4>
+					<p style="opacity: 0.9;">Apaise les pensées vagabondes et développe la capacité de concentration</p>
+				</div>
+
+				<div style="margin-bottom: 1.5rem;">
+					<h4 style="font-weight: 600; margin-bottom: 0.5rem;">✨ Détente du système nerveux</h4>
+					<p style="opacity: 0.9;">Relaxe profondément le corps et calme l'esprit pour une paix intérieure</p>
+				</div>
+
+				<div style="margin-bottom: 1.5rem;">
+					<h4 style="font-weight: 600; margin-bottom: 0.5rem;">🧘 État méditatif profond</h4>
+					<p style="opacity: 0.9;">Facilite l'accès à un état de méditation profonde et durable</p>
+				</div>
+
+				<div style="margin-bottom: 2rem;">
+					<h4 style="font-weight: 600; margin-bottom: 0.5rem;">💫 Connexion intérieure</h4>
+					<p style="opacity: 0.9;">Permet de se connecter à sa lumière intérieure et à son essence profonde</p>
+				</div>
+
+				<div style="padding: 1.5rem; background: rgba(255, 255, 255, 0.1); border-radius: 15px; border-left: 4px solid #D4A574;">
+					<p style="margin: 0; opacity: 0.95;">
+						<strong>Le Trataka</strong> est une pratique ancestrale du yoga qui utilise la flamme d'une bougie comme point de focalisation.
+						Cette technique millénaire favorise la clarté mentale et l'apaisement de l'esprit.
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+		]]></content:encoded>
+		<excerpt:encoded><![CDATA[Pratique Trataka - Méditation à la bougie]]></excerpt:encoded>
+		<wp:post_id>3</wp:post_id>
+		<wp:post_date>2026-02-22 12:00:00</wp:post_date>
+		<wp:post_type>page</wp:post_type>
+		<wp:status>publish</wp:status>
+		<wp:menu_order>2</wp:menu_order>
+	</item>
+
+	<!-- Page Contact -->
+	<item>
+		<title>Contact</title>
+		<link>https://angele.yoga/contact/</link>
+		<pubDate>Sat, 22 Feb 2026 12:00:00 +0000</pubDate>
+		<dc:creator>admin</dc:creator>
+		<content:encoded><![CDATA[
+<div style="padding: 6rem 2rem; background: #FEFCF9;">
+	<div style="max-width: 1200px; margin: 0 auto;">
+		<div style="text-align: center; margin-bottom: 3rem;">
+			<p style="font-size: 0.9rem; letter-spacing: 3px; text-transform: uppercase; color: #C77B58; margin-bottom: 1rem;">Contactez-nous</p>
+			<h2 style="font-size: 3rem; font-weight: 600; margin-bottom: 1.5rem; color: #3A3A3A;">Venez nous voir</h2>
+			<p style="font-size: 1.2rem; max-width: 700px; margin: 0 auto;">
+				Notre studio est situé au cœur de La Rochelle, dans une cour calme et verdoyante.
+			</p>
+		</div>
+
+		<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;">
+			<div>
+				<h3 style="font-size: 1.8rem; font-weight: 600; margin-bottom: 2rem; color: #C77B58;">Informations</h3>
+
+				<div style="margin-bottom: 1.5rem;">
+					<strong>📍 Adresse</strong><br>
+					1 bis rue Fleuriau<br>
+					17000 La Rochelle<br>
+					(au fond de la cour)
+				</div>
+
+				<div style="margin-bottom: 1.5rem;">
+					<strong>📞 Téléphone</strong><br>
+					06 08 66 07 00
+				</div>
+
+				<div style="margin-bottom: 1.5rem;">
+					<strong>✉️ Email</strong><br>
+					contact@angele-om-yoga.com
+				</div>
+
+				<div style="margin-bottom: 2rem;">
+					<strong>📸 Instagram</strong><br>
+					@angele_om_yoga
+				</div>
+
+				<div style="margin-top: 2rem;">
+					<a href="https://www.google.com/maps/place/1+Bis+Rue+Fleuriau,+17000+La+Rochelle" target="_blank" rel="noopener" style="display: block;">
+						<img src="https://maps.googleapis.com/maps/api/staticmap?center=46.1581,-1.1551&zoom=15&size=600x300&markers=color:red%7C46.1581,-1.1551&key=YOUR_API_KEY" alt="Google Maps" style="width: 100%; border-radius: 15px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);">
+					</a>
+				</div>
+			</div>
+
+			<div>
+				<div style="background: white; padding: 3rem; border-radius: 20px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);">
+					<h3 style="font-size: 1.8rem; font-weight: 600; margin-bottom: 1.5rem; color: #3A3A3A;">Une question ?</h3>
+					[contact-form-7 id="1" title="Contact form"]
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+		]]></content:encoded>
+		<excerpt:encoded><![CDATA[Contactez notre studio de yoga à La Rochelle]]></excerpt:encoded>
+		<wp:post_id>4</wp:post_id>
+		<wp:post_date>2026-02-22 12:00:00</wp:post_date>
+		<wp:post_type>page</wp:post_type>
+		<wp:status>publish</wp:status>
+		<wp:menu_order>3</wp:menu_order>
+	</item>
+
+</channel>
+</rss>

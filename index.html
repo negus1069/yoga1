@@ -109,30 +109,81 @@
 
         /* Hero Section */
         .hero {
-            margin-top: 80px;
+            margin-top: 120px;
             min-height: 90vh;
-            background: linear-gradient(135deg, var(--cream) 0%, var(--sand) 100%);
+            background: #F5EFE7;
             position: relative;
             overflow: hidden;
             display: flex;
             align-items: center;
         }
 
+        /* Ronds pas parfaits en arrière-plan - forme de galets */
         .hero::before {
             content: '';
             position: absolute;
-            top: -50%;
-            right: -20%;
-            width: 800px;
-            height: 800px;
-            background: radial-gradient(circle, rgba(199, 123, 88, 0.15) 0%, transparent 70%);
+            top: 10%;
+            right: 5%;
+            width: 650px;
+            height: 520px;
+            background: rgba(212, 165, 116, 0.12);
+            border-radius: 63% 37% 45% 55% / 47% 62% 38% 53%;
+            animation: float 25s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 5%;
+            right: 8%;
+            width: 480px;
+            height: 420px;
+            background: rgba(199, 123, 88, 0.08);
+            border-radius: 58% 42% 39% 61% / 51% 43% 57% 49%;
+            animation: float 20s ease-in-out infinite reverse;
+        }
+
+        /* Petites bulles pour les types de yoga */
+        .yoga-bubble {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.9);
             border-radius: 50%;
-            animation: float 20s ease-in-out infinite;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Sora', sans-serif;
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: var(--charcoal);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            animation: floatBubble 15s ease-in-out infinite;
+            transition: transform 0.3s ease;
+            z-index: 5;
+        }
+
+        .yoga-bubble:hover {
+            transform: scale(1.1);
+        }
+
+        @keyframes floatBubble {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-15px) rotate(5deg);
+            }
         }
 
         @keyframes float {
-            0%, 100% { transform: translate(0, 0) rotate(0deg); }
-            50% { transform: translate(-50px, 30px) rotate(5deg); }
+            0%, 100% {
+                transform: translate(0, 0) scale(1) rotate(0deg);
+            }
+            33% {
+                transform: translate(-20px, 15px) scale(1.02) rotate(2deg);
+            }
+            66% {
+                transform: translate(10px, -10px) scale(0.98) rotate(-1deg);
+            }
         }
 
         .hero-content {
@@ -145,6 +196,20 @@
             align-items: center;
             position: relative;
             z-index: 1;
+        }
+
+        /* Rond supplémentaire pour plus de richesse visuelle - forme de galet */
+        .hero-content::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: -10%;
+            width: 380px;
+            height: 320px;
+            background: rgba(139, 157, 131, 0.10);
+            border-radius: 41% 59% 56% 44% / 62% 38% 62% 38%;
+            animation: float 18s ease-in-out infinite;
+            z-index: -1;
         }
 
         .hero-text h1 {
@@ -216,11 +281,14 @@
             background: transparent;
             color: var(--charcoal);
             border: 2px solid var(--charcoal);
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .btn-secondary:hover {
             background: var(--charcoal);
             color: white;
+            transform: translateY(-3px);
         }
 
         .hero-image {
@@ -296,6 +364,164 @@
         .event-details {
             font-size: 1.2rem;
             margin-bottom: 1.5rem;
+        }
+
+        /* Instagram Feed */
+        .instagram-feed {
+            background: linear-gradient(135deg, var(--sage) 0%, var(--terre-douce) 100%);
+            color: white;
+            padding: 4rem 5%;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .instagram-feed::before {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
+            left: 5%;
+            top: -50px;
+            border-radius: 50%;
+        }
+
+        .instagram-feed::after {
+            content: '';
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, transparent 70%);
+            right: 8%;
+            bottom: -30px;
+            border-radius: 50%;
+        }
+
+        .instagram-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .instagram-carousel {
+            max-width: 100%;
+            margin: 2rem auto;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 1rem;
+            backdrop-filter: blur(10px);
+        }
+
+        /* Cartes d'événements avec effet hover */
+        .event-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .event-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .event-image-container {
+            position: relative;
+            height: 280px;
+            overflow: hidden;
+        }
+
+        .event-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .event-card:hover .event-image-container img {
+            transform: scale(1.08);
+        }
+
+        /* Styles pour le carrousel Instagram personnalisé */
+        .insta-card {
+            min-width: 300px;
+            height: 400px;
+            border-radius: 30px;
+            overflow: hidden;
+            position: relative;
+            flex-shrink: 0;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .insta-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .insta-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .insta-card-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, transparent 60%, rgba(0,0,0,0.7) 100%);
+            display: flex;
+            align-items: flex-end;
+            padding: 1.5rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .insta-card:hover .insta-card-overlay {
+            opacity: 1;
+        }
+
+        .insta-card-content {
+            color: white;
+        }
+
+        .insta-icon {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .like-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(58, 58, 58, 0.9);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        #carousel-prev:hover,
+        #carousel-next:hover {
+            background: var(--terracotta);
+            color: white;
+            transform: translateY(-50%) scale(1.1);
         }
 
         /* À propos */
@@ -477,6 +703,21 @@
             margin: 1rem auto;
             font-size: 0.95rem;
             line-height: 1.6;
+        }
+
+        /* Cartes de cours */
+        .course-card {
+            background: var(--sand);
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .course-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
         }
 
         /* Tarifs */
@@ -723,6 +964,11 @@
                 grid-template-columns: 1fr;
                 gap: 2rem;
             }
+
+            /* Cours en ligne responsive */
+            section[style*="linear-gradient(135deg, #8B9D83"] > div > div[style*="grid-template-columns: 1fr 1fr"] {
+                grid-template-columns: 1fr !important;
+            }
         }
 
         @media (max-width: 768px) {
@@ -732,6 +978,39 @@
 
             .nav-links {
                 display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(255, 252, 249, 0.98);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                padding: 1rem 0;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+                border-top: 1px solid rgba(212, 165, 116, 0.2);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 0;
+                text-align: center;
+                padding: 0.5rem 0;
+            }
+
+            .nav-links a {
+                display: block;
+                padding: 0.8rem 1rem;
+            }
+
+            .cta-nav {
+                margin-top: 0.5rem;
+            }
+
+            nav .container {
+                position: relative;
             }
 
             .hero-text h1 {
@@ -745,6 +1024,20 @@
             .pricing-card.featured {
                 transform: scale(1);
             }
+
+            /* Masquer les bulles yoga sur mobile */
+            .yoga-bubble {
+                display: none;
+            }
+
+            /* Fix pour les images des professeurs sur mobile */
+            .teacher-image {
+                height: auto;
+                min-height: 300px;
+                object-fit: contain;
+                object-position: top center;
+                background: var(--sand);
+            }
         }
 
     </style>
@@ -754,15 +1047,18 @@
     <nav>
         <div class="container">
             <a href="#" class="logo">
-                <img src="logo-angele-om-yoga-la-rochelle-1.jpg" alt="Angèle OM Yoga" style="height: 60px; width: auto;">
+                <img src="images/logo-angele-om-yoga-la-rochelle-1.jpg" alt="Angèle OM Yoga" style="height: 60px; width: auto;">
             </a>
             <ul class="nav-links">
                 <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#apropos">À propos</a></li>
+                <li><a href="#activites">Activités</a></li>
                 <li><a href="#equipe">L'Équipe</a></li>
                 <li><a href="#planning">Planning</a></li>
+                <li><a href="#cours-en-ligne">Cours en ligne</a></li>
                 <li><a href="#tarifs">Tarifs</a></li>
                 <li><a href="#contact">Contact</a></li>
-                <li><a href="#" class="cta-nav">Réserver un cours</a></li>
+                <li><a href="#planning" class="cta-nav">Réserver un cours</a></li>
             </ul>
             <button class="mobile-menu-btn">☰</button>
         </div>
@@ -770,30 +1066,58 @@
 
     <!-- Hero Section -->
     <section class="hero" id="accueil">
+        <!-- Petites bulles pour les types de yoga - positionnées en désordre autour de la photo -->
+        <div class="yoga-bubble" style="width: 100px; height: 100px; top: 12%; right: 4%; animation-delay: 0s;">
+            Hatha
+        </div>
+        <div class="yoga-bubble" style="width: 90px; height: 90px; top: 28%; right: 2%; animation-delay: 2s;">
+            Yin
+        </div>
+        <div class="yoga-bubble" style="width: 110px; height: 110px; top: 18%; right: 12%; animation-delay: 1s;">
+            Vinyasa
+        </div>
+        <div class="yoga-bubble" style="width: 95px; height: 95px; top: 45%; right: 5%; animation-delay: 3s;">
+            Nidra
+        </div>
+        <div class="yoga-bubble" style="width: 105px; height: 105px; top: 62%; right: 3%; animation-delay: 1.5s;">
+            Pilates
+        </div>
+        <div class="yoga-bubble" style="width: 115px; height: 115px; top: 52%; right: 13%; animation-delay: 2.5s;">
+            Méditation
+        </div>
+        <div class="yoga-bubble" style="width: 108px; height: 108px; top: 78%; right: 8%; animation-delay: 3.5s;">
+            Bain sonore
+        </div>
+        <div class="yoga-bubble" style="width: 120px; height: 120px; top: 85%; right: 22%; animation-delay: 4.5s;">
+            Renfo Musculaire
+        </div>
+
         <div class="hero-content">
             <div class="hero-text">
                 <h1>
-                    Votre voyage vers <strong>l'équilibre intérieur</strong>
+                    Votre voyage vers <br><span style="color: var(--terre-douce); font-style: italic; font-weight: 400;">l'équilibre</span><br>intérieur
                 </h1>
-                <p>Studio de yoga intimiste au cœur de La Rochelle. Des professeurs passionnés, une approche personnalisée, une communauté chaleureuse.</p>
-                <div class="hero-ctas">
-                    <a href="#planning" class="btn btn-primary">Découvrir les cours</a>
-                    <a href="#equipe" class="btn btn-secondary">Rencontrer l'équipe</a>
+                <p style="font-style: italic; color: var(--terre-douce); font-size: 1.5rem; margin-bottom: 2.5rem;">douceur, lumière, présence</p>
+
+                <p style="font-size: 1.2rem; line-height: 1.8; margin-bottom: 2.5rem;">Studio de yoga intimiste au cœur de La Rochelle. Des professeurs passionnés, une approche personnalisée, une communauté chaleureuse.</p>
+                <div class="hero-ctas" style="margin-bottom: 3rem;">
+                    <a href="#planning" class="btn btn-primary" style="background: var(--terre-douce); font-size: 1rem; padding: 1rem 2rem; text-transform: uppercase; letter-spacing: 1px;">Découvrir les cours</a>
+                    <a href="#equipe" class="btn btn-secondary" style="font-size: 1rem; padding: 1rem 2rem; text-transform: uppercase; letter-spacing: 1px;">Rencontrer l'équipe</a>
                 </div>
             </div>
-            <div class="hero-image">
-                <img src="https://angele.yoga/wp-content/uploads/angele-yoga-rochelle-web-4.jpg" alt="Yoga studio">
-            </div>
-        </div>
-    </section>
+            <div class="hero-image" style="position: relative;">
+                <div style="position: relative; border-radius: 30px; overflow: hidden; box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);">
+                    <img src="images/angele.jpg" alt="Yoga studio" style="width: 100%; display: block;">
+                </div>
 
-    <!-- Event Banner -->
-    <section class="event-banner">
-        <div class="event-content">
-            <div class="event-label">Événement à venir</div>
-            <h2 class="event-title">Retraite Yoga & Méditation</h2>
-            <p class="event-details">📅 9-11 Novembre 2024 | 🏡 Terre Poitevine | ✨ Places limitées</p>
-            <a href="#contact" class="btn btn-primary">Je m'inscris</a>
+                <!-- Avis Google - Complètement sous la photo, sans badge -->
+                <div style="position: absolute; bottom: -50px; left: 0; display: flex; align-items: center; gap: 0.4rem; z-index: 10; white-space: nowrap;">
+                    <img src="images/google-logo.svg" alt="Google" style="height: 14px; opacity: 0.7;">
+                    <span style="font-weight: 600; font-size: 0.85rem; color: var(--charcoal); opacity: 0.8;">5.0</span>
+                    <div style="color: #FBBC04; font-size: 0.7rem; display: flex;">★★★★★</div>
+                    <span style="color: var(--charcoal); opacity: 0.5; font-size: 0.75rem;">(140 avis)</span>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -803,27 +1127,109 @@
             <div class="section-label">Notre philosophie</div>
             <h2 class="section-title">Bien plus qu'un studio</h2>
             <p class="about-text">
-                Angèle OM Yoga est un espace chaleureux et authentique au cœur de La Rochelle. 
-                Nous croyons que le yoga est un voyage personnel, pas une performance. 
+                Angèle OM Yoga est un espace chaleureux et authentique au cœur de La Rochelle.
+                Nous croyons que le yoga est un voyage personnel, pas une performance.
                 Ici, chacun est accueilli avec bienveillance, quel que soit son niveau ou son expérience.
             </p>
-            
+
             <div class="values-grid">
                 <div class="value-card">
-                    <div class="value-icon">👥</div>
+                    <div class="value-icon">
+                        <img src="images/bol.png" alt="Convivialité" style="width: 100%; height: 100%; object-fit: contain;">
+                    </div>
                     <h3>Convivialité</h3>
                     <p>Un studio à taille humaine où chaque élève compte. Pas d'usine à sport, juste une vraie communauté.</p>
-                </div>
-                <div class="value-card">
-                    <div class="value-icon">⭐</div>
-                    <h3>Approche personnalisée</h3>
-                    <p>Nos professeurs prennent le temps de vous connaître et d'adapter leur enseignement à vos besoins.</p>
                 </div>
                 <div class="value-card">
                     <div class="value-icon">❤️</div>
                     <h3>Passion & Expertise</h3>
                     <p>Une équipe de professeurs formés, passionnés et en formation continue pour vous offrir le meilleur.</p>
                 </div>
+                <div class="value-card">
+                    <div class="value-icon">⭐</div>
+                    <h3>Approche personnalisée</h3>
+                    <p>Nos professeurs prennent le temps de vous connaître et d'adapter leur enseignement à vos besoins.</p>
+                </div>
+            </div>
+
+            <!-- Types de cours en galets -->
+            <div style="margin-top: 5rem; text-align: center;">
+                <h3 style="font-family: 'Sora', sans-serif; font-size: 2rem; font-weight: 600; color: var(--charcoal); margin-bottom: 2.5rem;">Nos pratiques</h3>
+
+                <div style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; max-width: 1000px; margin: 0 auto;">
+                    <!-- Hatha Yoga -->
+                    <div style="background: var(--sand); padding: 2rem 2.5rem; border-radius: 58% 42% 55% 45% / 52% 48% 52% 48%; min-width: 220px; max-width: 280px; text-align: center; transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                        <h4 style="font-family: 'Sora', sans-serif; font-weight: 600; color: var(--terracotta); margin-bottom: 0.8rem; font-size: 1.2rem;">Hatha Yoga</h4>
+                        <p style="font-size: 0.9rem; line-height: 1.6; margin: 0; color: var(--charcoal);">Pratique douce et traditionnelle, idéale pour débutants. Postures tenues pour renforcer et assouplir le corps en profondeur.</p>
+                    </div>
+
+                    <!-- Vinyasa -->
+                    <div style="background: var(--sand); padding: 2rem 2.5rem; border-radius: 45% 55% 48% 52% / 55% 45% 55% 45%; min-width: 220px; max-width: 280px; text-align: center; transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                        <h4 style="font-family: 'Sora', sans-serif; font-weight: 600; color: var(--terracotta); margin-bottom: 0.8rem; font-size: 1.2rem;">Vinyasa</h4>
+                        <p style="font-size: 0.9rem; line-height: 1.6; margin: 0; color: var(--charcoal);">Yoga dynamique et fluide, synchronisant mouvement et respiration. Un flow énergisant qui tonifie le corps et apaise l'esprit.</p>
+                    </div>
+
+                    <!-- Yin Yoga -->
+                    <div style="background: var(--sand); padding: 2rem 2.5rem; border-radius: 52% 48% 45% 55% / 48% 52% 48% 52%; min-width: 220px; max-width: 280px; text-align: center; transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                        <h4 style="font-family: 'Sora', sans-serif; font-weight: 600; color: var(--terracotta); margin-bottom: 0.8rem; font-size: 1.2rem;">Yin Yoga</h4>
+                        <p style="font-size: 0.9rem; line-height: 1.6; margin: 0; color: var(--charcoal);">Pratique méditative et relaxante. Postures au sol tenues longuement pour libérer les tensions et cultiver la pleine présence.</p>
+                    </div>
+
+                    <!-- Yoga Nidra -->
+                    <div style="background: var(--sand); padding: 2rem 2.5rem; border-radius: 48% 52% 52% 48% / 45% 55% 45% 55%; min-width: 220px; max-width: 280px; text-align: center; transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                        <h4 style="font-family: 'Sora', sans-serif; font-weight: 600; color: var(--terracotta); margin-bottom: 0.8rem; font-size: 1.2rem;">Yoga Nidra</h4>
+                        <p style="font-size: 0.9rem; line-height: 1.6; margin: 0; color: var(--charcoal);">Relaxation profonde guidée allongé. Une méditation pour réduire le stress, améliorer le sommeil et accéder à un état de conscience apaisé.</p>
+                    </div>
+
+                    <!-- Pilates -->
+                    <div style="background: var(--sand); padding: 2rem 2.5rem; border-radius: 55% 45% 50% 50% / 50% 50% 50% 50%; min-width: 220px; max-width: 280px; text-align: center; transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                        <h4 style="font-family: 'Sora', sans-serif; font-weight: 600; color: var(--terracotta); margin-bottom: 0.8rem; font-size: 1.2rem;">Pilates</h4>
+                        <p style="font-size: 0.9rem; line-height: 1.6; margin: 0; color: var(--charcoal);">Renforcement musculaire en profondeur ciblant le centre du corps. Améliore la posture, la stabilité et la conscience corporelle.</p>
+                    </div>
+
+                    <!-- Méditation -->
+                    <div style="background: var(--sand); padding: 2rem 2.5rem; border-radius: 50% 50% 55% 45% / 52% 48% 52% 48%; min-width: 220px; max-width: 280px; text-align: center; transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                        <h4 style="font-family: 'Sora', sans-serif; font-weight: 600; color: var(--terracotta); margin-bottom: 0.8rem; font-size: 1.2rem;">Méditation</h4>
+                        <p style="font-size: 0.9rem; line-height: 1.6; margin: 0; color: var(--charcoal);">Pleine conscience et relaxation mentale. Techniques de méditation MBSR pour calmer l'esprit, réduire l'anxiété et cultiver la présence.</p>
+                    </div>
+
+                    <!-- Bain Sonore -->
+                    <div style="background: var(--sand); padding: 2rem 2.5rem; border-radius: 47% 53% 48% 52% / 55% 45% 55% 45%; min-width: 220px; max-width: 280px; text-align: center; transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                        <h4 style="font-family: 'Sora', sans-serif; font-weight: 600; color: var(--terracotta); margin-bottom: 0.8rem; font-size: 1.2rem;">Bain Sonore</h4>
+                        <p style="font-size: 0.9rem; line-height: 1.6; margin: 0; color: var(--charcoal);">Voyage de relaxation par les vibrations. Bols tibétains et instruments harmoniques pour un lâcher-prise profond et apaisant.</p>
+                    </div>
+
+                    <!-- Renfo Musculaire -->
+                    <div style="background: var(--sand); padding: 2rem 2.5rem; border-radius: 53% 47% 52% 48% / 48% 52% 48% 52%; min-width: 220px; max-width: 280px; text-align: center; transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                        <h4 style="font-family: 'Sora', sans-serif; font-weight: 600; color: var(--terracotta); margin-bottom: 0.8rem; font-size: 1.2rem;">Renfo Musculaire</h4>
+                        <p style="font-size: 0.9rem; line-height: 1.6; margin: 0; color: var(--charcoal);">Cours tonique et dynamique. Renforcement global du corps pour sculpter, tonifier et gagner en force et endurance musculaire.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Événements & Retraites -->
+    <section class="instagram-feed" id="activites" style="padding: 6rem 5%;">
+        <div class="instagram-content">
+            <h2 class="section-title" style="color: white; margin-bottom: 1rem;">Découvrez nos prochaines activités</h2>
+            <p style="color: white; font-size: 1.2rem; margin-bottom: 3rem; opacity: 0.95;">
+                @angele_om_yoga
+            </p>
+
+            <!-- Widget Instagram Behold - Les posts affichent les événements -->
+            <div style="max-width: 1200px; margin: 0 auto;">
+                <behold-widget feed-id="qhVyPYXFtHATTGLhvsZq"></behold-widget>
+            </div>
+
+            <div style="margin-top: 3rem;">
+                <a href="https://www.instagram.com/angele_om_yoga/"
+                   target="_blank"
+                   rel="noopener"
+                   class="btn btn-primary"
+                   style="background: white; color: var(--terracotta);">
+                    📸 Voir plus sur Instagram
+                </a>
             </div>
         </div>
     </section>
@@ -838,47 +1244,53 @@
             
             <div class="teachers-grid">
                 <div class="teacher-card">
-                    <img src="https://angele.yoga/wp-content/uploads/moi-photo-annie-1-1024x1024-216x234.jpg" alt="Angèle" class="teacher-image">
+                    <img src="images/angele.jpg" alt="Angèle" class="teacher-image">
                     <div class="teacher-info">
                         <h3 class="teacher-name">Angèle</h3>
-                        <p class="teacher-specialty">Fondatrice · Hatha & Yin Yoga</p>
+                        <p class="teacher-specialty">Fondatrice · Hatha, Yin, Vinyasa & Pilates</p>
                         <p class="teacher-bio">
-                            Professeure certifiée depuis 2015, Angèle a créé ce studio pour partager sa passion du yoga dans un cadre bienveillant et authentique. 
+                            Professeure certifiée, Angèle a créé ce studio pour partager sa passion du yoga dans un cadre bienveillant et authentique.
                             Elle enseigne un yoga doux et accessible à tous.
                         </p>
                         <div class="teacher-tags">
                             <span class="tag">Hatha Yoga</span>
                             <span class="tag">Yin Yoga</span>
-                            <span class="tag">Yoga Nidra</span>
+                            <span class="tag">Vinyasa</span>
+                            <span class="tag">Pilates</span>
                         </div>
+                        <a href="#planning"
+                           onclick="setTimeout(() => { const widget = document.querySelector('[data-eversports-widget-id]'); if(widget) widget.scrollIntoView({behavior: 'smooth', block: 'center'}); }, 100);"
+                           style="display: inline-block; margin-top: 1.5rem; background: var(--terracotta); color: white; padding: 0.7rem 1.5rem; border-radius: 25px; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: all 0.3s;">
+                            📅 Voir mes cours
+                        </a>
                     </div>
                 </div>
 
                 <div class="teacher-card">
-                    <img src="https://angele.yoga/wp-content/uploads/Mathilde-1-945x1024-217x230.jpg" alt="Mathilde" class="teacher-image">
+                    <img src="images/mathilde.jpg" alt="Mathilde" class="teacher-image">
                     <div class="teacher-info">
                         <h3 class="teacher-name">Mathilde</h3>
-                        <p class="teacher-specialty">Mahashakti Yoga</p>
+                        <p class="teacher-specialty">Hatha, Yin & Voyage sonore</p>
                         <p class="teacher-bio">
-                            Spécialiste du Hatha Flow et des postures d'équilibre, Mathilde apporte dynamisme et précision dans son enseignement. 
-                            Elle propose également des ateliers thématiques.
+                            Spécialiste du Hatha et du Yin Yoga, Mathilde apporte douceur et profondeur dans son enseignement.
+                            Elle propose également des voyages sonores pour une relaxation totale.
                         </p>
                         <div class="teacher-tags">
-                            <span class="tag">Hatha Flow</span>
-                            <span class="tag">Équilibres</span>
-                            <span class="tag">Ateliers</span>
+                            <span class="tag">Hatha Yoga</span>
+                            <span class="tag">Yin Yoga</span>
+                            <span class="tag">Voyage sonore</span>
                         </div>
                     </div>
                 </div>
 
                 <div class="teacher-card">
-                    <img src="https://angele.yoga/wp-content/uploads/20240907_162947-889x1024-260x250.jpg" alt="Audrey" class="teacher-image">
+                    <img src="images/audrey.jpg" alt="Audrey" class="teacher-image">
                     <div class="teacher-info">
-                        <h3 class="teacher-name">Audrey</h3>
+                        <h3 class="teacher-name">Audrey Herrmann</h3>
                         <p class="teacher-specialty">Vinyasa Yoga</p>
                         <p class="teacher-bio">
-                            Passionnée de yoga dynamique, Audrey propose des cours de Vinyasa toniques et fluides. 
-                            Son énergie positive rayonne dans chaque séance !
+                            Passionnée de yoga dynamique, Audrey propose des cours de Vinyasa toniques et fluides.
+                            Son énergie positive rayonne dans chaque séance.
                         </p>
                         <div class="teacher-tags">
                             <span class="tag">Vinyasa</span>
@@ -889,13 +1301,98 @@
                 </div>
 
                 <div class="teacher-card">
-                    <img src="https://angele.yoga/wp-content/uploads/vanessa-NB-web-241x235.jpg" alt="Vanessa" class="teacher-image">
+                    <img src="images/emilie.jpg" alt="Emilie" class="teacher-image">
                     <div class="teacher-info">
-                        <h3 class="teacher-name">Vanessa</h3>
+                        <h3 class="teacher-name">Emilie</h3>
+                        <p class="teacher-specialty">Vinyasa Yoga</p>
+                        <p class="teacher-bio">
+                            Professeure de Vinyasa, Emilie guide des pratiques fluides et énergisantes,
+                            en harmonie avec le souffle et le mouvement.
+                        </p>
+                        <div class="teacher-tags">
+                            <span class="tag">Vinyasa</span>
+                            <span class="tag">Flow</span>
+                            <span class="tag">Respiration</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="teacher-card">
+                    <img src="images/eva.jpg" alt="Eva" class="teacher-image">
+                    <div class="teacher-info">
+                        <h3 class="teacher-name">Eva</h3>
+                        <p class="teacher-specialty">Vinyasa Yoga</p>
+                        <p class="teacher-bio">
+                            Enseignante de Vinyasa, Eva apporte créativité et fluidité dans ses cours,
+                            pour une pratique à la fois dynamique et méditative.
+                        </p>
+                        <div class="teacher-tags">
+                            <span class="tag">Vinyasa</span>
+                            <span class="tag">Créativité</span>
+                            <span class="tag">Flow</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="teacher-card">
+                    <img src="images/oceane.jpg" alt="Océane" class="teacher-image">
+                    <div class="teacher-info">
+                        <h3 class="teacher-name">Océane</h3>
+                        <p class="teacher-specialty">Sweet Yoga</p>
+                        <p class="teacher-bio">
+                            Spécialisée dans le Sweet Yoga, Océane vous accompagne dans une pratique douce et bienveillante,
+                            parfaite pour se reconnecter à soi.
+                        </p>
+                        <div class="teacher-tags">
+                            <span class="tag">Sweet Yoga</span>
+                            <span class="tag">Douceur</span>
+                            <span class="tag">Bien-être</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="teacher-card">
+                    <img src="images/annabel.jpg" alt="Annabel" class="teacher-image">
+                    <div class="teacher-info">
+                        <h3 class="teacher-name">Annabel DePaco</h3>
+                        <p class="teacher-specialty">Shakta Tantra Yoga</p>
+                        <p class="teacher-bio">
+                            Enseignante de Shakta Tantra Yoga, Annabel vous guide dans une pratique profonde et spirituelle,
+                            alliant postures, respiration et méditation.
+                        </p>
+                        <div class="teacher-tags">
+                            <span class="tag">Tantra Yoga</span>
+                            <span class="tag">Spirituel</span>
+                            <span class="tag">Méditation</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="teacher-card">
+                    <img src="images/claire.jpg" alt="Claire" class="teacher-image">
+                    <div class="teacher-info">
+                        <h3 class="teacher-name">Claire Mieyeville</h3>
+                        <p class="teacher-specialty">Ashtanga & Hatha Yoga</p>
+                        <p class="teacher-bio">
+                            Professeure d'Ashtanga et Hatha Yoga, Claire enseigne avec rigueur et bienveillance,
+                            en respectant les traditions du yoga classique.
+                        </p>
+                        <div class="teacher-tags">
+                            <span class="tag">Ashtanga</span>
+                            <span class="tag">Hatha</span>
+                            <span class="tag">Traditionnel</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="teacher-card">
+                    <img src="images/vanessa.jpg" alt="Vanessa" class="teacher-image">
+                    <div class="teacher-info">
+                        <h3 class="teacher-name">Vanessa Autret</h3>
                         <p class="teacher-specialty">Méditation Pleine Conscience</p>
                         <p class="teacher-bio">
-                            Instructrice certifiée en méditation MBSR, Vanessa guide des séances de méditation tous les vendredis. 
-                            Une pause ressourçante au milieu de la semaine.
+                            Instructrice certifiée en méditation MBSR, Vanessa guide des séances de méditation
+                            pour cultiver la pleine conscience et réduire le stress.
                         </p>
                         <div class="teacher-tags">
                             <span class="tag">Méditation</span>
@@ -906,13 +1403,13 @@
                 </div>
 
                 <div class="teacher-card">
-                    <img src="https://angele.yoga/wp-content/uploads/c1f7b083-5c54-430a-a59d-2aaf080ce177-683x1024-260x250.jpg" alt="Aveline" class="teacher-image">
+                    <img src="images/aveline.jpg" alt="Aveline" class="teacher-image">
                     <div class="teacher-info">
                         <h3 class="teacher-name">Aveline</h3>
-                        <p class="teacher-specialty">Pilates</p>
+                        <p class="teacher-specialty">Pilates dynamique</p>
                         <p class="teacher-bio">
-                            Professeure de Pilates certifiée, Aveline propose des cours axés sur le renforcement en profondeur et la posture. 
-                            Idéal en complément du yoga !
+                            Professeure de Pilates certifiée, Aveline propose des cours dynamiques axés sur le renforcement en profondeur et la posture.
+                            Idéal en complément du yoga.
                         </p>
                         <div class="teacher-tags">
                             <span class="tag">Pilates</span>
@@ -923,18 +1420,18 @@
                 </div>
 
                 <div class="teacher-card">
-                    <img src="https://angele.yoga/wp-content/uploads/Oceane-Joly-260x250.jpg" alt="Océane" class="teacher-image">
+                    <img src="images/charlotte.jpg" alt="Charlotte" class="teacher-image">
                     <div class="teacher-info">
-                        <h3 class="teacher-name">Océane</h3>
-                        <p class="teacher-specialty">Shakta Tantra Yoga</p>
+                        <h3 class="teacher-name">Charlotte Debreuve</h3>
+                        <p class="teacher-specialty">Médecine Traditionnelle Chinoise</p>
                         <p class="teacher-bio">
-                            Spécialisée dans le Shakta Tantra Yoga, Océane vous accompagne dans une pratique profonde et spirituelle, 
-                            alliant postures, respiration et méditation.
+                            Praticienne en Médecine Traditionnelle Chinoise, Charlotte propose des soins personnalisés
+                            pour rétablir l'équilibre énergétique du corps.
                         </p>
                         <div class="teacher-tags">
-                            <span class="tag">Tantra Yoga</span>
-                            <span class="tag">Spirituel</span>
-                            <span class="tag">Méditation</span>
+                            <span class="tag">MTC</span>
+                            <span class="tag">Acupuncture</span>
+                            <span class="tag">Énergétique</span>
                         </div>
                     </div>
                 </div>
@@ -948,19 +1445,20 @@
             <div class="booking-header">
                 <div class="section-label">Réservation</div>
                 <h2 class="section-title">Trouver les cours qui vous conviennent</h2>
-                
-                <p class="booking-subtitle">
-                    <em>Annulation d'une réservation présentiel inscription en ligne :</em>
-                </p>
-                
-                <div class="cancellation-policy">
-                    <p>
-                        Toute réservation d'une séance collective peut être annulée par le pratiquant <strong>jusqu'à 4 h avant l'heure du cours</strong> 
-                        directement sur le Site pour les cours en studio.
+
+                <div style="max-width: 800px; margin: 2rem auto;">
+                    <p style="font-size: 1.1rem; font-style: italic; color: var(--charcoal); opacity: 0.8; margin-bottom: 1.5rem;">
+                        <em>Annulation d'une réservation présentiel inscription en ligne :</em>
                     </p>
-                    <p style="margin-top: 0.8rem;">
-                        L'annulation d'une réservation hors délais ne pourra en tout état de cause donner lieu à aucun remboursement.
-                    </p>
+                    <div style="line-height: 1.6;">
+                        <p>
+                            Toute réservation d'une séance collective peut être annulée par le pratiquant <strong>jusqu'à 4 h avant l'heure du cours</strong>
+                            directement sur le Site pour les cours en studio.
+                        </p>
+                        <p style="margin-top: 0.8rem;">
+                            L'annulation d'une réservation hors délais ne pourra en tout état de cause donner lieu à aucun remboursement.
+                        </p>
+                    </div>
                 </div>
             </div>
 
@@ -974,9 +1472,170 @@
             
             <div style="text-align: center; margin-top: 2rem; padding: 1.5rem; background: var(--sand); border-radius: 15px;">
                 <p style="margin: 0; font-size: 1.1rem;">
-                    <strong>💡 Astuce :</strong> Vous pouvez aussi réserver directement sur 
+                    <strong>💡 Astuce :</strong> Vous pouvez aussi réserver directement sur
                     <a href="https://www.eversports.fr/s/angele-om-yoga" target="_blank" rel="noopener" style="color: var(--terracotta); text-decoration: underline;">Eversports</a>
                 </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cours en ligne -->
+    <section id="cours-en-ligne" style="background: linear-gradient(135deg, #8B9D83 0%, #D4A574 100%); padding: 3rem 5%; position: relative; overflow: hidden;">
+        <!-- Forme de galet décoratif -->
+        <div style="position: absolute; top: -30px; right: 10%; width: 200px; height: 180px; background: rgba(255, 255, 255, 0.1); border-radius: 45% 55% 52% 48% / 48% 58% 42% 52%; z-index: 0;"></div>
+
+        <div style="max-width: 1200px; margin: 0 auto; position: relative; z-index: 1;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;">
+                <!-- Texte -->
+                <div style="color: white;">
+                    <h2 style="font-family: 'Sora', sans-serif; font-size: 2.5rem; font-weight: 600; margin-bottom: 1rem; line-height: 1.2;">
+                        Cours de Yoga en Ligne
+                    </h2>
+                    <p style="font-size: 1.1rem; line-height: 1.7; margin-bottom: 1.5rem; opacity: 0.95;">
+                        Pratiquez depuis chez vous grâce à nos séances en visio via Zoom. Convivial et interactif, tout en restant confortablement installé.
+                    </p>
+
+                    <!-- Portrait instructeur -->
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; background: rgba(255, 255, 255, 0.15); padding: 1rem; border-radius: 15px;">
+                        <img src="https://angele.yoga/wp-content/uploads/moi-photo-annie-1-1024x1024-216x234.jpg" alt="Angèle" style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover; border: 3px solid white;">
+                        <div>
+                            <div style="font-weight: 600; font-size: 1.1rem; margin-bottom: 0.3rem;">Angèle</div>
+                            <div style="font-size: 0.9rem; opacity: 0.9;">Professeure certifiée Hatha Vinyasa & Yogathérapie</div>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; gap: 1rem; margin-bottom: 1.5rem;">
+                        <div style="background: rgba(255, 255, 255, 0.2); padding: 1rem 1.5rem; border-radius: 15px; flex: 1;">
+                            <div style="font-size: 2rem; font-weight: 700; margin-bottom: 0.3rem;">129€</div>
+                            <div style="font-size: 0.9rem; opacity: 0.9;">Abonnement 10 séances</div>
+                        </div>
+                        <div style="background: rgba(255, 255, 255, 0.2); padding: 1rem 1.5rem; border-radius: 15px; flex: 1;">
+                            <div style="font-size: 2rem; font-weight: 700; margin-bottom: 0.3rem;">39€</div>
+                            <div style="font-size: 0.9rem; opacity: 0.9;">Cours particulier</div>
+                        </div>
+                    </div>
+                    <a href="https://angele.yoga/cours-en-ligne/" target="_blank" style="display: inline-block; background: white; color: var(--sage); padding: 1rem 2.5rem; border-radius: 40px; text-decoration: none; font-weight: 600; font-size: 1rem; transition: all 0.3s; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);">
+                        En savoir plus →
+                    </a>
+                </div>
+
+                <!-- Points clés -->
+                <div style="display: grid; gap: 1.5rem;">
+                    <div style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); padding: 1.5rem; border-radius: 20px; display: flex; align-items: start; gap: 1rem;">
+                        <div style="background: white; color: var(--sage); width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; flex-shrink: 0;">1</div>
+                        <div style="color: white;">
+                            <h3 style="font-family: 'Sora', sans-serif; font-size: 1.2rem; font-weight: 600; margin-bottom: 0.5rem;">Réservez facilement</h3>
+                            <p style="opacity: 0.9; font-size: 0.95rem;">Au moins 15 minutes avant le cours</p>
+                        </div>
+                    </div>
+                    <div style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); padding: 1.5rem; border-radius: 20px; display: flex; align-items: start; gap: 1rem;">
+                        <div style="background: white; color: var(--sage); width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; flex-shrink: 0;">2</div>
+                        <div style="color: white;">
+                            <h3 style="font-family: 'Sora', sans-serif; font-size: 1.2rem; font-weight: 600; margin-bottom: 0.5rem;">Installez-vous</h3>
+                            <p style="opacity: 0.9; font-size: 0.95rem;">Dans un espace calme et confortable</p>
+                        </div>
+                    </div>
+                    <div style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); padding: 1.5rem; border-radius: 20px; display: flex; align-items: start; gap: 1rem;">
+                        <div style="background: white; color: var(--sage); width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; flex-shrink: 0;">3</div>
+                        <div style="color: white;">
+                            <h3 style="font-family: 'Sora', sans-serif; font-size: 1.2rem; font-weight: 600; margin-bottom: 0.5rem;">Connectez-vous</h3>
+                            <p style="opacity: 0.9; font-size: 0.95rem;">Via le lien Zoom envoyé par email</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Méditation à la bougie -->
+    <section style="background: linear-gradient(135deg, #3A3A3A 0%, #5A4A3A 100%); padding: 6rem 5%; position: relative; overflow: hidden;">
+        <!-- Forme de galet décoratif -->
+        <div style="position: absolute; top: -50px; left: 8%; width: 250px; height: 220px; background: rgba(255, 255, 255, 0.08); border-radius: 48% 52% 45% 55% / 52% 48% 58% 42%; z-index: 0;"></div>
+        <div style="position: absolute; bottom: -40px; right: 10%; width: 200px; height: 180px; background: rgba(199, 123, 88, 0.12); border-radius: 55% 45% 52% 48% / 48% 52% 48% 52%; z-index: 0;"></div>
+
+        <div style="max-width: 1200px; margin: 0 auto; position: relative; z-index: 1;">
+            <div style="text-align: center; margin-bottom: 3rem;">
+                <div style="font-size: 0.9rem; letter-spacing: 3px; text-transform: uppercase; color: var(--terre-douce); margin-bottom: 1rem;">Trataka</div>
+                <h2 style="font-family: 'Sora', sans-serif; font-size: 3rem; font-weight: 600; color: white; margin-bottom: 1.5rem;">Méditation à la bougie</h2>
+                <p style="font-size: 1.2rem; color: rgba(255, 255, 255, 0.9); max-width: 700px; margin: 0 auto; font-style: italic;">
+                    Une pratique millénaire pour apaiser l'esprit et se connecter à sa lumière intérieure
+                </p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; margin-top: 4rem;">
+                <!-- Image -->
+                <div style="position: relative;">
+                    <div style="border-radius: 20px; overflow: hidden; box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);">
+                        <img src="https://angele.yoga/wp-content/uploads/mediation_bougie.png" alt="Méditation à la bougie" style="width: 100%; display: block;">
+                    </div>
+                </div>
+
+                <!-- Contenu -->
+                <div style="color: white;">
+                    <h3 style="font-family: 'Sora', sans-serif; font-size: 1.8rem; font-weight: 600; color: var(--terre-douce); margin-bottom: 2rem;">Pourquoi méditer avec une bougie ?</h3>
+
+                    <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                        <div style="display: flex; align-items: start; gap: 1rem;">
+                            <div style="background: rgba(212, 165, 116, 0.2); width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; flex-shrink: 0;">🕯️</div>
+                            <div>
+                                <h4 style="font-family: 'Sora', sans-serif; font-weight: 600; margin-bottom: 0.5rem; font-size: 1.1rem;">Concentration profonde</h4>
+                                <p style="opacity: 0.9; line-height: 1.7;">Apaise les pensées vagabondes et développe la capacité de concentration</p>
+                            </div>
+                        </div>
+
+                        <div style="display: flex; align-items: start; gap: 1rem;">
+                            <div style="background: rgba(212, 165, 116, 0.2); width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; flex-shrink: 0;">✨</div>
+                            <div>
+                                <h4 style="font-family: 'Sora', sans-serif; font-weight: 600; margin-bottom: 0.5rem; font-size: 1.1rem;">Détente du système nerveux</h4>
+                                <p style="opacity: 0.9; line-height: 1.7;">Relaxe profondément le corps et calme l'esprit pour une paix intérieure</p>
+                            </div>
+                        </div>
+
+                        <div style="display: flex; align-items: start; gap: 1rem;">
+                            <div style="background: rgba(212, 165, 116, 0.2); width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; flex-shrink: 0;">🧘</div>
+                            <div>
+                                <h4 style="font-family: 'Sora', sans-serif; font-weight: 600; margin-bottom: 0.5rem; font-size: 1.1rem;">État méditatif profond</h4>
+                                <p style="opacity: 0.9; line-height: 1.7;">Facilite l'accès à un état de méditation profonde et durable</p>
+                            </div>
+                        </div>
+
+                        <div style="display: flex; align-items: start; gap: 1rem;">
+                            <div style="background: rgba(212, 165, 116, 0.2); width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; flex-shrink: 0;">💫</div>
+                            <div>
+                                <h4 style="font-family: 'Sora', sans-serif; font-weight: 600; margin-bottom: 0.5rem; font-size: 1.1rem;">Connexion intérieure</h4>
+                                <p style="opacity: 0.9; line-height: 1.7;">Permet de se connecter à sa lumière intérieure et à son essence profonde</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 2.5rem; padding: 1.5rem; background: rgba(255, 255, 255, 0.1); border-radius: 15px; border-left: 4px solid var(--terre-douce);">
+                        <p style="font-size: 0.95rem; line-height: 1.7; margin: 0; opacity: 0.95;">
+                            <strong>Le Trataka</strong> est une pratique ancestrale du yoga qui utilise la flamme d'une bougie comme point de focalisation.
+                            Cette technique millénaire favorise la clarté mentale et l'apaisement de l'esprit.
+                        </p>
+                    </div>
+
+                    <!-- Enregistrement vocal guidé -->
+                    <div style="margin-top: 2rem; padding: 1.5rem; background: rgba(212, 165, 116, 0.15); border-radius: 15px;">
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                            <div style="background: rgba(212, 165, 116, 0.3); width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0;">🎧</div>
+                            <div>
+                                <h4 style="font-family: 'Sora', sans-serif; font-weight: 600; margin: 0; font-size: 1.1rem;">Méditation guidée</h4>
+                                <p style="margin: 0; opacity: 0.9; font-size: 0.9rem;">Enregistrement vocal pour pratiquer chez vous</p>
+                            </div>
+                        </div>
+                        <audio controls style="width: 100%; margin-top: 0.5rem; border-radius: 10px;">
+                            <source src="https://angele.yoga/wp-content/uploads/meditation-bougie-guide.mp3" type="audio/mpeg">
+                            Votre navigateur ne supporte pas la lecture audio.
+                        </audio>
+                    </div>
+
+                    <div style="margin-top: 2rem;">
+                        <a href="#planning" style="display: inline-block; background: var(--terre-douce); color: var(--charcoal); padding: 1rem 2.5rem; border-radius: 40px; text-decoration: none; font-weight: 600; font-size: 1rem; transition: all 0.3s; box-shadow: 0 10px 30px rgba(212, 165, 116, 0.3);">
+                            Découvrir les séances →
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -994,7 +1653,7 @@
             </div>
 
             <div style="display: grid; gap: 3rem; max-width: 1000px; margin: 0 auto;">
-                
+
                 <!-- YOGA -->
                 <div class="pricing-category">
                     <h3 style="font-family: 'Sora', sans-serif; font-size: 2rem; font-weight: 600; color: var(--terracotta); margin-bottom: 2rem; text-align: center;">
@@ -1006,29 +1665,127 @@
                             <div class="plan-price">15€</div>
                             <p class="plan-period">« Venez quand vous voulez »</p>
                         </div>
-                        
+
                         <div class="pricing-card">
                             <h4 class="plan-name">Carte 6 cours</h4>
                             <div class="plan-price">80€</div>
                             <p class="plan-period">Valable 3 mois</p>
                         </div>
-                        
+
                         <div class="pricing-card featured">
                             <h4 class="plan-name">Carte 10 cours</h4>
                             <div class="plan-price">130€</div>
                             <p class="plan-period">Valable 6 mois</p>
                         </div>
-                        
+
                         <div class="pricing-card">
                             <h4 class="plan-name">Carte 20 cours</h4>
                             <div class="plan-price">259€</div>
                             <p class="plan-period">Valable 1 an</p>
                         </div>
-                        
+
                         <div class="pricing-card">
                             <h4 class="plan-name">Carte 40 cours</h4>
                             <div class="plan-price">512€</div>
                             <p class="plan-period">Valable 1 an</p>
+                        </div>
+                    </div>
+
+                    <h4 style="font-family: 'Sora', sans-serif; font-size: 1.3rem; font-weight: 600; color: var(--charcoal); margin: 2rem 0 1rem; text-align: center;">Cours particuliers</h4>
+                    <div class="pricing-grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
+                        <div class="pricing-card">
+                            <h4 class="plan-name">Cours individuel</h4>
+                            <div class="plan-price">49€</div>
+                            <p class="plan-period">1 personne</p>
+                        </div>
+                        <div class="pricing-card">
+                            <h4 class="plan-name">Cours duo</h4>
+                            <div class="plan-price">79€</div>
+                            <p class="plan-period">2 personnes</p>
+                        </div>
+                        <div class="pricing-card">
+                            <h4 class="plan-name">Yoga parent-enfant</h4>
+                            <div class="plan-price">45€</div>
+                            <p class="plan-period">Séance privée</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PILATES -->
+                <div class="pricing-category">
+                    <h3 style="font-family: 'Sora', sans-serif; font-size: 2rem; font-weight: 600; color: var(--terracotta); margin-bottom: 2rem; text-align: center;">
+                        💪 Pilates
+                    </h3>
+                    <div class="pricing-grid">
+                        <div class="pricing-card">
+                            <h4 class="plan-name">Cours à l'unité</h4>
+                            <div class="plan-price">15€</div>
+                            <p class="plan-period">Cours collectif</p>
+                        </div>
+
+                        <div class="pricing-card">
+                            <h4 class="plan-name">Pack 7 séances</h4>
+                            <div class="plan-price">84€</div>
+                            <p class="plan-period">1 séance offerte</p>
+                        </div>
+
+                        <div class="pricing-card featured">
+                            <h4 class="plan-name">Engagement annuel</h4>
+                            <div class="plan-price">360€</div>
+                            <p class="plan-period">2 séances offertes · 3 x 120€</p>
+                        </div>
+
+                        <div class="pricing-card">
+                            <h4 class="plan-name">Cours particulier</h4>
+                            <div class="plan-price">49€</div>
+                            <p class="plan-period">Séance individuelle</p>
+                        </div>
+                    </div>
+                    <p style="text-align: center; margin-top: 1rem; font-size: 0.9rem; opacity: 0.7;">Pas de cours pendant les vacances scolaires</p>
+                </div>
+
+                <!-- MÉDITATION MBSR -->
+                <div class="pricing-category">
+                    <h3 style="font-family: 'Sora', sans-serif; font-size: 2rem; font-weight: 600; color: var(--terracotta); margin-bottom: 2rem; text-align: center;">
+                        🧠 Méditation Pleine Conscience (MBSR)
+                    </h3>
+                    <div class="pricing-grid">
+                        <div class="pricing-card">
+                            <h4 class="plan-name">Séance unique</h4>
+                            <div class="plan-price">15€</div>
+                            <p class="plan-period">1h à 1h15</p>
+                        </div>
+
+                        <div class="pricing-card">
+                            <h4 class="plan-name">Pack 5 séances</h4>
+                            <div class="plan-price">60€</div>
+                            <p class="plan-period">Cours collectifs</p>
+                        </div>
+
+                        <div class="pricing-card featured">
+                            <h4 class="plan-name">Pack 10 séances</h4>
+                            <div class="plan-price">100€</div>
+                            <p class="plan-period">Cours collectifs</p>
+                        </div>
+
+                        <div class="pricing-card">
+                            <h4 class="plan-name">Cours individuel</h4>
+                            <div class="plan-price">50€</div>
+                            <p class="plan-period">Suivi personnalisé · Programme 8 semaines</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SHAKTA TANTRA YOGA -->
+                <div class="pricing-category">
+                    <h3 style="font-family: 'Sora', sans-serif; font-size: 2rem; font-weight: 600; color: var(--terracotta); margin-bottom: 2rem; text-align: center;">
+                        ✨ Shakta Tantra Yoga
+                    </h3>
+                    <div style="text-align: center;">
+                        <div class="pricing-card" style="display: inline-block; max-width: 300px;">
+                            <h4 class="plan-name">Séance</h4>
+                            <div class="plan-price">12€</div>
+                            <p class="plan-period">Par cours</p>
                         </div>
                     </div>
                 </div>
@@ -1085,6 +1842,26 @@
                             @angele_om_yoga
                         </div>
                     </div>
+                </div>
+
+                <!-- Google Map -->
+                <div style="margin-top: 2rem;">
+                    <a href="https://www.google.com/maps/place/1+Bis+Rue+Fleuriau,+17000+La+Rochelle"
+                       target="_blank"
+                       rel="noopener"
+                       style="display: block; text-decoration: none;">
+                        <div style="border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); cursor: pointer; position: relative;">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2748.9377645831896!2d-1.1551!3d46.1581!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4801524b9d9d9d9d%3A0x1234567890abcdef!2s1%20Bis%20Rue%20Fleuriau%2C%2017000%20La%20Rochelle!5e0!3m2!1sfr!2sfr!4v1234567890123!5m2!1sfr!2sfr"
+                                width="100%"
+                                height="300"
+                                style="border:0; pointer-events: none;"
+                                allowfullscreen=""
+                                loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
+                    </a>
                 </div>
             </div>
 
@@ -1170,6 +1947,23 @@
     </footer>
 
     <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenuBtn.addEventListener('click', function() {
+            navLinks.classList.toggle('active');
+            this.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function() {
+                navLinks.classList.remove('active');
+                mobileMenuBtn.textContent = '☰';
+            });
+        });
+
         // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -1187,6 +1981,139 @@
             alert('Merci pour votre message ! Nous vous répondrons rapidement.');
             this.reset();
         });
+
+        // Instagram Carousel
+        const instagramPosts = [
+            {
+                image: 'https://angele.yoga/wp-content/uploads/angele-yoga-rochelle-web-4.jpg',
+                caption: 'Séance de yoga en pleine conscience 🧘‍♀️',
+                hashtag: '#goodvibesonly',
+                link: 'https://www.instagram.com/angele_om_yoga/'
+            },
+            {
+                image: 'https://angele.yoga/wp-content/uploads/moi-photo-annie-1-1024x1024-216x234.jpg',
+                caption: 'Pratique quotidienne pour trouver l\'équilibre ✨',
+                hashtag: '#goodvibesonly',
+                link: 'https://www.instagram.com/angele_om_yoga/'
+            },
+            {
+                image: 'https://angele.yoga/wp-content/uploads/Mathilde-1-945x1024-217x230.jpg',
+                caption: 'Flow du matin, énergie positive 🌿',
+                hashtag: '#goodvibesonly',
+                link: 'https://www.instagram.com/angele_om_yoga/'
+            },
+            {
+                image: 'https://angele.yoga/wp-content/uploads/20240907_162947-889x1024-260x250.jpg',
+                caption: 'Moments de paix et de sérénité 🌸',
+                hashtag: '#goodvibesonly',
+                link: 'https://www.instagram.com/angele_om_yoga/'
+            },
+            {
+                image: 'https://angele.yoga/wp-content/uploads/vanessa-NB-web-241x235.jpg',
+                caption: 'Connexion corps-esprit 💫',
+                hashtag: '#goodvibesonly',
+                link: 'https://www.instagram.com/angele_om_yoga/'
+            },
+            {
+                image: 'https://angele.yoga/wp-content/uploads/Oceane-Joly-260x250.jpg',
+                caption: 'Studio chaleureux et accueillant 💛',
+                hashtag: '#goodvibesonly',
+                link: 'https://www.instagram.com/angele_om_yoga/'
+            }
+        ];
+
+        function createInstagramCard(post) {
+            const card = document.createElement('div');
+            card.className = 'insta-card';
+            card.innerHTML = `
+                <img src="${post.image}" alt="${post.caption}">
+                <div class="insta-icon">📷</div>
+                <div class="like-badge">Like This!</div>
+                <div class="insta-card-overlay">
+                    <div class="insta-card-content">
+                        <p style="font-size: 0.95rem; margin: 0;">${post.caption}</p>
+                        <p style="font-size: 0.85rem; margin-top: 0.5rem; opacity: 0.9;">${post.hashtag}</p>
+                    </div>
+                </div>
+            `;
+            card.addEventListener('click', () => {
+                window.open(post.link, '_blank');
+            });
+            return card;
+        }
+
+        const carousel = document.getElementById('instagram-carousel');
+        const prevBtn = document.getElementById('carousel-prev');
+        const nextBtn = document.getElementById('carousel-next');
+
+        // Ajouter les posts au carrousel
+        instagramPosts.forEach(post => {
+            carousel.appendChild(createInstagramCard(post));
+        });
+
+        // Navigation du carrousel
+        let scrollAmount = 0;
+        const cardWidth = 300 + 24; // largeur de la carte + gap
+
+        nextBtn.addEventListener('click', () => {
+            scrollAmount += cardWidth;
+            const maxScroll = carousel.scrollWidth - carousel.clientWidth;
+            if (scrollAmount > maxScroll) scrollAmount = maxScroll;
+            carousel.scrollTo({
+                left: scrollAmount,
+                behavior: 'smooth'
+            });
+        });
+
+        prevBtn.addEventListener('click', () => {
+            scrollAmount -= cardWidth;
+            if (scrollAmount < 0) scrollAmount = 0;
+            carousel.scrollTo({
+                left: scrollAmount,
+                behavior: 'smooth'
+            });
+        });
+
+        // Auto-scroll (optionnel)
+        let autoScrollInterval = setInterval(() => {
+            scrollAmount += cardWidth;
+            const maxScroll = carousel.scrollWidth - carousel.clientWidth;
+            if (scrollAmount > maxScroll) {
+                scrollAmount = 0;
+            }
+            carousel.scrollTo({
+                left: scrollAmount,
+                behavior: 'smooth'
+            });
+        }, 5000); // Change toutes les 5 secondes
+
+        // Arrêter l'auto-scroll au survol
+        carousel.addEventListener('mouseenter', () => {
+            clearInterval(autoScrollInterval);
+        });
+
+        carousel.addEventListener('mouseleave', () => {
+            autoScrollInterval = setInterval(() => {
+                scrollAmount += cardWidth;
+                const maxScroll = carousel.scrollWidth - carousel.clientWidth;
+                if (scrollAmount > maxScroll) {
+                    scrollAmount = 0;
+                }
+                carousel.scrollTo({
+                    left: scrollAmount,
+                    behavior: 'smooth'
+                });
+            }, 5000);
+        });
+    </script>
+    
+    <!-- Behold Instagram Widget Script -->
+    <script>
+      (() => {
+        const d=document,s=d.createElement("script");s.type="module";
+        s.src="https://w.behold.so/widget.js";d.head.append(s);
+      })();
     </script>
 </body>
 </html>
+                link: 'https://www.instagram.com/angele_om_yoga/'

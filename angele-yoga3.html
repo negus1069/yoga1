@@ -1,0 +1,1555 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Angèle OM Yoga · Studio de Yoga à La Rochelle</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
+<style>
+/* ─────────────────────────────────────────
+   TOKENS
+───────────────────────────────────────── */
+:root {
+  --sable:     #f7f3ea;
+  --creme:     #efe8d8;
+  --blanc:     #fdfaf5;
+  --ocean:     #6f9fa5;
+  --ocean-dk:  #4a7a80;
+  --ocean-lt:  #c2dde0;
+  --sauge:     #8aaa78;
+  --sauge-dk:  #5e7d50;
+  --terre:     #b8926a;
+  --terre-dk:  #8a6840;
+  --rose:      #c9a09a;
+  --encre:     #2a2520;
+  --encre-l:   #5a5045;
+  --muted:     #9a9080;
+  --border:    rgba(181,149,106,.18);
+  --shadow:    0 8px 40px rgba(42,37,32,.08);
+  --shadow-lg: 0 20px 70px rgba(42,37,32,.12);
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+
+body {
+  background: var(--blanc);
+  color: var(--encre);
+  font-family: 'Jost', sans-serif;
+  font-weight: 300;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* grain overlay */
+body::after {
+  content:''; position:fixed; inset:0; pointer-events:none; z-index:9999;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+  opacity:.45;
+}
+
+/* ─────────────────────────────────────────
+   NAV
+───────────────────────────────────────── */
+nav {
+  position:fixed; top:0; left:0; right:0; z-index:500;
+  display:flex; justify-content:space-between; align-items:center;
+  padding:20px 64px;
+  background:rgba(247,243,234,.94);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--border);
+  transition:padding .3s;
+}
+
+.nav-logo {
+  display:flex; flex-direction:column; gap:2px;
+  text-decoration:none;
+}
+.logo-script {
+  font-family:'Great Vibes', cursive;
+  font-size:30px; color:var(--terre);
+  line-height:1;
+}
+.logo-sub {
+  font-size:9px; font-weight:400; letter-spacing:.32em;
+  text-transform:uppercase; color:var(--muted);
+}
+
+.nav-links {
+  display:flex; gap:32px; list-style:none;
+}
+.nav-links a {
+  font-size:11px; font-weight:400; letter-spacing:.22em;
+  text-transform:uppercase; color:var(--encre-l);
+  text-decoration:none; transition:color .2s;
+}
+.nav-links a:hover { color:var(--terre); }
+
+.nav-cta {
+  font-size:11px; font-weight:500; letter-spacing:.18em;
+  text-transform:uppercase; color:#fff;
+  background:var(--ocean); padding:12px 28px;
+  border-radius:50px; text-decoration:none;
+  transition:background .25s, transform .2s;
+  white-space:nowrap;
+}
+.nav-cta:hover { background:var(--ocean-dk); transform:translateY(-1px); }
+
+.nav-hamburger { display:none; background:none; border:none; cursor:pointer; padding:4px; }
+.nav-hamburger span {
+  display:block; width:22px; height:1.5px;
+  background:var(--encre); margin:5px 0; transition:.3s;
+}
+
+/* ─────────────────────────────────────────
+   UTILITAIRES
+───────────────────────────────────────── */
+.eyebrow {
+  font-size:10px; font-weight:400; letter-spacing:.38em;
+  text-transform:uppercase; color:var(--ocean);
+  display:flex; align-items:center; gap:14px;
+  margin-bottom:18px;
+}
+.eyebrow::before { content:''; width:28px; height:1px; background:var(--ocean); flex-shrink:0; }
+
+.h-display {
+  font-family:'Cormorant Garamond', serif;
+  font-size:clamp(44px,6vw,82px);
+  font-weight:300; line-height:1.05;
+  letter-spacing:-.01em;
+}
+.h-display em { font-style:italic; color:var(--terre); }
+
+.h-section {
+  font-family:'Cormorant Garamond', serif;
+  font-size:clamp(36px,4.5vw,60px);
+  font-weight:300; line-height:1.1;
+}
+.h-section em { font-style:italic; color:var(--terre); }
+
+.btn-primary {
+  display:inline-flex; align-items:center; gap:10px;
+  font-size:11px; font-weight:500; letter-spacing:.2em;
+  text-transform:uppercase; color:#fff;
+  background:var(--terre); padding:15px 34px;
+  border-radius:50px; text-decoration:none;
+  transition:background .25s, transform .2s;
+}
+.btn-primary:hover { background:var(--terre-dk); transform:translateY(-2px); }
+
+.btn-outline {
+  display:inline-flex; align-items:center; gap:10px;
+  font-size:11px; font-weight:400; letter-spacing:.2em;
+  text-transform:uppercase; color:var(--encre-l);
+  border:1px solid var(--border); padding:14px 32px;
+  border-radius:50px; text-decoration:none;
+  transition:border-color .25s, color .25s;
+}
+.btn-outline:hover { border-color:var(--terre); color:var(--terre); }
+
+/* ─────────────────────────────────────────
+   HERO
+───────────────────────────────────────── */
+.hero {
+  min-height:100vh;
+  display:grid; grid-template-columns:1fr 1fr;
+  padding-top:82px;
+  overflow:hidden;
+}
+
+.hero-left {
+  display:flex; flex-direction:column; justify-content:center;
+  padding:90px 64px 90px 80px;
+  position:relative; z-index:2;
+}
+
+
+@keyframes livePulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(.7)} }
+
+.hero-h1 { margin-bottom:16px; }
+.hero-tagline {
+  font-family:'Great Vibes', cursive;
+  font-size:34px; color:var(--ocean); margin-bottom:28px; opacity:.85;
+}
+.hero-sub {
+  font-size:16px; line-height:1.85; color:var(--encre-l);
+  max-width:440px; margin-bottom:44px;
+}
+
+.hero-btns { display:flex; gap:14px; flex-wrap:wrap; margin-bottom:52px; }
+
+.hero-event {
+  background:var(--creme); border-radius:16px;
+  padding:22px 26px;
+  display:flex; align-items:center; gap:20px;
+  max-width:420px;
+  border:1px solid var(--border);
+}
+.hero-event-icon { font-size:32px; flex-shrink:0; }
+.hero-event-label {
+  font-size:10px; letter-spacing:.28em; text-transform:uppercase;
+  color:var(--ocean); margin-bottom:4px;
+}
+.hero-event-title {
+  font-family:'Cormorant Garamond', serif;
+  font-size:20px; font-weight:400; margin-bottom:4px;
+}
+.hero-event-meta { font-size:12px; color:var(--muted); line-height:1.5; }
+.hero-event-link {
+  font-size:10px; font-weight:500; letter-spacing:.18em;
+  text-transform:uppercase; color:var(--terre);
+  text-decoration:none; border-bottom:1px solid var(--terre);
+  white-space:nowrap; flex-shrink:0;
+  transition:opacity .2s;
+}
+.hero-event-link:hover { opacity:.7; }
+
+/* Hero right — aquarelle atmosphère */
+.hero-right {
+  position:relative; overflow:hidden;
+  background:linear-gradient(160deg, var(--sable) 0%, var(--creme) 100%);
+}
+
+.hero-blobs { position:absolute; inset:0; }
+.blob {
+  position:absolute; border-radius:60% 40% 55% 45% / 45% 55% 45% 55%;
+  filter:blur(1px);
+}
+.blob-1 {
+  width:420px; height:400px; top:60px; left:30px;
+  background:radial-gradient(ellipse at 40% 40%, rgba(111,159,165,.22), rgba(74,122,128,.12) 70%);
+  animation:morphBlob 14s ease-in-out infinite;
+}
+.blob-2 {
+  width:300px; height:300px; top:180px; right:40px;
+  background:radial-gradient(ellipse at 60% 40%, rgba(184,146,106,.2), rgba(138,104,64,.1) 70%);
+  border-radius:50% 70% 40% 60% / 60% 40% 70% 50%;
+  animation:morphBlob 18s ease-in-out infinite reverse;
+}
+.blob-3 {
+  width:220px; height:220px; bottom:80px; left:100px;
+  background:radial-gradient(ellipse at 50% 50%, rgba(138,170,120,.18), transparent 70%);
+  border-radius:40% 60% 70% 30% / 60% 30% 40% 70%;
+  animation:morphBlob 11s ease-in-out infinite 3s;
+}
+@keyframes morphBlob {
+  0%,100%{ border-radius:60% 40% 55% 45% / 45% 55% 45% 55%; transform:translateY(0) rotate(0deg); }
+  33%    { border-radius:40% 60% 45% 55% / 55% 45% 55% 45%; transform:translateY(-12px) rotate(2deg); }
+  66%    { border-radius:55% 45% 40% 60% / 60% 40% 55% 45%; transform:translateY(8px) rotate(-1deg); }
+}
+
+/* Photos composées */
+.hero-photo-stack { position:absolute; inset:0; }
+
+.hcard {
+  position:absolute; border-radius:20px; overflow:hidden;
+  box-shadow:var(--shadow-lg);
+}
+
+.hcard-main {
+  width:295px; height:370px; top:88px; left:55px;
+  background:linear-gradient(160deg,var(--ocean) 0%,var(--ocean-dk) 100%);
+  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:14px;
+}
+.hcard-main img {
+  width:100%; height:100%; object-fit:cover; position:absolute; inset:0;
+}
+.hcard-main .card-overlay {
+  position:absolute; inset:0;
+  background:linear-gradient(to top, rgba(42,37,32,.6) 0%, rgba(42,37,32,.1) 60%, transparent);
+}
+.hcard-main .card-label {
+  position:absolute; bottom:22px; left:22px; right:22px; z-index:2;
+  font-family:'Cormorant Garamond', serif;
+  font-size:22px; font-style:italic; color:white; line-height:1.25;
+}
+.hcard-main .card-sub {
+  position:absolute; bottom:22px; right:22px; z-index:2;
+  font-size:9px; letter-spacing:.22em; text-transform:uppercase;
+  color:rgba(255,255,255,.6);
+}
+/* fallback if no img */
+.hcard-main .fallback-emoji {
+  font-size:90px; opacity:.65;
+  animation:breatheY 5s ease-in-out infinite;
+}
+@keyframes breatheY {
+  0%,100%{transform:scale(1) translateY(0)} 50%{transform:scale(1.03) translateY(-5px)}
+}
+
+.hcard-top {
+  width:160px; height:190px; top:55px; right:55px;
+  background:var(--blanc);
+  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px;
+}
+.hcard-top .we { font-size:46px; }
+.hcard-top p { font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:var(--terre); font-weight:400; }
+
+.hcard-bot {
+  width:175px; height:130px; bottom:90px; right:80px;
+  background:var(--sauge);
+  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:6px;
+}
+.hcard-bot .num {
+  font-family:'Cormorant Garamond', serif;
+  font-size:38px; color:white; font-weight:300; line-height:1;
+}
+.hcard-bot p { font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:rgba(255,255,255,.8); }
+
+.hero-deco-text {
+  position:absolute; bottom:50px; right:28px;
+  font-family:'Cormorant Garamond', serif;
+  font-size:12px; font-style:italic; color:var(--muted); opacity:.55;
+  writing-mode:vertical-rl; letter-spacing:.2em;
+}
+
+/* ─────────────────────────────────────────
+   PHILOSOPHIE
+───────────────────────────────────────── */
+.philosophie {
+  padding:120px 80px;
+  background:var(--sable);
+  display:grid; grid-template-columns:1fr 1fr;
+  gap:88px; align-items:center;
+  position:relative; overflow:hidden;
+}
+.philosophie::before {
+  content:'OM';
+  position:absolute; right:-20px; top:50%; transform:translateY(-50%);
+  font-family:'Cormorant Garamond', serif;
+  font-size:380px; font-weight:300; color:rgba(184,146,106,.055);
+  pointer-events:none; line-height:1;
+}
+
+.philo-text .h-section { margin-bottom:28px; }
+
+.philo-text p {
+  font-size:16px; line-height:1.88; color:var(--encre-l); margin-bottom:18px;
+}
+.philo-quote {
+  font-family:'Cormorant Garamond', serif;
+  font-size:22px; font-style:italic; color:var(--ocean-dk);
+  border-left:2px solid var(--ocean); padding-left:24px;
+  margin:32px 0 36px; line-height:1.6;
+}
+
+.philo-pillars {
+  display:flex; flex-direction:column; gap:20px;
+}
+
+.pillar {
+  display:flex; align-items:flex-start; gap:20px;
+  padding:24px 28px; border-radius:16px;
+  background:var(--blanc); border:1px solid var(--border);
+  transition:transform .25s, box-shadow .25s;
+}
+.pillar:hover { transform:translateX(6px); box-shadow:var(--shadow); }
+
+.pillar-icon {
+  width:48px; height:48px; flex-shrink:0;
+  border-radius:12px; display:flex; align-items:center; justify-content:center;
+  font-size:22px;
+}
+.pi-1 { background:rgba(111,159,165,.12); }
+.pi-2 { background:rgba(184,146,106,.12); }
+.pi-3 { background:rgba(138,170,120,.12); }
+
+.pillar-body h4 {
+  font-family:'Cormorant Garamond', serif;
+  font-size:22px; font-weight:400; margin-bottom:6px;
+}
+.pillar-body p { font-size:14px; color:var(--encre-l); line-height:1.7; }
+
+/* ─────────────────────────────────────────
+   ÉQUIPE
+───────────────────────────────────────── */
+.equipe {
+  padding:120px 80px;
+  background:var(--blanc);
+}
+.equipe-header {
+  display:flex; justify-content:space-between; align-items:flex-end;
+  margin-bottom:64px;
+}
+
+.profs-grid {
+  display:grid; grid-template-columns:repeat(3,1fr); gap:28px;
+}
+
+.prof-card {
+  border-radius:22px; overflow:hidden;
+  background:var(--sable); border:1px solid var(--border);
+  transition:transform .3s, box-shadow .3s;
+  cursor:default;
+}
+.prof-card:hover { transform:translateY(-8px); box-shadow:var(--shadow-lg); }
+
+.prof-photo {
+  height:260px; position:relative; overflow:hidden;
+}
+.prof-photo img {
+  width:100%; height:100%; object-fit:cover;
+  transition:transform .5s ease;
+}
+.prof-card:hover .prof-photo img { transform:scale(1.04); }
+
+.prof-photo-fallback {
+  width:100%; height:100%; display:flex; align-items:center; justify-content:center;
+  font-size:72px;
+}
+
+.prof-photo-overlay {
+  position:absolute; inset:0;
+  background:linear-gradient(to top, rgba(42,37,32,.5) 0%, transparent 55%);
+}
+
+.prof-specs {
+  position:absolute; bottom:16px; left:16px; right:16px; z-index:2;
+  display:flex; flex-wrap:wrap; gap:6px;
+}
+.spec-tag {
+  font-size:9px; letter-spacing:.15em; text-transform:uppercase;
+  color:white; background:rgba(255,255,255,.2);
+  backdrop-filter:blur(6px); padding:3px 10px; border-radius:50px;
+}
+
+.prof-info { padding:22px 24px 26px; }
+.prof-name {
+  font-family:'Cormorant Garamond', serif;
+  font-size:26px; font-weight:400; margin-bottom:3px;
+}
+.prof-role {
+  font-size:11px; letter-spacing:.18em; text-transform:uppercase;
+  color:var(--ocean); margin-bottom:14px;
+}
+.prof-bio { font-size:13.5px; line-height:1.75; color:var(--encre-l); }
+
+/* ─────────────────────────────────────────
+   ATELIERS
+───────────────────────────────────────── */
+.ateliers {
+  padding:120px 80px;
+  background:var(--sable);
+}
+.ateliers-header {
+  display:flex; justify-content:space-between; align-items:flex-end;
+  margin-bottom:64px;
+}
+
+.ateliers-grid {
+  display:grid;
+  grid-template-columns:1.7fr 1fr 1fr;
+  grid-template-rows:1fr 1fr;
+  gap:18px;
+}
+
+.atelier-card {
+  border-radius:22px; overflow:hidden;
+  position:relative; display:flex; flex-direction:column; justify-content:flex-end;
+  padding:30px 28px; min-height:260px;
+  text-decoration:none;
+  transition:transform .3s ease;
+}
+.atelier-card:hover { transform:scale(1.025); }
+.atelier-card:nth-child(1) { grid-row:span 2; min-height:540px; }
+
+.atelier-card::before {
+  content:''; position:absolute; inset:0; z-index:1;
+  background:linear-gradient(to top, rgba(0,0,0,.62) 0%, rgba(0,0,0,.08) 60%, transparent 100%);
+}
+
+.ab-1 { background:linear-gradient(140deg,#6f9fa5,#3d6e74); }
+.ab-2 { background:linear-gradient(140deg,#b8926a,#7a5c3a); }
+.ab-3 { background:linear-gradient(140deg,#8aaa78,#5e7d50); }
+.ab-4 { background:linear-gradient(140deg,#c9a09a,#8f6560); }
+.ab-5 { background:linear-gradient(140deg,#8880a8,#5c5478); }
+
+.atelier-emoji {
+  position:absolute; top:26px; left:26px; z-index:3;
+  font-size:34px; filter:drop-shadow(0 2px 8px rgba(0,0,0,.25));
+}
+.insta-badge {
+  position:absolute; top:26px; right:26px; z-index:3;
+  display:flex; align-items:center; gap:6px;
+  font-size:9px; letter-spacing:.18em; text-transform:uppercase;
+  color:white; background:rgba(255,255,255,.15);
+  backdrop-filter:blur(8px); border:1px solid rgba(255,255,255,.25);
+  padding:6px 14px; border-radius:50px;
+  text-decoration:none; transition:background .2s;
+}
+.insta-badge:hover { background:rgba(255,255,255,.25); }
+.insta-badge::before { content:'📸'; font-size:11px; }
+
+.atelier-content { position:relative; z-index:2; }
+.atelier-date {
+  font-size:10px; letter-spacing:.24em; text-transform:uppercase;
+  color:rgba(255,255,255,.65); margin-bottom:8px;
+}
+.atelier-title {
+  font-family:'Cormorant Garamond', serif;
+  font-size:26px; font-weight:400; color:white;
+  line-height:1.2; margin-bottom:10px;
+}
+.atelier-card:nth-child(1) .atelier-title { font-size:36px; }
+.atelier-desc {
+  font-size:13px; color:rgba(255,255,255,.72); line-height:1.65; margin-bottom:20px;
+}
+.atelier-link {
+  display:inline-flex; align-items:center; gap:7px;
+  font-size:10px; letter-spacing:.2em; text-transform:uppercase;
+  color:white; border-bottom:1px solid rgba(255,255,255,.45); padding-bottom:2px;
+  text-decoration:none; transition:border-color .2s;
+}
+.atelier-link:hover { border-color:white; }
+.atelier-link .arr { transition:transform .2s; }
+.atelier-link:hover .arr { transform:translate(4px,-4px); }
+
+/* ─────────────────────────────────────────
+   INSTAGRAM STRIP
+───────────────────────────────────────── */
+.insta-strip {
+  padding:80px;
+  background:var(--encre);
+}
+.insta-strip-header {
+  display:flex; justify-content:space-between; align-items:center;
+  margin-bottom:36px;
+}
+.insta-strip-header h3 {
+  font-family:'Cormorant Garamond', serif;
+  font-size:32px; font-weight:300; color:var(--blanc);
+}
+.insta-strip-header h3 em { font-style:italic; color:var(--terre); }
+.insta-follow-link {
+  font-size:11px; letter-spacing:.2em; text-transform:uppercase;
+  color:rgba(255,255,255,.45); text-decoration:none;
+  transition:color .2s; display:flex; align-items:center; gap:8px;
+}
+.insta-follow-link:hover { color:white; }
+
+.insta-posts {
+  display:grid; grid-template-columns:repeat(5,1fr); gap:10px;
+}
+.ipost {
+  aspect-ratio:1; border-radius:14px; overflow:hidden;
+  position:relative; text-decoration:none; cursor:pointer;
+}
+.ipost-bg {
+  width:100%; height:100%; display:flex; align-items:center; justify-content:center;
+  font-size:38px; transition:transform .4s ease;
+}
+.ipost:hover .ipost-bg { transform:scale(1.08); }
+.ipost::after {
+  content:'↗'; position:absolute; inset:0;
+  background:rgba(0,0,0,.38); color:white; font-size:18px;
+  display:flex; align-items:center; justify-content:center;
+  opacity:0; transition:opacity .25s;
+}
+.ipost:hover::after { opacity:1; }
+.ip1 .ipost-bg { background:linear-gradient(135deg,var(--ocean),var(--ocean-dk)); }
+.ip2 .ipost-bg { background:linear-gradient(135deg,var(--creme),var(--sable)); }
+.ip3 .ipost-bg { background:linear-gradient(135deg,var(--sauge),var(--sauge-dk)); }
+.ip4 .ipost-bg { background:linear-gradient(135deg,var(--rose),#a07070); }
+.ip5 .ipost-bg { background:linear-gradient(135deg,var(--terre),var(--terre-dk)); }
+
+/* ─────────────────────────────────────────
+   PLANNING
+───────────────────────────────────────── */
+.planning {
+  padding:120px 80px;
+  background:var(--blanc);
+}
+.planning-header {
+  display:flex; justify-content:space-between; align-items:flex-end;
+  margin-bottom:24px;
+}
+
+.cancel-note {
+  background:var(--creme); border-radius:14px;
+  padding:20px 28px; margin-bottom:40px;
+  border-left:3px solid var(--ocean);
+  font-size:14px; line-height:1.7; color:var(--encre-l);
+}
+.cancel-note strong { color:var(--encre); }
+.cancel-note a { color:var(--ocean); }
+
+/* Tabs */
+.day-tabs {
+  display:flex; gap:4px;
+  background:var(--creme); padding:4px;
+  border-radius:50px; width:fit-content;
+  margin-bottom:36px;
+}
+.day-tab {
+  font-family:'Jost', sans-serif;
+  font-size:11px; font-weight:400; letter-spacing:.16em;
+  text-transform:uppercase; padding:10px 20px;
+  border-radius:50px; border:none;
+  background:transparent; color:var(--muted);
+  cursor:pointer; transition:all .2s;
+}
+.day-tab.active {
+  background:white; color:var(--encre);
+  box-shadow:0 2px 14px rgba(0,0,0,.07);
+}
+
+/* Grid */
+.plan-grid {
+  display:grid;
+  grid-template-columns:90px repeat(6,1fr);
+  gap:2px;
+  background:var(--creme);
+  border-radius:16px; overflow:hidden;
+}
+.pg-hd {
+  background:var(--sable);
+  padding:14px 12px;
+  font-size:10px; font-weight:500; letter-spacing:.18em;
+  text-transform:uppercase; color:var(--muted);
+  text-align:center;
+}
+.pg-time {
+  background:var(--blanc);
+  display:flex; align-items:center; justify-content:center;
+  font-family:'Cormorant Garamond', serif;
+  font-size:17px; color:var(--encre-l); padding:8px 6px;
+}
+.pg-cell {
+  background:white; padding:5px;
+  display:flex; align-items:stretch;
+}
+.pg-empty { background:white; }
+
+.cblock {
+  border-radius:10px; padding:10px 12px; width:100%;
+  cursor:pointer; transition:transform .15s, box-shadow .15s;
+  border-left-width:3px; border-left-style:solid;
+}
+.cblock:hover { transform:scale(1.04); box-shadow:0 4px 20px rgba(0,0,0,.1); }
+
+.cb-ocean  { background:rgba(111,159,165,.12); border-left-color:var(--ocean); }
+.cb-terre  { background:rgba(184,146,106,.12); border-left-color:var(--terre); }
+.cb-sauge  { background:rgba(138,170,120,.12); border-left-color:var(--sauge); }
+.cb-rose   { background:rgba(201,160,154,.12); border-left-color:var(--rose); }
+.cb-purple { background:rgba(160,144,196,.12); border-left-color:#a090c4; }
+
+.cb-time { font-size:10px; color:var(--muted); margin-bottom:2px; }
+.cb-name {
+  font-family:'Cormorant Garamond', serif;
+  font-size:14px; font-weight:400; color:var(--encre); line-height:1.2;
+}
+.cb-prof { font-size:10px; color:var(--encre-l); margin-top:3px; }
+
+.plan-cta { margin-top:40px; text-align:center; }
+.plan-cta p { font-size:14px; color:var(--muted); margin-bottom:16px; }
+.plan-cta a { color:var(--ocean); }
+
+/* ─────────────────────────────────────────
+   TARIFS
+───────────────────────────────────────── */
+.tarifs {
+  padding:120px 80px;
+  background:var(--sable);
+}
+.tarifs-header { margin-bottom:16px; }
+.tarifs-sub {
+  font-size:14px; color:var(--muted); margin-bottom:56px;
+  line-height:1.7;
+}
+
+.tarifs-grid {
+  display:grid; grid-template-columns:repeat(5,1fr); gap:16px;
+}
+
+.tarif-card {
+  border-radius:20px; overflow:hidden;
+  background:var(--blanc); border:1px solid var(--border);
+  padding:32px 24px; display:flex; flex-direction:column; gap:14px;
+  transition:transform .25s, box-shadow .25s;
+  position:relative;
+}
+.tarif-card:hover { transform:translateY(-6px); box-shadow:var(--shadow-lg); }
+.tarif-card.highlight {
+  background:var(--ocean); border-color:var(--ocean);
+}
+.tarif-card.highlight .tarif-name,
+.tarif-card.highlight .tarif-price,
+.tarif-card.highlight .tarif-desc,
+.tarif-card.highlight .tarif-validity { color:white; }
+
+.tarif-badge {
+  position:absolute; top:16px; right:16px;
+  font-size:9px; letter-spacing:.18em; text-transform:uppercase;
+  background:rgba(255,255,255,.22); color:white;
+  padding:3px 10px; border-radius:50px;
+}
+
+.tarif-emoji { font-size:28px; }
+.tarif-name {
+  font-family:'Cormorant Garamond', serif;
+  font-size:22px; font-weight:400; color:var(--encre);
+}
+.tarif-price {
+  font-family:'Cormorant Garamond', serif;
+  font-size:52px; font-weight:300; color:var(--terre);
+  line-height:1;
+}
+.tarif-card.highlight .tarif-price { color:white; }
+.tarif-price sup { font-size:22px; vertical-align:top; margin-top:8px; }
+.tarif-desc {
+  font-size:13px; color:var(--encre-l); font-style:italic;
+  font-family:'Cormorant Garamond', serif;
+}
+.tarif-validity {
+  font-size:11px; letter-spacing:.12em; text-transform:uppercase;
+  color:var(--muted); margin-top:auto;
+}
+.tarif-card.highlight .tarif-validity { color:rgba(255,255,255,.7); }
+
+.tarifs-note {
+  margin-top:32px;
+  font-size:13px; color:var(--muted); line-height:1.75;
+  text-align:center;
+}
+
+/* ─────────────────────────────────────────
+   CONTACT + ADRESSE
+───────────────────────────────────────── */
+.contact {
+  padding:120px 80px;
+  background:var(--blanc);
+  display:grid; grid-template-columns:1fr 1fr; gap:80px;
+}
+
+.contact-info { display:flex; flex-direction:column; gap:28px; }
+.contact-info .h-section { margin-bottom:8px; }
+.contact-intro { font-size:16px; line-height:1.85; color:var(--encre-l); margin-bottom:12px; }
+
+.info-block {
+  display:flex; align-items:flex-start; gap:18px;
+  padding:22px 24px; border-radius:14px;
+  background:var(--sable); border:1px solid var(--border);
+}
+.info-icon {
+  width:44px; height:44px; border-radius:50%; flex-shrink:0;
+  background:var(--creme); display:flex; align-items:center; justify-content:center;
+  font-size:18px;
+}
+.info-label {
+  font-size:10px; letter-spacing:.28em; text-transform:uppercase;
+  color:var(--muted); margin-bottom:5px;
+}
+.info-value {
+  font-family:'Cormorant Garamond', serif;
+  font-size:20px; color:var(--encre); font-weight:400;
+}
+.info-value a { color:inherit; text-decoration:none; }
+.info-value a:hover { color:var(--ocean); }
+
+/* Form */
+.contact-form { display:flex; flex-direction:column; gap:18px; }
+.contact-form .h-section { margin-bottom:8px; }
+.form-sub { font-size:14px; color:var(--muted); margin-bottom:12px; line-height:1.7; }
+
+.form-group { display:flex; flex-direction:column; gap:7px; }
+.form-row { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+.form-group label {
+  font-size:10px; letter-spacing:.24em; text-transform:uppercase; color:var(--muted);
+}
+.form-group input,
+.form-group textarea {
+  font-family:'Jost', sans-serif;
+  font-size:15px; font-weight:300; color:var(--encre);
+  background:var(--sable); border:1px solid var(--border);
+  border-radius:10px; padding:14px 18px;
+  outline:none; transition:border-color .2s;
+}
+.form-group input:focus,
+.form-group textarea:focus { border-color:var(--ocean); }
+.form-group textarea { resize:vertical; min-height:120px; }
+.form-submit {
+  font-family:'Jost', sans-serif;
+  font-size:11px; font-weight:500; letter-spacing:.2em;
+  text-transform:uppercase; color:white;
+  background:var(--terre); border:none;
+  padding:16px 36px; border-radius:50px; cursor:pointer;
+  transition:background .25s, transform .2s;
+  width:fit-content;
+}
+.form-submit:hover { background:var(--terre-dk); transform:translateY(-2px); }
+
+/* ─────────────────────────────────────────
+   FOOTER
+───────────────────────────────────────── */
+footer {
+  background:var(--encre);
+  padding:80px 80px 40px;
+}
+.footer-grid {
+  display:grid; grid-template-columns:1.6fr 1fr 1fr 1fr;
+  gap:56px; padding-bottom:56px;
+  border-bottom:1px solid rgba(255,255,255,.07);
+  margin-bottom:36px;
+}
+.footer-brand .logo-s {
+  font-family:'Great Vibes', cursive;
+  font-size:40px; color:var(--terre);
+  display:block; margin-bottom:6px;
+}
+.footer-brand .ft-tag {
+  font-size:9px; letter-spacing:.32em; text-transform:uppercase;
+  color:rgba(255,255,255,.3); margin-bottom:18px;
+}
+.footer-brand p { font-size:14px; line-height:1.85; color:rgba(255,255,255,.45); max-width:250px; }
+
+.footer-social { display:flex; gap:12px; margin-top:24px; }
+.footer-social a {
+  width:36px; height:36px; border-radius:50%;
+  background:rgba(255,255,255,.07); display:flex; align-items:center; justify-content:center;
+  font-size:14px; text-decoration:none; transition:background .2s;
+}
+.footer-social a:hover { background:rgba(255,255,255,.15); }
+
+.footer-col h5 {
+  font-size:10px; letter-spacing:.3em; text-transform:uppercase;
+  color:rgba(255,255,255,.3); margin-bottom:20px;
+}
+.footer-col ul { list-style:none; display:flex; flex-direction:column; gap:11px; }
+.footer-col ul li a {
+  font-size:14px; color:rgba(255,255,255,.55); text-decoration:none; transition:color .2s;
+}
+.footer-col ul li a:hover { color:white; }
+
+.footer-bottom {
+  display:flex; justify-content:space-between; align-items:center;
+  font-size:11px; color:rgba(255,255,255,.22); letter-spacing:.07em;
+  flex-wrap:wrap; gap:10px;
+}
+
+/* ─────────────────────────────────────────
+   FLOATING BUTTON
+───────────────────────────────────────── */
+.float-btn {
+  position:fixed; bottom:30px; right:30px; z-index:400;
+  display:flex; align-items:center; gap:10px;
+  font-size:11px; font-weight:500; letter-spacing:.18em;
+  text-transform:uppercase; color:white;
+  background:var(--terre); padding:15px 26px;
+  border-radius:50px; text-decoration:none;
+  box-shadow:0 8px 32px rgba(184,146,106,.38);
+  transition:transform .22s, box-shadow .22s;
+}
+.float-btn:hover { transform:translateY(-3px); box-shadow:0 14px 44px rgba(184,146,106,.5); }
+.float-btn .fb-dot {
+  width:7px; height:7px; border-radius:50%; background:rgba(255,255,255,.65);
+  animation:livePulse 2s ease-in-out infinite;
+}
+
+/* ─────────────────────────────────────────
+   FADE-IN OBSERVER
+───────────────────────────────────────── */
+.reveal {
+  opacity:0; transform:translateY(28px);
+  transition:opacity .65s ease, transform .65s ease;
+}
+.reveal.visible { opacity:1; transform:translateY(0); }
+
+/* ─────────────────────────────────────────
+   RESPONSIVE
+───────────────────────────────────────── */
+@media (max-width:1100px) {
+  .profs-grid { grid-template-columns:repeat(2,1fr); }
+  .ateliers-grid { grid-template-columns:1fr 1fr; }
+  .atelier-card:nth-child(1) { grid-column:span 2; min-height:340px; }
+  .tarifs-grid { grid-template-columns:repeat(3,1fr); }
+}
+@media (max-width:900px) {
+  nav { padding:16px 24px; }
+  .nav-links { display:none; }
+  .nav-hamburger { display:block; }
+  .hero { grid-template-columns:1fr; }
+  .hero-right { height:380px; }
+  .hero-left { padding:60px 24px; }
+  .philosophie, .equipe, .ateliers, .planning, .tarifs { padding:72px 24px; grid-template-columns:1fr; }
+  .contact { padding:72px 24px; grid-template-columns:1fr; }
+  .insta-strip { padding:60px 24px; }
+  .insta-posts { grid-template-columns:repeat(3,1fr); }
+  .footer-grid { grid-template-columns:1fr 1fr; gap:36px; }
+  footer { padding:60px 24px 32px; }
+  .float-btn { bottom:20px; right:20px; padding:13px 22px; font-size:10px; }
+  .tarifs-grid { grid-template-columns:repeat(2,1fr); }
+}
+
+/* ─────────────────────────────────────────
+   HERO ENTRANCE
+───────────────────────────────────────── */
+@keyframes fadeUp {
+  from{opacity:0;transform:translateY(26px)}
+  to  {opacity:1;transform:translateY(0)}
+}
+.hero-h1       { animation:fadeUp .7s .18s ease backwards; }
+.hero-tagline  { animation:fadeUp .7s .30s ease backwards; }
+.hero-sub      { animation:fadeUp .7s .40s ease backwards; }
+.hero-btns     { animation:fadeUp .7s .50s ease backwards; }
+.hero-event    { animation:fadeUp .7s .62s ease backwards; }
+.hero-right    { animation:fadeUp .8s .22s ease backwards; }
+</style>
+</head>
+<body>
+
+<!-- FLOAT -->
+<a href="https://www.eversports.fr/s/angele-om-yoga" target="_blank" class="float-btn">
+  <div class="fb-dot"></div>
+  Réserver sur Eversports
+</a>
+
+<!-- ── NAV ── -->
+<nav>
+  <a href="#" class="nav-logo">
+    <span class="logo-script">Angèle OM</span>
+    <span class="logo-sub">Studio de Yoga · La Rochelle</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#philosophie">L'esprit</a></li>
+    <li><a href="#equipe">L'Équipe</a></li>
+    <li><a href="#ateliers">Ateliers</a></li>
+    <li><a href="#planning">Planning</a></li>
+    <li><a href="#tarifs">Tarifs</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="https://www.eversports.fr/s/angele-om-yoga" target="_blank" class="nav-cta">Réserver un cours</a>
+  <button class="nav-hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ════════════════════════
+     HERO
+════════════════════════ -->
+<section id="accueil">
+  <div class="hero">
+
+    <div class="hero-left">
+      <h1 class="hero-h1 h-display">
+        Votre voyage vers<br><em>l'équilibre</em> intérieur
+      </h1>
+      <p class="hero-tagline">douceur, lumière, présence</p>
+      <p class="hero-sub">
+        Studio de yoga intimiste au cœur de La Rochelle. Des professeurs passionnés, une approche personnalisée, une communauté chaleureuse.
+      </p>
+      <div class="hero-btns">
+        <a href="#planning" class="btn-primary">Découvrir les cours</a>
+        <a href="#equipe" class="btn-outline">Rencontrer l'équipe</a>
+      </div>
+
+      <!-- Événement à venir -->
+      <div class="hero-event">
+        <div class="hero-event-icon">🌿</div>
+        <div class="hero-event-body">
+          <div class="hero-event-label">Événement à venir</div>
+          <div class="hero-event-title">Retraite Yoga &amp; Méditation</div>
+          <div class="hero-event-meta">📅 9-11 Novembre · 🏡 Terre Poitevine · ✨ Places limitées</div>
+        </div>
+        <a href="#contact" class="hero-event-link">Je m'inscris →</a>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="hero-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+      </div>
+      <div class="hero-photo-stack">
+        <div class="hcard hcard-main">
+          <img src="https://angele.yoga/wp-content/uploads/angele-yoga-rochelle-web-4.jpg"
+               alt="Angèle OM Yoga"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="prof-photo-fallback fallback-emoji" style="display:none;position:absolute;inset:0;font-size:90px;opacity:.65;background:linear-gradient(160deg,var(--ocean),var(--ocean-dk));animation:breatheY 5s ease-in-out infinite">🧘‍♀️</div>
+          <div class="card-overlay"></div>
+          <div class="card-label">Hatha · Yin · Vinyasa<br>Nidra · Pilates · Méditation</div>
+        </div>
+        <div class="hcard hcard-top">
+          <div class="we">🌊</div>
+          <p>La Rochelle</p>
+        </div>
+        <div class="hcard hcard-bot">
+          <div class="num">11</div>
+          <p>professeures</p>
+        </div>
+        <div class="hero-deco-text">1 bis rue Fleuriau · 17000</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ════════════════════════
+     PHILOSOPHIE
+════════════════════════ -->
+<section class="philosophie reveal" id="philosophie">
+  <div class="philo-text">
+    <div class="eyebrow">Notre philosophie</div>
+    <h2 class="h-section">Bien plus<br>qu'un <em>studio</em></h2>
+    <p>Angèle OM Yoga est un espace chaleureux et authentique au cœur de La Rochelle. Nous croyons que le yoga est un voyage personnel, pas une performance. Ici, chacun est accueilli avec bienveillance, quel que soit son niveau ou son expérience.</p>
+    <blockquote class="philo-quote">
+      « Un espace dédié au bien-être et à l'équilibre, pensé pour vous permettre de vous ressourcer, vous renforcer et cultiver votre sérénité au quotidien. »
+    </blockquote>
+    <a href="#planning" class="btn-primary">Découvrir les cours →</a>
+  </div>
+
+  <div class="philo-pillars">
+    <div class="pillar reveal">
+      <div class="pillar-icon pi-1">👥</div>
+      <div class="pillar-body">
+        <h4>Convivialité</h4>
+        <p>Un studio à taille humaine où chaque élève compte. Pas d'usine à sport, juste une vraie communauté.</p>
+      </div>
+    </div>
+    <div class="pillar reveal">
+      <div class="pillar-icon pi-2">⭐</div>
+      <div class="pillar-body">
+        <h4>Approche personnalisée</h4>
+        <p>Nos professeurs prennent le temps de vous connaître et d'adapter leur enseignement à vos besoins.</p>
+      </div>
+    </div>
+    <div class="pillar reveal">
+      <div class="pillar-icon pi-3">❤️</div>
+      <div class="pillar-body">
+        <h4>Passion &amp; Expertise</h4>
+        <p>Une équipe de professeurs formés, passionnés et en formation continue pour vous offrir le meilleur.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════
+     ÉQUIPE
+════════════════════════ -->
+<section class="equipe" id="equipe">
+  <div class="equipe-header">
+    <div>
+      <div class="eyebrow">Rencontrez</div>
+      <h2 class="h-section">Notre <em>Équipe</em></h2>
+    </div>
+    <a href="https://angele.yoga/lequipe/" target="_blank" class="btn-outline">Voir toute l'équipe</a>
+  </div>
+
+  <div class="profs-grid">
+
+    <!-- Angèle -->
+    <div class="prof-card reveal">
+      <div class="prof-photo">
+        <img src="https://angele.yoga/wp-content/uploads/moi-photo-annie-1-1024x1024-216x234.jpg" alt="Angèle"
+             onerror="this.parentElement.querySelector('.prof-photo-fallback').style.display='flex';this.style.display='none'">
+        <div class="prof-photo-fallback" style="display:none;background:linear-gradient(135deg,var(--ocean),var(--ocean-dk))">🧘‍♀️</div>
+        <div class="prof-photo-overlay"></div>
+        <div class="prof-specs">
+          <span class="spec-tag">Hatha Yoga</span>
+          <span class="spec-tag">Yin Yoga</span>
+          <span class="spec-tag">Yoga Nidra</span>
+        </div>
+      </div>
+      <div class="prof-info">
+        <div class="prof-name">Angèle</div>
+        <div class="prof-role">Fondatrice · Hatha &amp; Yin Yoga</div>
+        <p class="prof-bio">Professeure certifiée depuis 2015, Angèle a créé ce studio pour partager sa passion du yoga dans un cadre bienveillant et authentique. Elle enseigne un yoga doux et accessible à tous.</p>
+      </div>
+    </div>
+
+    <!-- Mathilde -->
+    <div class="prof-card reveal">
+      <div class="prof-photo">
+        <img src="https://angele.yoga/wp-content/uploads/Mathilde-1-945x1024-217x230.jpg" alt="Mathilde"
+             onerror="this.parentElement.querySelector('.prof-photo-fallback').style.display='flex';this.style.display='none'">
+        <div class="prof-photo-fallback" style="display:none;background:linear-gradient(135deg,var(--sauge),var(--sauge-dk))">🌿</div>
+        <div class="prof-photo-overlay"></div>
+        <div class="prof-specs">
+          <span class="spec-tag">Hatha Flow</span>
+          <span class="spec-tag">Équilibres</span>
+          <span class="spec-tag">Ateliers</span>
+        </div>
+      </div>
+      <div class="prof-info">
+        <div class="prof-name">Mathilde</div>
+        <div class="prof-role">Mahashakti Yoga</div>
+        <p class="prof-bio">Spécialiste du Hatha Flow et des postures d'équilibre, Mathilde apporte dynamisme et précision dans son enseignement. Elle propose également des ateliers thématiques.</p>
+      </div>
+    </div>
+
+    <!-- Audrey -->
+    <div class="prof-card reveal">
+      <div class="prof-photo">
+        <img src="https://angele.yoga/wp-content/uploads/20240907_162947-889x1024-260x250.jpg" alt="Audrey"
+             onerror="this.parentElement.querySelector('.prof-photo-fallback').style.display='flex';this.style.display='none'">
+        <div class="prof-photo-fallback" style="display:none;background:linear-gradient(135deg,var(--terre),var(--terre-dk))">🌸</div>
+        <div class="prof-photo-overlay"></div>
+        <div class="prof-specs">
+          <span class="spec-tag">Vinyasa</span>
+          <span class="spec-tag">Flow</span>
+          <span class="spec-tag">Dynamique</span>
+        </div>
+      </div>
+      <div class="prof-info">
+        <div class="prof-name">Audrey</div>
+        <div class="prof-role">Vinyasa Yoga</div>
+        <p class="prof-bio">Passionnée de yoga dynamique, Audrey propose des cours de Vinyasa toniques et fluides. Son énergie positive rayonne dans chaque séance !</p>
+      </div>
+    </div>
+
+    <!-- Vanessa -->
+    <div class="prof-card reveal">
+      <div class="prof-photo">
+        <img src="https://angele.yoga/wp-content/uploads/vanessa-NB-web-241x235.jpg" alt="Vanessa"
+             onerror="this.parentElement.querySelector('.prof-photo-fallback').style.display='flex';this.style.display='none'">
+        <div class="prof-photo-fallback" style="display:none;background:linear-gradient(135deg,#7a7898,#5a5878)">☯️</div>
+        <div class="prof-photo-overlay"></div>
+        <div class="prof-specs">
+          <span class="spec-tag">Méditation</span>
+          <span class="spec-tag">MBSR</span>
+          <span class="spec-tag">Pleine conscience</span>
+        </div>
+      </div>
+      <div class="prof-info">
+        <div class="prof-name">Vanessa</div>
+        <div class="prof-role">Méditation Pleine Conscience</div>
+        <p class="prof-bio">Instructrice certifiée en méditation MBSR, Vanessa guide des séances de méditation tous les vendredis. Une pause ressourçante au milieu de la semaine.</p>
+      </div>
+    </div>
+
+    <!-- Aveline -->
+    <div class="prof-card reveal">
+      <div class="prof-photo">
+        <img src="https://angele.yoga/wp-content/uploads/c1f7b083-5c54-430a-a59d-2aaf080ce177-683x1024-260x250.jpg" alt="Aveline"
+             onerror="this.parentElement.querySelector('.prof-photo-fallback').style.display='flex';this.style.display='none'">
+        <div class="prof-photo-fallback" style="display:none;background:linear-gradient(135deg,var(--rose),#a07070)">💪</div>
+        <div class="prof-photo-overlay"></div>
+        <div class="prof-specs">
+          <span class="spec-tag">Pilates</span>
+          <span class="spec-tag">Renforcement</span>
+          <span class="spec-tag">Posture</span>
+        </div>
+      </div>
+      <div class="prof-info">
+        <div class="prof-name">Aveline</div>
+        <div class="prof-role">Pilates</div>
+        <p class="prof-bio">Professeure de Pilates certifiée, Aveline propose des cours axés sur le renforcement en profondeur et la posture. Idéal en complément du yoga !</p>
+      </div>
+    </div>
+
+    <!-- Océane -->
+    <div class="prof-card reveal">
+      <div class="prof-photo">
+        <img src="https://angele.yoga/wp-content/uploads/Oceane-Joly-260x250.jpg" alt="Océane"
+             onerror="this.parentElement.querySelector('.prof-photo-fallback').style.display='flex';this.style.display='none'">
+        <div class="prof-photo-fallback" style="display:none;background:linear-gradient(135deg,#9880a8,#6a5878)">✨</div>
+        <div class="prof-photo-overlay"></div>
+        <div class="prof-specs">
+          <span class="spec-tag">Tantra Yoga</span>
+          <span class="spec-tag">Spirituel</span>
+          <span class="spec-tag">Méditation</span>
+        </div>
+      </div>
+      <div class="prof-info">
+        <div class="prof-name">Océane</div>
+        <div class="prof-role">Shakta Tantra Yoga</div>
+        <p class="prof-bio">Spécialisée dans le Shakta Tantra Yoga, Océane vous accompagne dans une pratique profonde et spirituelle, alliant postures, respiration et méditation.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ════════════════════════
+     ATELIERS
+════════════════════════ -->
+<section class="ateliers reveal" id="ateliers">
+  <div class="ateliers-header">
+    <div>
+      <div class="eyebrow">Événements &amp; ateliers</div>
+      <h2 class="h-section">Des moments<br><em>hors du temps</em></h2>
+    </div>
+    <a href="https://www.instagram.com/angele_om_yoga/" target="_blank" class="btn-outline">📸 Suivre sur Instagram</a>
+  </div>
+
+  <div class="ateliers-grid">
+
+    <a class="atelier-card ab-1" href="#contact">
+      <div class="atelier-emoji">🌿</div>
+      <a class="insta-badge" href="https://www.instagram.com/angele_om_yoga/" target="_blank">Voir sur Insta</a>
+      <div class="atelier-content">
+        <div class="atelier-date">📅 9-11 Novembre · 🏡 Terre Poitevine</div>
+        <div class="atelier-title">Retraite Yoga<br>&amp; Méditation</div>
+        <div class="atelier-desc">Trois jours de ressourcement en Terre Poitevine — yoga du matin, méditation, bain sonore et partage entre pratiquants. Places limitées.</div>
+        <div class="atelier-link">Je m'inscris <span class="arr">↗</span></div>
+      </div>
+    </a>
+
+    <a class="atelier-card ab-2" href="https://www.instagram.com/angele_om_yoga/" target="_blank">
+      <div class="atelier-emoji">🕯️</div>
+      <div class="atelier-content">
+        <div class="atelier-date">Article blog · Nov 2025</div>
+        <div class="atelier-title">Méditation à la Bougie</div>
+        <div class="atelier-desc">Un moment pour revenir à soi grâce à la contemplation de la flamme.</div>
+        <div class="atelier-link">Lire l'article <span class="arr">↗</span></div>
+      </div>
+    </a>
+
+    <a class="atelier-card ab-3" href="https://www.instagram.com/angele_om_yoga/" target="_blank">
+      <div class="atelier-emoji">🎵</div>
+      <div class="atelier-content">
+        <div class="atelier-date">Mensuel</div>
+        <div class="atelier-title">Bain Sonore</div>
+        <div class="atelier-desc">Vibrations de bols tibétains pour une plongée méditative profonde.</div>
+        <div class="atelier-link">S'inscrire <span class="arr">↗</span></div>
+      </div>
+    </a>
+
+    <a class="atelier-card ab-4" href="https://www.instagram.com/angele_om_yoga/" target="_blank">
+      <div class="atelier-emoji">💍</div>
+      <div class="atelier-content">
+        <div class="atelier-date">Sur réservation</div>
+        <div class="atelier-title">Atelier Yoga EVJF</div>
+        <div class="atelier-desc">Un moment inoubliable entre amies pour célébrer en douceur.</div>
+        <div class="atelier-link">Nous contacter <span class="arr">↗</span></div>
+      </div>
+    </a>
+
+    <a class="atelier-card ab-5" href="https://angele.yoga/le-yoga-en-entreprise/" target="_blank">
+      <div class="atelier-emoji">🏢</div>
+      <div class="atelier-content">
+        <div class="atelier-date">Sur devis</div>
+        <div class="atelier-title">Yoga en Entreprise</div>
+        <div class="atelier-desc">Cours à domicile, en entreprise ou en visio pour vos équipes.</div>
+        <div class="atelier-link">En savoir plus <span class="arr">↗</span></div>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<!-- ════════════════════════
+     INSTAGRAM
+════════════════════════ -->
+<div class="insta-strip reveal">
+  <div class="insta-strip-header">
+    <h3>La vie du <em>studio</em></h3>
+    <a href="https://www.instagram.com/angele_om_yoga/" target="_blank" class="insta-follow-link">
+      @angele_om_yoga · Suivre ↗
+    </a>
+  </div>
+  <div class="insta-posts">
+    <a class="ipost ip1" href="https://www.instagram.com/angele_om_yoga/" target="_blank"><div class="ipost-bg">🧘‍♀️</div></a>
+    <a class="ipost ip2" href="https://www.instagram.com/angele_om_yoga/" target="_blank"><div class="ipost-bg">🌊</div></a>
+    <a class="ipost ip3" href="https://www.instagram.com/angele_om_yoga/" target="_blank"><div class="ipost-bg">🌿</div></a>
+    <a class="ipost ip4" href="https://www.instagram.com/angele_om_yoga/" target="_blank"><div class="ipost-bg">🕯️</div></a>
+    <a class="ipost ip5" href="https://www.instagram.com/angele_om_yoga/" target="_blank"><div class="ipost-bg">☀️</div></a>
+  </div>
+</div>
+
+<!-- ════════════════════════
+     PLANNING
+════════════════════════ -->
+<section class="planning" id="planning">
+  <div class="planning-header">
+    <div>
+      <div class="eyebrow">Réservation</div>
+      <h2 class="h-section">Trouver les cours<br>qui vous <em>conviennent</em></h2>
+    </div>
+    <a href="https://angele.yoga/home-planning/" target="_blank" class="btn-outline">Planning complet ↗</a>
+  </div>
+
+  <div class="cancel-note">
+    <em>Annulation d'une réservation en présentiel :</em> Toute réservation d'une séance collective peut être annulée par le pratiquant <strong>jusqu'à 4h avant l'heure du cours</strong> directement sur le site pour les cours en studio. L'annulation hors délais ne peut donner lieu à aucun remboursement.<br>
+    💡 <strong>Astuce :</strong> Vous pouvez aussi réserver directement sur <a href="https://www.eversports.fr/s/angele-om-yoga" target="_blank">Eversports →</a>
+  </div>
+
+  <div class="day-tabs">
+    <button class="day-tab active" onclick="setDay(this)">Lundi</button>
+    <button class="day-tab" onclick="setDay(this)">Mardi</button>
+    <button class="day-tab" onclick="setDay(this)">Mercredi</button>
+    <button class="day-tab" onclick="setDay(this)">Jeudi</button>
+    <button class="day-tab" onclick="setDay(this)">Vendredi</button>
+    <button class="day-tab" onclick="setDay(this)">Samedi</button>
+  </div>
+
+  <div class="plan-grid">
+    <div class="pg-hd">Horaire</div>
+    <div class="pg-hd">Lundi</div>
+    <div class="pg-hd">Mardi</div>
+    <div class="pg-hd">Mercredi</div>
+    <div class="pg-hd">Jeudi</div>
+    <div class="pg-hd">Vendredi</div>
+    <div class="pg-hd">Samedi</div>
+
+    <!-- 7h -->
+    <div class="pg-time">7h00</div>
+    <div class="pg-cell pg-empty"></div>
+    <div class="pg-cell"><div class="cblock cb-ocean"><div class="cb-time">7h – 8h</div><div class="cb-name">Hatha Doux</div><div class="cb-prof">Angèle</div></div></div>
+    <div class="pg-cell pg-empty"></div>
+    <div class="pg-cell"><div class="cblock cb-ocean"><div class="cb-time">7h – 8h</div><div class="cb-name">Hatha Doux</div><div class="cb-prof">Angèle</div></div></div>
+    <div class="pg-cell pg-empty"></div>
+    <div class="pg-cell pg-empty"></div>
+
+    <!-- 9h30 -->
+    <div class="pg-time">9h30</div>
+    <div class="pg-cell"><div class="cblock cb-sauge"><div class="cb-time">9h30 – 10h45</div><div class="cb-name">Vinyasa Flow</div><div class="cb-prof">Océane</div></div></div>
+    <div class="pg-cell pg-empty"></div>
+    <div class="pg-cell"><div class="cblock cb-sauge"><div class="cb-time">9h30 – 10h45</div><div class="cb-name">Vinyasa Flow</div><div class="cb-prof">Audrey</div></div></div>
+    <div class="pg-cell pg-empty"></div>
+    <div class="pg-cell"><div class="cblock cb-sauge"><div class="cb-time">9h30 – 10h45</div><div class="cb-name">Pilates</div><div class="cb-prof">Aveline</div></div></div>
+    <div class="pg-cell"><div class="cblock cb-terre"><div class="cb-time">9h30 – 11h</div><div class="cb-name">Atelier Mensuel</div><div class="cb-prof">Mathilde</div></div></div>
+
+    <!-- 12h -->
+    <div class="pg-time">12h00</div>
+    <div class="pg-cell pg-empty"></div>
+    <div class="pg-cell"><div class="cblock cb-rose"><div class="cb-time">12h – 13h</div><div class="cb-name">Lunch Yoga</div><div class="cb-prof">Claire</div></div></div>
+    <div class="pg-cell pg-empty"></div>
+    <div class="pg-cell"><div class="cblock cb-rose"><div class="cb-time">12h – 13h</div><div class="cb-name">Lunch Yoga</div><div class="cb-prof">Eva</div></div></div>
+    <div class="pg-cell pg-empty"></div>
+    <div class="pg-cell pg-empty"></div>
+
+    <!-- 19h -->
+    <div class="pg-time">19h00</div>
+    <div class="pg-cell"><div class="cblock cb-ocean"><div class="cb-time">19h – 20h15</div><div class="cb-name">Hatha Yoga</div><div class="cb-prof">Angèle</div></div></div>
+    <div class="pg-cell"><div class="cblock cb-purple"><div class="cb-time">19h – 20h15</div><div class="cb-name">Yin Yoga</div><div class="cb-prof">Mathilde</div></div></div>
+    <div class="pg-cell"><div class="cblock cb-ocean"><div class="cb-time">19h – 20h15</div><div class="cb-name">Hatha Yoga</div><div class="cb-prof">Angèle</div></div></div>
+    <div class="pg-cell"><div class="cblock cb-sauge"><div class="cb-time">19h – 20h15</div><div class="cb-name">Vinyasa</div><div class="cb-prof">Océane</div></div></div>
+    <div class="pg-cell"><div class="cblock cb-purple"><div class="cb-time">19h – 20h15</div><div class="cb-name">Yoga Nidra</div><div class="cb-prof">Vanessa</div></div></div>
+    <div class="pg-cell pg-empty"></div>
+
+    <!-- 20h30 -->
+    <div class="pg-time">20h30</div>
+    <div class="pg-cell pg-empty"></div>
+    <div class="pg-cell"><div class="cblock cb-rose"><div class="cb-time">20h30 – 21h30</div><div class="cb-name">Méditation</div><div class="cb-prof">Vanessa</div></div></div>
+    <div class="pg-cell pg-empty"></div>
+    <div class="pg-cell"><div class="cblock cb-rose"><div class="cb-time">20h30 – 21h30</div><div class="cb-name">Bain Sonore</div><div class="cb-prof">Charlotte</div></div></div>
+    <div class="pg-cell pg-empty"></div>
+    <div class="pg-cell pg-empty"></div>
+  </div>
+
+  <div class="plan-cta">
+    <p>Planning complet et horaires précis sur le site officiel</p>
+    <a href="https://www.eversports.fr/s/angele-om-yoga" target="_blank" class="btn-primary">Réserver sur Eversports →</a>
+  </div>
+</section>
+
+<!-- ════════════════════════
+     TARIFS
+════════════════════════ -->
+<section class="tarifs reveal" id="tarifs">
+  <div class="tarifs-header">
+    <div class="eyebrow">Formules</div>
+    <h2 class="h-section">Nos <em>Tarifs</em></h2>
+  </div>
+  <p class="tarifs-sub">Cours d'essai à 15 € · Tarif étudiant et demandeur d'emploi : me contacter · Carte non remboursable · Facilité de paiement disponible</p>
+
+  <div class="tarifs-grid">
+
+    <div class="tarif-card reveal">
+      <div class="tarif-emoji">🧘</div>
+      <div class="tarif-name">Cours à l'unité</div>
+      <div class="tarif-price"><sup>€</sup>15</div>
+      <div class="tarif-desc">« Venez quand vous voulez »</div>
+      <div class="tarif-validity">Sans engagement</div>
+    </div>
+
+    <div class="tarif-card reveal">
+      <div class="tarif-emoji">🌿</div>
+      <div class="tarif-name">Carte 6 cours</div>
+      <div class="tarif-price"><sup>€</sup>80</div>
+      <div class="tarif-desc">Découverte flexible</div>
+      <div class="tarif-validity">Valable 3 mois</div>
+    </div>
+
+    <div class="tarif-card highlight reveal">
+      <div class="tarif-badge">Populaire</div>
+      <div class="tarif-emoji">⭐</div>
+      <div class="tarif-name">Carte 10 cours</div>
+      <div class="tarif-price"><sup>€</sup>130</div>
+      <div class="tarif-desc">Le meilleur équilibre</div>
+      <div class="tarif-validity">Valable 6 mois</div>
+    </div>
+
+    <div class="tarif-card reveal">
+      <div class="tarif-emoji">🌊</div>
+      <div class="tarif-name">Carte 20 cours</div>
+      <div class="tarif-price"><sup>€</sup>259</div>
+      <div class="tarif-desc">Pour les réguliers</div>
+      <div class="tarif-validity">Valable 1 an</div>
+    </div>
+
+    <div class="tarif-card reveal">
+      <div class="tarif-emoji">✨</div>
+      <div class="tarif-name">Carte 40 cours</div>
+      <div class="tarif-price"><sup>€</sup>512</div>
+      <div class="tarif-desc">L'engagement total</div>
+      <div class="tarif-validity">Valable 1 an</div>
+    </div>
+
+  </div>
+
+  <p class="tarifs-note">Toutes nos cartes sont valables pour l'ensemble des disciplines · Pas de prélèvement automatique<br>
+  Questions ? <a href="#contact" style="color:var(--ocean)">Contactez-nous</a></p>
+</section>
+
+<!-- ════════════════════════
+     CONTACT
+════════════════════════ -->
+<section class="contact" id="contact">
+
+  <div class="contact-info">
+    <div>
+      <div class="eyebrow">Contactez-nous</div>
+      <h2 class="h-section">Venez<br>nous <em>voir</em></h2>
+    </div>
+    <p class="contact-intro">Notre studio est situé au cœur de La Rochelle, dans une cour calme et verdoyante.</p>
+
+    <div class="info-block">
+      <div class="info-icon">📍</div>
+      <div>
+        <div class="info-label">Adresse</div>
+        <div class="info-value">
+          1 bis rue Fleuriau, 17000 La Rochelle<br>
+          <small style="font-size:13px;color:var(--muted)">(au fond de la cour · à côté de l'Ibis)</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-block">
+      <div class="info-icon">📞</div>
+      <div>
+        <div class="info-label">Téléphone</div>
+        <div class="info-value"><a href="tel:0608660700">06 08 66 07 00</a></div>
+      </div>
+    </div>
+
+    <div class="info-block">
+      <div class="info-icon">✉️</div>
+      <div>
+        <div class="info-label">Email</div>
+        <div class="info-value"><a href="/cdn-cgi/l/email-protection#6d0e0203190c0e192d0c030a0801084002004014020a0c430e0200"><span class="__cf_email__" data-cfemail="95f6fafbe1f4f6e1d5f4fbf2f0f9f0b8faf8b8ecfaf2f4bbf6faf8">[email&#160;protected]</span></a></div>
+      </div>
+    </div>
+
+    <div class="info-block">
+      <div class="info-icon">📸</div>
+      <div>
+        <div class="info-label">Instagram</div>
+        <div class="info-value"><a href="https://www.instagram.com/angele_om_yoga/" target="_blank">@angele_om_yoga ↗</a></div>
+      </div>
+    </div>
+
+    <div style="margin-top:8px">
+      <a href="https://www.google.com/maps/place/Angele+OM+Yoga/@46.1613063,-1.1510016,15z" target="_blank" class="btn-outline">Voir sur Google Maps →</a>
+    </div>
+  </div>
+
+  <div class="contact-form">
+    <div>
+      <div class="eyebrow" style="color:var(--terre)">Une question ?</div>
+      <h2 class="h-section" style="font-size:clamp(30px,3vw,46px)">Écrivez-<em>nous</em></h2>
+    </div>
+    <p class="form-sub">Nous vous répondons dans les 24h.</p>
+    <div class="form-row">
+      <div class="form-group">
+        <label>Nom &amp; Prénom</label>
+        <input type="text" placeholder="Marie Dupont">
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" placeholder="marie@exemple.com">
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Téléphone</label>
+      <input type="tel" placeholder="06 xx xx xx xx">
+    </div>
+    <div class="form-group">
+      <label>Message</label>
+      <textarea placeholder="Votre question, demande d'inscription, info sur les tarifs..."></textarea>
+    </div>
+    <button class="form-submit">Envoyer le message →</button>
+  </div>
+
+</section>
+
+<!-- ════════════════════════
+     FOOTER
+════════════════════════ -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <span class="logo-s">Angèle OM</span>
+      <div class="ft-tag">Studio de Yoga · La Rochelle</div>
+      <p>Votre studio de yoga au cœur de La Rochelle. Un espace authentique et bienveillant pour votre pratique.</p>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/angele_om_yoga/" target="_blank">📸</a>
+        <a href="#" target="_blank">📘</a>
+        <a href="#" target="_blank">▶️</a>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h5>Navigation</h5>
+      <ul>
+        <li><a href="#accueil">Accueil</a></li>
+        <li><a href="#equipe">L'Équipe</a></li>
+        <li><a href="#planning">Planning</a></li>
+        <li><a href="#tarifs">Tarifs</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h5>Cours</h5>
+      <ul>
+        <li><a href="https://angele.yoga/le-hatha-yoga/" target="_blank">Hatha Yoga</a></li>
+        <li><a href="https://angele.yoga/oceane-yoga/" target="_blank">Vinyasa</a></li>
+        <li><a href="#" >Yin Yoga</a></li>
+        <li><a href="https://angele.yoga/vanessa-meditation/" target="_blank">Méditation</a></li>
+        <li><a href="https://angele.yoga/aveline-pilates-instructor/" target="_blank">Pilates</a></li>
+        <li><a href="https://angele.yoga/cours-en-ligne/" target="_blank">Cours en ligne</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h5>Informations</h5>
+      <ul>
+        <li><a href="https://angele.yoga/le-yoga-en-entreprise/" target="_blank">Yoga en entreprise</a></li>
+        <li><a href="https://www.eversports.fr/s/angele-om-yoga" target="_blank">Réserver · Eversports</a></li>
+        <li><a href="https://angele.yoga/blog-yoga/" target="_blank">Le Blog</a></li>
+        <li><a href="#">CGV</a></li>
+        <li><a href="#">Mentions légales</a></li>
+        <li><a href="#">FAQ</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <span>© 2024 Angèle OM Yoga · Tous droits réservés · 1 bis rue Fleuriau · 17000 La Rochelle</span>
+    <span>Proposition de refonte · Design concept</span>
+  </div>
+</footer>
+
+<!-- ════════════════════════
+     JS
+════════════════════════ -->
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+// --- Reveal on scroll ---
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.reveal').forEach((el, i) => {
+  el.style.transitionDelay = (i % 4) * 0.08 + 's';
+  observer.observe(el);
+});
+
+// --- Day tabs ---
+function setDay(btn) {
+  document.querySelectorAll('.day-tab').forEach(t => t.classList.remove('active'));
