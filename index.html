@@ -724,6 +724,8 @@
         .pricing {
             padding: 8rem 5%;
             background: var(--cream);
+            position: relative;
+            overflow: hidden;
         }
 
         .pricing-container {
@@ -1150,11 +1152,64 @@
                 @angele_om_yoga
             </p>
 
-            <!-- Elfsight Instagram Feed | Untitled Instagram Feed -->
-            <div style="max-width: 1200px; margin: 0 auto; text-align: center;">
-                <script src="https://elfsightcdn.com/platform.js" async></script>
-                <div class="elfsight-app-ad066823-d2f1-4a7d-8146-fca66ccf9090" data-elfsight-app-lazy></div>
+            <!-- Carrousel personnalisé -->
+            <div style="max-width: 1200px; margin: 0 auto; position: relative;">
+                <div id="activities-carousel" style="display: flex; gap: 2rem; overflow-x: auto; scroll-behavior: smooth; padding: 2rem 0; scrollbar-width: none; -ms-overflow-style: none; align-items: center;">
+                    <!-- Card 1 -->
+                    <div style="min-width: 380px; max-width: 380px; flex-shrink: 0; background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border-radius: 20px; overflow: hidden; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2); transition: transform 0.3s;">
+                        <img src="images/insta/Screenshot 2026-02-24 at 23.22.47.png" alt="Activité" style="width: 100%; height: auto; display: block;">
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div style="min-width: 380px; max-width: 380px; flex-shrink: 0; background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border-radius: 20px; overflow: hidden; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2); transition: transform 0.3s;">
+                        <img src="images/insta/Screenshot 2026-02-24 at 23.23.25.png" alt="Activité" style="width: 100%; height: auto; display: block;">
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div style="min-width: 380px; max-width: 380px; flex-shrink: 0; background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border-radius: 20px; overflow: hidden; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2); transition: transform 0.3s;">
+                        <img src="images/insta/Screenshot 2026-02-24 at 23.23.43.png" alt="Activité" style="width: 100%; height: auto; display: block;">
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div style="min-width: 380px; max-width: 380px; flex-shrink: 0; background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border-radius: 20px; overflow: hidden; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2); transition: transform 0.3s;">
+                        <img src="images/insta/Screenshot 2026-02-24 at 23.24.31.png" alt="Activité" style="width: 100%; height: auto; display: block;">
+                    </div>
+                </div>
+
+                <!-- Navigation buttons -->
+                <button id="carousel-activities-prev" style="position: absolute; left: -20px; top: 50%; transform: translateY(-50%); width: 50px; height: 50px; border-radius: 50%; background: rgba(255, 255, 255, 0.95); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: var(--charcoal); box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); transition: all 0.3s; z-index: 10;">
+                    ‹
+                </button>
+                <button id="carousel-activities-next" style="position: absolute; right: -20px; top: 50%; transform: translateY(-50%); width: 50px; height: 50px; border-radius: 50%; background: rgba(255, 255, 255, 0.95); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: var(--charcoal); box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); transition: all 0.3s; z-index: 10;">
+                    ›
+                </button>
+
+                <!-- Indicateurs de pagination -->
+                <div style="display: flex; justify-content: center; gap: 0.5rem; margin-top: 2rem;">
+                    <span class="carousel-dot" data-index="0" style="width: 10px; height: 10px; border-radius: 50%; background: rgba(255, 255, 255, 0.5); cursor: pointer; transition: all 0.3s;"></span>
+                    <span class="carousel-dot" data-index="1" style="width: 10px; height: 10px; border-radius: 50%; background: rgba(255, 255, 255, 0.5); cursor: pointer; transition: all 0.3s;"></span>
+                    <span class="carousel-dot" data-index="2" style="width: 10px; height: 10px; border-radius: 50%; background: rgba(255, 255, 255, 0.5); cursor: pointer; transition: all 0.3s;"></span>
+                    <span class="carousel-dot" data-index="3" style="width: 10px; height: 10px; border-radius: 50%; background: rgba(255, 255, 255, 0.5); cursor: pointer; transition: all 0.3s;"></span>
+                </div>
             </div>
+
+            <style>
+                #activities-carousel::-webkit-scrollbar {
+                    display: none;
+                }
+
+                #carousel-activities-prev:hover,
+                #carousel-activities-next:hover {
+                    background: white;
+                    transform: translateY(-50%) scale(1.1);
+                }
+
+                .carousel-dot.active {
+                    background: white !important;
+                    width: 30px !important;
+                    border-radius: 5px !important;
+                }
+            </style>
 
             <div style="margin-top: 3rem;">
                 <a href="https://www.instagram.com/angele_om_yoga/"
@@ -1414,9 +1469,15 @@
     </section>
 
     <!-- Cours en ligne -->
-    <section id="cours-en-ligne" style="background: linear-gradient(135deg, #8B9D83 0%, #D4A574 100%); padding: 3rem 5%; position: relative; overflow: hidden;">
-        <!-- Forme de galet décoratif -->
+    <section id="cours-en-ligne" style="background: linear-gradient(135deg, #8B9D83 0%, #D4A574 100%); padding: 3rem 5%; position: relative; overflow: visible;">
+        <!-- Forme de galet décoratif - en haut à droite -->
         <div style="position: absolute; top: -30px; right: 10%; width: 200px; height: 180px; background: rgba(255, 255, 255, 0.1); border-radius: 45% 55% 52% 48% / 48% 58% 42% 52%; z-index: 0;"></div>
+
+        <!-- Galet central qui continue vers la section suivante -->
+        <div style="position: absolute; bottom: -200px; left: 50%; transform: translateX(-50%); width: 500px; height: 500px; background: rgba(139, 157, 131, 0.3); border-radius: 48% 52% 55% 45% / 52% 48% 45% 55%; z-index: 2;"></div>
+
+        <!-- Galet de gauche qui continue vers la section suivante -->
+        <div style="position: absolute; bottom: -180px; left: 5%; width: 380px; height: 380px; background: rgba(199, 123, 88, 0.25); border-radius: 42% 58% 48% 52% / 55% 45% 52% 48%; z-index: 2;"></div>
 
         <div style="max-width: 1200px; margin: 0 auto; position: relative; z-index: 1;">
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;">
@@ -1430,15 +1491,15 @@
                     </p>
 
                     <!-- Portrait instructeur -->
-                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; background: rgba(255, 255, 255, 0.15); padding: 1rem; border-radius: 15px;">
-                        <img src="https://angele.yoga/wp-content/uploads/moi-photo-annie-1-1024x1024-216x234.jpg" alt="Angèle" style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover; border: 3px solid white;">
+                    <div style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 1.5rem; background: rgba(255, 255, 255, 0.15); padding: 1.5rem; border-radius: 15px;">
+                        <img src="https://angele.yoga/wp-content/uploads/moi-photo-annie-1-1024x1024-216x234.jpg" alt="Angèle" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: 3px solid white;">
                         <div>
                             <div style="font-weight: 600; font-size: 1.1rem; margin-bottom: 0.3rem;">Angèle</div>
                             <div style="font-size: 0.9rem; opacity: 0.9;">Professeure certifiée Hatha Vinyasa & Yogathérapie</div>
                         </div>
                     </div>
 
-                    <div style="display: flex; gap: 1rem; margin-bottom: 1.5rem;">
+                    <div style="display: flex; gap: 1rem; margin-bottom: 2rem;">
                         <div style="background: rgba(255, 255, 255, 0.2); padding: 1rem 1.5rem; border-radius: 15px; flex: 1;">
                             <div style="font-size: 2rem; font-weight: 700; margin-bottom: 0.3rem;">129€</div>
                             <div style="font-size: 0.9rem; opacity: 0.9;">Abonnement 10 séances</div>
@@ -1448,32 +1509,47 @@
                             <div style="font-size: 0.9rem; opacity: 0.9;">Cours particulier</div>
                         </div>
                     </div>
-                    <a href="https://angele.yoga/cours-en-ligne/" target="_blank" style="display: inline-block; background: white; color: var(--sage); padding: 1rem 2.5rem; border-radius: 40px; text-decoration: none; font-weight: 600; font-size: 1rem; transition: all 0.3s; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);">
-                        En savoir plus →
-                    </a>
+
+                    <!-- Contact -->
+                    <div style="background: rgba(255, 255, 255, 0.2); padding: 1.5rem; border-radius: 15px; margin-bottom: 1.5rem;">
+                        <h3 style="font-family: 'Sora', sans-serif; font-size: 1.2rem; font-weight: 600; margin-bottom: 1rem;">Contact</h3>
+                        <div style="display: flex; flex-direction: column; gap: 0.8rem;">
+                            <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                <span style="font-size: 1.2rem;">📞</span>
+                                <a href="tel:0608660700" style="color: white; text-decoration: none; font-weight: 500;">06 08 66 07 00</a>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                <span style="font-size: 1.2rem;">✉️</span>
+                                <a href="mailto:contact@angele-om-yoga.com" style="color: white; text-decoration: none; font-weight: 500;">contact@angele-om-yoga.com</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- Points clés -->
-                <div style="display: grid; gap: 1.5rem;">
-                    <div style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); padding: 1.5rem; border-radius: 20px; display: flex; align-items: start; gap: 1rem;">
-                        <div style="background: white; color: var(--sage); width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; flex-shrink: 0;">1</div>
-                        <div style="color: white;">
-                            <h3 style="font-family: 'Sora', sans-serif; font-size: 1.2rem; font-weight: 600; margin-bottom: 0.5rem;">Réservez facilement</h3>
-                            <p style="opacity: 0.9; font-size: 0.95rem;">Au moins 15 minutes avant le cours</p>
+                <!-- Points clés réunis dans une carte -->
+                <div style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); padding: 2rem; border-radius: 20px;">
+                    <h3 style="font-family: 'Sora', sans-serif; font-size: 1.3rem; font-weight: 600; margin-bottom: 1.5rem; color: white;">Comment ça marche ?</h3>
+                    <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                        <div style="display: flex; align-items: start; gap: 1rem;">
+                            <div style="background: white; color: var(--sage); width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; flex-shrink: 0; font-weight: 700;">1</div>
+                            <div style="color: white;">
+                                <h4 style="font-family: 'Sora', sans-serif; font-size: 1.1rem; font-weight: 600; margin-bottom: 0.4rem;">Réservez facilement</h4>
+                                <p style="opacity: 0.9; font-size: 0.95rem; margin: 0;">Au moins 15 minutes avant le cours</p>
+                            </div>
                         </div>
-                    </div>
-                    <div style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); padding: 1.5rem; border-radius: 20px; display: flex; align-items: start; gap: 1rem;">
-                        <div style="background: white; color: var(--sage); width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; flex-shrink: 0;">2</div>
-                        <div style="color: white;">
-                            <h3 style="font-family: 'Sora', sans-serif; font-size: 1.2rem; font-weight: 600; margin-bottom: 0.5rem;">Installez-vous</h3>
-                            <p style="opacity: 0.9; font-size: 0.95rem;">Dans un espace calme et confortable</p>
+                        <div style="display: flex; align-items: start; gap: 1rem;">
+                            <div style="background: white; color: var(--sage); width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; flex-shrink: 0; font-weight: 700;">2</div>
+                            <div style="color: white;">
+                                <h4 style="font-family: 'Sora', sans-serif; font-size: 1.1rem; font-weight: 600; margin-bottom: 0.4rem;">Installez-vous</h4>
+                                <p style="opacity: 0.9; font-size: 0.95rem; margin: 0;">Dans un espace calme et confortable</p>
+                            </div>
                         </div>
-                    </div>
-                    <div style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); padding: 1.5rem; border-radius: 20px; display: flex; align-items: start; gap: 1rem;">
-                        <div style="background: white; color: var(--sage); width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; flex-shrink: 0;">3</div>
-                        <div style="color: white;">
-                            <h3 style="font-family: 'Sora', sans-serif; font-size: 1.2rem; font-weight: 600; margin-bottom: 0.5rem;">Connectez-vous</h3>
-                            <p style="opacity: 0.9; font-size: 0.95rem;">Via le lien Zoom envoyé par email</p>
+                        <div style="display: flex; align-items: start; gap: 1rem;">
+                            <div style="background: white; color: var(--sage); width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; flex-shrink: 0; font-weight: 700;">3</div>
+                            <div style="color: white;">
+                                <h4 style="font-family: 'Sora', sans-serif; font-size: 1.1rem; font-weight: 600; margin-bottom: 0.4rem;">Connectez-vous</h4>
+                                <p style="opacity: 0.9; font-size: 0.95rem; margin: 0;">Via le lien Zoom envoyé par email</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1482,25 +1558,45 @@
     </section>
 
     <!-- Méditation à la bougie -->
-    <section style="background: linear-gradient(135deg, #3A3A3A 0%, #5A4A3A 100%); padding: 6rem 5%; position: relative; overflow: hidden;">
-        <!-- Forme de galet décoratif -->
-        <div style="position: absolute; top: -50px; left: 8%; width: 250px; height: 220px; background: rgba(255, 255, 255, 0.08); border-radius: 48% 52% 45% 55% / 52% 48% 58% 42%; z-index: 0;"></div>
-        <div style="position: absolute; bottom: -40px; right: 10%; width: 200px; height: 180px; background: rgba(199, 123, 88, 0.12); border-radius: 55% 45% 52% 48% / 48% 52% 48% 52%; z-index: 0;"></div>
+    <section style="background: linear-gradient(135deg, #3A3A3A 0%, #5A4A3A 100%); padding: 6rem 5%; position: relative; overflow: visible;">
+        <!-- Galet central qui continue depuis la section précédente -->
+        <div style="position: absolute; top: -300px; left: 50%; transform: translateX(-50%); width: 500px; height: 500px; background: rgba(139, 157, 131, 0.2); border-radius: 48% 52% 55% 45% / 52% 48% 45% 55%; z-index: 1;"></div>
+
+        <!-- Galet de gauche qui continue depuis la section précédente -->
+        <div style="position: absolute; top: -280px; left: 5%; width: 380px; height: 380px; background: rgba(199, 123, 88, 0.18); border-radius: 42% 58% 48% 52% / 55% 45% 52% 48%; z-index: 1;"></div>
+
+        <!-- Galet à droite qui continue vers la section suivante - forme de galet plus organique -->
+        <div style="position: absolute; bottom: -160px; right: 5%; width: 350px; height: 280px; background: rgba(212, 165, 116, 0.2); border-radius: 63% 37% 48% 52% / 42% 58% 42% 58%; z-index: 2;"></div>
 
         <div style="max-width: 1200px; margin: 0 auto; position: relative; z-index: 1;">
             <div style="text-align: center; margin-bottom: 3rem;">
                 <div style="font-size: 0.9rem; letter-spacing: 3px; text-transform: uppercase; color: var(--terre-douce); margin-bottom: 1rem;">Trataka</div>
                 <h2 style="font-family: 'Sora', sans-serif; font-size: 3rem; font-weight: 600; color: white; margin-bottom: 1.5rem;">Méditation à la bougie</h2>
-                <p style="font-size: 1.2rem; color: rgba(255, 255, 255, 0.9); max-width: 700px; margin: 0 auto; font-style: italic;">
-                    Une pratique millénaire pour apaiser l'esprit et se connecter à sa lumière intérieure
+                <p style="font-size: 1.1rem; color: rgba(255, 255, 255, 0.9); max-width: 800px; margin: 0 auto; line-height: 1.7;">
+                    Le <strong>Trataka</strong> est une pratique ancestrale du yoga qui utilise la flamme d'une bougie comme point de focalisation.
+                    Cette technique millénaire apaise l'esprit, favorise la clarté mentale et permet de se connecter à sa lumière intérieure.
                 </p>
             </div>
 
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; margin-top: 4rem;">
-                <!-- Image -->
+                <!-- Image avec enregistrement audio intégré -->
                 <div style="position: relative;">
                     <div style="border-radius: 20px; overflow: hidden; box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);">
-                        <img src="https://angele.yoga/wp-content/uploads/mediation_bougie.png" alt="Méditation à la bougie" style="width: 100%; display: block;">
+                        <img src="images/AdobeStock_1862142116.jpeg" alt="Méditation à la bougie" style="width: 100%; display: block;">
+                    </div>
+                    <!-- Enregistrement vocal guidé superposé -->
+                    <div style="margin-top: 1.5rem; padding: 1.5rem; background: rgba(0, 0, 0, 0.6); backdrop-filter: blur(10px); border-radius: 15px;">
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                            <div style="background: var(--terre-douce); width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0; color: var(--charcoal);">🎧</div>
+                            <div style="color: white;">
+                                <h4 style="font-family: 'Sora', sans-serif; font-weight: 600; margin: 0; font-size: 1.1rem;">Méditation guidée</h4>
+                                <p style="margin: 0; opacity: 0.9; font-size: 0.9rem;">Enregistrement vocal pour pratiquer chez vous</p>
+                            </div>
+                        </div>
+                        <audio controls style="width: 100%; border-radius: 10px;">
+                            <source src="https://angele.yoga/wp-content/uploads/meditation-bougie-guide.mp3" type="audio/mpeg">
+                            Votre navigateur ne supporte pas la lecture audio.
+                        </audio>
                     </div>
                 </div>
 
@@ -1542,29 +1638,7 @@
                         </div>
                     </div>
 
-                    <div style="margin-top: 2.5rem; padding: 1.5rem; background: rgba(255, 255, 255, 0.1); border-radius: 15px; border-left: 4px solid var(--terre-douce);">
-                        <p style="font-size: 0.95rem; line-height: 1.7; margin: 0; opacity: 0.95;">
-                            <strong>Le Trataka</strong> est une pratique ancestrale du yoga qui utilise la flamme d'une bougie comme point de focalisation.
-                            Cette technique millénaire favorise la clarté mentale et l'apaisement de l'esprit.
-                        </p>
-                    </div>
-
-                    <!-- Enregistrement vocal guidé -->
-                    <div style="margin-top: 2rem; padding: 1.5rem; background: rgba(212, 165, 116, 0.15); border-radius: 15px;">
-                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
-                            <div style="background: rgba(212, 165, 116, 0.3); width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0;">🎧</div>
-                            <div>
-                                <h4 style="font-family: 'Sora', sans-serif; font-weight: 600; margin: 0; font-size: 1.1rem;">Méditation guidée</h4>
-                                <p style="margin: 0; opacity: 0.9; font-size: 0.9rem;">Enregistrement vocal pour pratiquer chez vous</p>
-                            </div>
-                        </div>
-                        <audio controls style="width: 100%; margin-top: 0.5rem; border-radius: 10px;">
-                            <source src="https://angele.yoga/wp-content/uploads/meditation-bougie-guide.mp3" type="audio/mpeg">
-                            Votre navigateur ne supporte pas la lecture audio.
-                        </audio>
-                    </div>
-
-                    <div style="margin-top: 2rem;">
+                    <div style="margin-top: 2.5rem;">
                         <a href="#planning" style="display: inline-block; background: var(--terre-douce); color: var(--charcoal); padding: 1rem 2.5rem; border-radius: 40px; text-decoration: none; font-weight: 600; font-size: 1rem; transition: all 0.3s; box-shadow: 0 10px 30px rgba(212, 165, 116, 0.3);">
                             Découvrir les séances →
                         </a>
@@ -1576,6 +1650,9 @@
 
     <!-- Tarifs -->
     <section class="pricing" id="tarifs">
+        <!-- Galet de droite qui continue depuis la section précédente - forme de galet plus organique -->
+        <div style="position: absolute; top: -240px; right: 5%; width: 350px; height: 280px; background: rgba(212, 165, 116, 0.12); border-radius: 63% 37% 48% 52% / 42% 58% 42% 58%; z-index: 1;"></div>
+
         <div class="pricing-container">
             <div style="text-align: center; margin-bottom: 3rem;">
                 <div class="section-label">Formules</div>
@@ -1916,128 +1993,167 @@
             this.reset();
         });
 
-        // Instagram Carousel
-        const instagramPosts = [
-            {
-                image: 'https://angele.yoga/wp-content/uploads/angele-yoga-rochelle-web-4.jpg',
-                caption: 'Séance de yoga en pleine conscience 🧘‍♀️',
-                hashtag: '#goodvibesonly',
-                link: 'https://www.instagram.com/angele_om_yoga/'
-            },
-            {
-                image: 'https://angele.yoga/wp-content/uploads/moi-photo-annie-1-1024x1024-216x234.jpg',
-                caption: 'Pratique quotidienne pour trouver l\'équilibre ✨',
-                hashtag: '#goodvibesonly',
-                link: 'https://www.instagram.com/angele_om_yoga/'
-            },
-            {
-                image: 'https://angele.yoga/wp-content/uploads/Mathilde-1-945x1024-217x230.jpg',
-                caption: 'Flow du matin, énergie positive 🌿',
-                hashtag: '#goodvibesonly',
-                link: 'https://www.instagram.com/angele_om_yoga/'
-            },
-            {
-                image: 'https://angele.yoga/wp-content/uploads/20240907_162947-889x1024-260x250.jpg',
-                caption: 'Moments de paix et de sérénité 🌸',
-                hashtag: '#goodvibesonly',
-                link: 'https://www.instagram.com/angele_om_yoga/'
-            },
-            {
-                image: 'https://angele.yoga/wp-content/uploads/vanessa-NB-web-241x235.jpg',
-                caption: 'Connexion corps-esprit 💫',
-                hashtag: '#goodvibesonly',
-                link: 'https://www.instagram.com/angele_om_yoga/'
-            },
-            {
-                image: 'https://angele.yoga/wp-content/uploads/Oceane-Joly-260x250.jpg',
-                caption: 'Studio chaleureux et accueillant 💛',
-                hashtag: '#goodvibesonly',
-                link: 'https://www.instagram.com/angele_om_yoga/'
-            }
-        ];
+        // Activities Carousel
+        const activitiesCarousel = document.getElementById('activities-carousel');
+        const prevBtnActivities = document.getElementById('carousel-activities-prev');
+        const nextBtnActivities = document.getElementById('carousel-activities-next');
+        const dots = document.querySelectorAll('.carousel-dot');
 
-        function createInstagramCard(post) {
-            const card = document.createElement('div');
-            card.className = 'insta-card';
-            card.innerHTML = `
-                <img src="${post.image}" alt="${post.caption}">
-                <div class="insta-icon">📷</div>
-                <div class="like-badge">Like This!</div>
-                <div class="insta-card-overlay">
-                    <div class="insta-card-content">
-                        <p style="font-size: 0.95rem; margin: 0;">${post.caption}</p>
-                        <p style="font-size: 0.85rem; margin-top: 0.5rem; opacity: 0.9;">${post.hashtag}</p>
-                    </div>
-                </div>
-            `;
-            card.addEventListener('click', () => {
-                window.open(post.link, '_blank');
-            });
-            return card;
-        }
+        if (activitiesCarousel && prevBtnActivities && nextBtnActivities) {
+            const cardWidth = 380 + 32; // largeur de la carte + gap (mis à jour pour format Instagram)
+            let currentIndex = 0;
 
-        const carousel = document.getElementById('instagram-carousel');
-        const prevBtn = document.getElementById('carousel-prev');
-        const nextBtn = document.getElementById('carousel-next');
-
-        // Ajouter les posts au carrousel
-        instagramPosts.forEach(post => {
-            carousel.appendChild(createInstagramCard(post));
-        });
-
-        // Navigation du carrousel
-        let scrollAmount = 0;
-        const cardWidth = 300 + 24; // largeur de la carte + gap
-
-        nextBtn.addEventListener('click', () => {
-            scrollAmount += cardWidth;
-            const maxScroll = carousel.scrollWidth - carousel.clientWidth;
-            if (scrollAmount > maxScroll) scrollAmount = maxScroll;
-            carousel.scrollTo({
-                left: scrollAmount,
-                behavior: 'smooth'
-            });
-        });
-
-        prevBtn.addEventListener('click', () => {
-            scrollAmount -= cardWidth;
-            if (scrollAmount < 0) scrollAmount = 0;
-            carousel.scrollTo({
-                left: scrollAmount,
-                behavior: 'smooth'
-            });
-        });
-
-        // Auto-scroll (optionnel)
-        let autoScrollInterval = setInterval(() => {
-            scrollAmount += cardWidth;
-            const maxScroll = carousel.scrollWidth - carousel.clientWidth;
-            if (scrollAmount > maxScroll) {
-                scrollAmount = 0;
-            }
-            carousel.scrollTo({
-                left: scrollAmount,
-                behavior: 'smooth'
-            });
-        }, 5000); // Change toutes les 5 secondes
-
-        // Arrêter l'auto-scroll au survol
-        carousel.addEventListener('mouseenter', () => {
-            clearInterval(autoScrollInterval);
-        });
-
-        carousel.addEventListener('mouseleave', () => {
-            autoScrollInterval = setInterval(() => {
-                scrollAmount += cardWidth;
-                const maxScroll = carousel.scrollWidth - carousel.clientWidth;
-                if (scrollAmount > maxScroll) {
-                    scrollAmount = 0;
-                }
-                carousel.scrollTo({
-                    left: scrollAmount,
+            function updateCarousel() {
+                activitiesCarousel.scrollTo({
+                    left: currentIndex * cardWidth,
                     behavior: 'smooth'
                 });
-            }, 5000);
+
+                // Update dots
+                dots.forEach((dot, index) => {
+                    if (index === currentIndex) {
+                        dot.classList.add('active');
+                    } else {
+                        dot.classList.remove('active');
+                    }
+                });
+            }
+
+            nextBtnActivities.addEventListener('click', () => {
+                currentIndex = Math.min(currentIndex + 1, 3);
+                updateCarousel();
+            });
+
+            prevBtnActivities.addEventListener('click', () => {
+                currentIndex = Math.max(currentIndex - 1, 0);
+                updateCarousel();
+            });
+
+            // Click sur les dots
+            dots.forEach(dot => {
+                dot.addEventListener('click', () => {
+                    currentIndex = parseInt(dot.getAttribute('data-index'));
+                    updateCarousel();
+                });
+            });
+
+            // Initialize
+            updateCarousel();
+        }
+
+        // Effet sonore harpe au survol des bulles de yoga - chaque bulle a sa propre note
+        const yogaBubbles = document.querySelectorAll('.yoga-bubble');
+        let audioContext = null;
+        let isAudioReady = false;
+
+        // Notes de harpe (gamme pentatonique zen)
+        const harpNotes = [
+            { name: 'C5', freq: 523.25 },   // Do - Hatha
+            { name: 'D5', freq: 587.33 },   // Ré - Yin
+            { name: 'E5', freq: 659.25 },   // Mi - Vinyasa
+            { name: 'G5', freq: 783.99 },   // Sol - Nidra
+            { name: 'A5', freq: 880.00 },   // La - Pilates
+            { name: 'C6', freq: 1046.50 },  // Do - Méditation
+            { name: 'D6', freq: 1174.66 },  // Ré - Bain sonore
+            { name: 'E6', freq: 1318.51 }   // Mi - Renfo Musculaire
+        ];
+
+        console.log('🎵 Bulles de yoga trouvées:', yogaBubbles.length);
+
+        // Fonction pour créer et jouer une note de harpe
+        function playHarpNote(frequency, noteName) {
+            console.log(`🎹 Joue note ${noteName} (${frequency}Hz)`);
+
+            if (!audioContext) {
+                audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                console.log('✅ AudioContext créé');
+            }
+
+            const now = audioContext.currentTime;
+
+            // Oscillateur principal (son fondamental)
+            const osc1 = audioContext.createOscillator();
+            const gain1 = audioContext.createGain();
+            osc1.type = 'triangle'; // Son plus doux pour harpe
+            osc1.frequency.setValueAtTime(frequency, now);
+
+            // Harmonique 1 (octave)
+            const osc2 = audioContext.createOscillator();
+            const gain2 = audioContext.createGain();
+            osc2.type = 'sine';
+            osc2.frequency.setValueAtTime(frequency * 2, now);
+
+            // Harmonique 2 (quinte)
+            const osc3 = audioContext.createOscillator();
+            const gain3 = audioContext.createGain();
+            osc3.type = 'sine';
+            osc3.frequency.setValueAtTime(frequency * 1.5, now);
+
+            // Connexions
+            osc1.connect(gain1);
+            osc2.connect(gain2);
+            osc3.connect(gain3);
+            gain1.connect(audioContext.destination);
+            gain2.connect(audioContext.destination);
+            gain3.connect(audioContext.destination);
+
+            // Enveloppe ADSR pour son de harpe (attaque rapide, sustain long)
+            const attackTime = 0.01;
+            const decayTime = 0.1;
+            const sustainLevel = 0.3;
+            const releaseTime = 1.5;
+
+            // Oscillateur principal
+            gain1.gain.setValueAtTime(0, now);
+            gain1.gain.linearRampToValueAtTime(0.3, now + attackTime);
+            gain1.gain.exponentialRampToValueAtTime(sustainLevel, now + attackTime + decayTime);
+            gain1.gain.exponentialRampToValueAtTime(0.001, now + releaseTime);
+
+            // Harmonique 1
+            gain2.gain.setValueAtTime(0, now);
+            gain2.gain.linearRampToValueAtTime(0.15, now + attackTime);
+            gain2.gain.exponentialRampToValueAtTime(0.05, now + attackTime + decayTime);
+            gain2.gain.exponentialRampToValueAtTime(0.001, now + releaseTime);
+
+            // Harmonique 2
+            gain3.gain.setValueAtTime(0, now);
+            gain3.gain.linearRampToValueAtTime(0.1, now + attackTime);
+            gain3.gain.exponentialRampToValueAtTime(0.03, now + attackTime + decayTime);
+            gain3.gain.exponentialRampToValueAtTime(0.001, now + releaseTime);
+
+            // Démarrage et arrêt
+            osc1.start(now);
+            osc1.stop(now + releaseTime);
+            osc2.start(now);
+            osc2.stop(now + releaseTime);
+            osc3.start(now);
+            osc3.stop(now + releaseTime);
+        }
+
+        // Attacher les événements à toutes les bulles avec leur note respective
+        yogaBubbles.forEach((bubble, index) => {
+            const note = harpNotes[index];
+            console.log(`📍 Bulle ${index + 1} (${bubble.textContent.trim()}) = Note ${note.name}`);
+
+            bubble.style.cursor = 'pointer';
+
+            // Survol (fonctionne seulement après activation)
+            bubble.addEventListener('mouseenter', function() {
+                if (isAudioReady) {
+                    playHarpNote(note.freq, note.name);
+                }
+            });
+
+            // Clic (active l'audio ET joue le son)
+            bubble.addEventListener('click', function() {
+                console.log('👆 Clic sur:', bubble.textContent.trim());
+                playHarpNote(note.freq, note.name);
+
+                if (!isAudioReady) {
+                    isAudioReady = true;
+                    console.log('✅ Audio activé ! Survolez les bulles pour entendre les notes de harpe.');
+                }
+            });
         });
     </script>
 </body>
