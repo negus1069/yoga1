@@ -151,35 +151,30 @@ index.html
 
 ### 3. Section Instagram (`<section class="instagram-feed">`)
 
-**ID d'ancrage:** N/A  
+**ID d'ancrage:** `#activites`
 
-**Widget:** Behold Instagram Feed
+**Widget:** Elfsight Instagram Feed
 
 #### Configuration
 
 ```html
-<behold-widget feed-id="qhVyPYXFtHATTGLhvsZq"></behold-widget>
+<div class="elfsight-app-ad066823-d2f1-4a7d-8146-fca66ccf9090" data-elfsight-app-lazy></div>
 ```
 
 #### Script requis
 
-```javascript
-<script>
-  (() => {
-    const d=document,s=d.createElement("script");s.type="module";
-    s.src="https://w.behold.so/widget.js";d.head.append(s);
-  })();
-</script>
+```html
+<script src="https://elfsightcdn.com/platform.js" async></script>
 ```
 
 #### Fonctionnalités
 
 - Affichage automatique des posts Instagram
-- Filtre par hashtag: `#angeleomyoga`
 - Compte: `@angele_om_yoga`
 - Design responsive intégré au widget
+- Chargement lazy pour optimiser les performances
 
-**⚠️ Note:** Le carrousel JavaScript legacy (lignes 1230-1323) peut être retiré car remplacé par Behold
+**⚠️ Note:** Le carrousel JavaScript legacy peut être retiré car remplacé par Elfsight
 
 ---
 
@@ -380,24 +375,24 @@ document.querySelector('form').addEventListener('submit', function(e) {
 
 ## 🔧 Widgets externes
 
-### 1. Behold (Instagram)
+### 1. Elfsight (Instagram)
 
-**Provider:** Behold.so  
+**Provider:** Elfsight
 
-**Widget ID:** `qhVyPYXFtHATTGLhvsZq`  
+**App ID:** `ad066823-d2f1-4a7d-8146-fca66ccf9090`
 
-**Script:** `https://w.behold.so/widget.js`
+**Script:** `https://elfsightcdn.com/platform.js`
 
 #### Configuration
 
 - Compte: @angele_om_yoga
-- Hashtag: #angeleomyoga
-- Type: Module ES6
-- Chargement: Asynchrone
+- Type: Widget Instagram Feed
+- Chargement: Asynchrone + lazy loading
+- Responsive: Intégré
 
 #### Dashboard
 
-https://behold.so/dashboard (authentification requise)
+https://elfsight.com/dashboard (authentification requise)
 
 ### 2. Eversports (Réservation)
 
@@ -458,11 +453,11 @@ document.querySelector('form').addEventListener('submit', function(e) {
 
 ### 3. Instagram Carousel (Legacy)
 
-**Statut:** ⚠️ OBSOLÈTE - Peut être retiré  
+**Statut:** ⚠️ OBSOLÈTE - Peut être retiré
 
-**Lignes:** 1230-1323  
+**Lignes:** 1898-2021
 
-**Raison:** Remplacé par widget Behold
+**Raison:** Remplacé par widget Elfsight
 
 Le code créait un carrousel JavaScript avec:
 
@@ -530,10 +525,10 @@ Avantages:
 
 ### Widgets externes
 
-| Service    | Fichier   | Type   | Critique |
-| ---------- | --------- | ------ | -------- |
-| Behold     | widget.js | Module | ✅ Oui   |
-| Eversports | loader.js | Module | ✅ Oui   |
+| Service    | Fichier      | Type   | Critique |
+| ---------- | ------------ | ------ | -------- |
+| Elfsight   | platform.js  | Script | ✅ Oui   |
+| Eversports | loader.js    | Module | ✅ Oui   |
 
 ### Images
 
@@ -558,10 +553,10 @@ Avantages:
 
 ### Variables à configurer
 
-#### Behold Widget
+#### Elfsight Widget
 
 ```html
-<behold-widget feed-id="qhVyPYXFtHATTGLhvsZq"></behold-widget>
+<div class="elfsight-app-ad066823-d2f1-4a7d-8146-fca66ccf9090" data-elfsight-app-lazy></div>
 ```
 
 #### Eversports Widget
@@ -686,6 +681,12 @@ alert('Merci pour votre message !');
 
 ## 📝 Changelog
 
+### Version 1.1 (23 février 2026)
+
+- ✅ Remplacement widget Instagram Behold par Elfsight
+- ✅ Ajout badge téléphone dans section héro
+- ✅ Réduction taille des boutons CTA
+
 ### Version 1.0 (21 février 2026)
 
 - ✅ Structure HTML5 complète
@@ -722,7 +723,7 @@ alert('Merci pour votre message !');
 
 ### Widgets
 
-- **Behold:** https://behold.so/support
+- **Elfsight:** https://elfsight.com/help
 - **Eversports:** https://www.eversports.com/help
 
 ### Développement
@@ -739,8 +740,8 @@ alert('Merci pour votre message !');
 
 ---
 
-**Dernière mise à jour:** 21 février 2026  
+**Dernière mise à jour:** 23 février 2026
 
-**Version document:** 1.0  
+**Version document:** 1.1  
 
 **Auteur:** Documentation générée automatiquement
