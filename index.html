@@ -1119,7 +1119,7 @@
         <div class="hero-content">
             <div class="hero-text">
                 <h1>
-                    ANGÈLE OM YOGA — La Rochelle
+                    angele OM YAGA<br><span style="white-space: nowrap;">La rochelle</span>
                 </h1>
                 <p style="font-style: italic; color: var(--terre-douce); font-size: 1.5rem; margin-bottom: 2.5rem;">Respirez. Ancrez-vous. Équilibrez-vous.</p>
 
@@ -2078,28 +2078,28 @@
             updateCarousel();
         }
 
-        // Effet sonore harpe au survol des bulles de yoga - chaque bulle a sa propre note
+        // Effet sonore bols tibétains au survol des bulles de yoga - chaque bulle a son propre bol
         const yogaBubbles = document.querySelectorAll('.yoga-bubble');
         let audioContext = null;
         let isAudioReady = false;
 
-        // Notes de harpe (gamme pentatonique zen)
-        const harpNotes = [
-            { name: 'C5', freq: 523.25 },   // Do - Hatha
-            { name: 'D5', freq: 587.33 },   // Ré - Yin
-            { name: 'E5', freq: 659.25 },   // Mi - Vinyasa
-            { name: 'G5', freq: 783.99 },   // Sol - Nidra
-            { name: 'A5', freq: 880.00 },   // La - Pilates
-            { name: 'C6', freq: 1046.50 },  // Do - Méditation
-            { name: 'D6', freq: 1174.66 },  // Ré - Bain sonore
-            { name: 'E6', freq: 1318.51 }   // Mi - Renfo Musculaire
+        // Fréquences des bols tibétains (plus douces et cristallines)
+        const tibetanBowls = [
+            { name: 'Bol 1', freq: 329.63 },   // Mi moyen - Hatha
+            { name: 'Bol 2', freq: 349.23 },   // Fa moyen - Yin
+            { name: 'Bol 3', freq: 392.00 },   // Sol moyen - Vinyasa
+            { name: 'Bol 4', freq: 440.00 },   // La moyen - Nidra
+            { name: 'Bol 5', freq: 493.88 },   // Si moyen - Pilates
+            { name: 'Bol 6', freq: 523.25 },   // Do aigu - Méditation
+            { name: 'Bol 7', freq: 587.33 },   // Ré aigu - Bain sonore
+            { name: 'Bol 8', freq: 659.25 }    // Mi aigu - Renfo Musculaire
         ];
 
-        console.log('🎵 Bulles de yoga trouvées:', yogaBubbles.length);
+        console.log('🔔 Bulles de yoga trouvées:', yogaBubbles.length);
 
-        // Fonction pour créer et jouer une note de harpe
-        function playHarpNote(frequency, noteName) {
-            console.log(`🎹 Joue note ${noteName} (${frequency}Hz)`);
+        // Fonction pour créer et jouer un son de bol tibétain
+        function playTibetanBowl(frequency, bowlName) {
+            console.log(`🔔 Joue ${bowlName} (${frequency}Hz)`);
 
             if (!audioContext) {
                 audioContext = new (window.AudioContext || window.webkitAudioContext)();
@@ -2107,88 +2107,105 @@
             }
 
             const now = audioContext.currentTime;
+            const duration = 2.0; // Résonance plus courte pour plus de douceur
 
-            // Oscillateur principal (son fondamental)
+            // Filtre passe-bas pour adoucir le son
+            const filter = audioContext.createBiquadFilter();
+            filter.type = 'lowpass';
+            filter.frequency.setValueAtTime(4000, now);
+            filter.Q.setValueAtTime(0.8, now);
+            filter.connect(audioContext.destination);
+
+            // Son fondamental du bol
             const osc1 = audioContext.createOscillator();
             const gain1 = audioContext.createGain();
-            osc1.type = 'triangle'; // Son plus doux pour harpe
+            osc1.type = 'sine';
             osc1.frequency.setValueAtTime(frequency, now);
+            osc1.connect(gain1);
+            gain1.connect(filter);
 
-            // Harmonique 1 (octave)
+            // Harmonique 1 (légèrement décalée pour effet de battement subtil)
             const osc2 = audioContext.createOscillator();
             const gain2 = audioContext.createGain();
             osc2.type = 'sine';
-            osc2.frequency.setValueAtTime(frequency * 2, now);
+            osc2.frequency.setValueAtTime(frequency * 1.005, now);
+            osc2.connect(gain2);
+            gain2.connect(filter);
 
-            // Harmonique 2 (quinte)
+            // Harmonique 2 (tierce douce)
             const osc3 = audioContext.createOscillator();
             const gain3 = audioContext.createGain();
             osc3.type = 'sine';
-            osc3.frequency.setValueAtTime(frequency * 1.5, now);
-
-            // Connexions
-            osc1.connect(gain1);
-            osc2.connect(gain2);
+            osc3.frequency.setValueAtTime(frequency * 1.25, now);
             osc3.connect(gain3);
-            gain1.connect(audioContext.destination);
-            gain2.connect(audioContext.destination);
-            gain3.connect(audioContext.destination);
+            gain3.connect(filter);
 
-            // Enveloppe ADSR pour son de harpe (attaque rapide, sustain long)
-            const attackTime = 0.01;
-            const decayTime = 0.1;
-            const sustainLevel = 0.3;
-            const releaseTime = 1.5;
+            // Harmonique 3 (quinte cristalline)
+            const osc4 = audioContext.createOscillator();
+            const gain4 = audioContext.createGain();
+            osc4.type = 'sine';
+            osc4.frequency.setValueAtTime(frequency * 1.5, now);
+            osc4.connect(gain4);
+            gain4.connect(filter);
 
-            // Oscillateur principal
+            // Enveloppe douce et délicate
+            const attackTime = 0.08;
+            const decayTime = 0.2;
+            const sustainLevel = 0.08;
+
+            // Fondamental (son principal très doux)
             gain1.gain.setValueAtTime(0, now);
-            gain1.gain.linearRampToValueAtTime(0.3, now + attackTime);
+            gain1.gain.linearRampToValueAtTime(0.12, now + attackTime);
             gain1.gain.exponentialRampToValueAtTime(sustainLevel, now + attackTime + decayTime);
-            gain1.gain.exponentialRampToValueAtTime(0.001, now + releaseTime);
+            gain1.gain.exponentialRampToValueAtTime(0.001, now + duration);
 
-            // Harmonique 1
+            // Harmonique 1 (battement subtil)
             gain2.gain.setValueAtTime(0, now);
-            gain2.gain.linearRampToValueAtTime(0.15, now + attackTime);
-            gain2.gain.exponentialRampToValueAtTime(0.05, now + attackTime + decayTime);
-            gain2.gain.exponentialRampToValueAtTime(0.001, now + releaseTime);
+            gain2.gain.linearRampToValueAtTime(0.10, now + attackTime);
+            gain2.gain.exponentialRampToValueAtTime(0.06, now + attackTime + decayTime);
+            gain2.gain.exponentialRampToValueAtTime(0.001, now + duration);
 
-            // Harmonique 2
+            // Harmonique 2 (tierce délicate)
             gain3.gain.setValueAtTime(0, now);
-            gain3.gain.linearRampToValueAtTime(0.1, now + attackTime);
+            gain3.gain.linearRampToValueAtTime(0.06, now + attackTime * 1.5);
             gain3.gain.exponentialRampToValueAtTime(0.03, now + attackTime + decayTime);
-            gain3.gain.exponentialRampToValueAtTime(0.001, now + releaseTime);
+            gain3.gain.exponentialRampToValueAtTime(0.001, now + duration);
 
-            // Démarrage et arrêt
-            osc1.start(now);
-            osc1.stop(now + releaseTime);
-            osc2.start(now);
-            osc2.stop(now + releaseTime);
-            osc3.start(now);
-            osc3.stop(now + releaseTime);
+            // Harmonique 3 (quinte cristalline)
+            gain4.gain.setValueAtTime(0, now);
+            gain4.gain.linearRampToValueAtTime(0.05, now + attackTime * 2);
+            gain4.gain.exponentialRampToValueAtTime(0.02, now + attackTime + decayTime);
+            gain4.gain.exponentialRampToValueAtTime(0.001, now + duration);
+
+            // Démarrage et arrêt de tous les oscillateurs
+            [osc1, osc2, osc3, osc4].forEach(osc => {
+                osc.start(now);
+                osc.stop(now + duration);
+            });
         }
 
-        // Attacher les événements à toutes les bulles avec leur note respective
+        // Attacher les événements à toutes les bulles avec leur bol tibétain respectif
         yogaBubbles.forEach((bubble, index) => {
-            const note = harpNotes[index];
-            console.log(`📍 Bulle ${index + 1} (${bubble.textContent.trim()}) = Note ${note.name}`);
+            const bowl = tibetanBowls[index];
+            console.log(`📍 Bulle ${index + 1} (${bubble.textContent.trim()}) = ${bowl.name}`);
 
             bubble.style.cursor = 'pointer';
 
             // Survol (fonctionne seulement après activation)
             bubble.addEventListener('mouseenter', function() {
                 if (isAudioReady) {
-                    playHarpNote(note.freq, note.name);
+                    playTibetanBowl(bowl.freq, bowl.name);
                 }
             });
 
             // Clic (active l'audio ET joue le son)
             bubble.addEventListener('click', function() {
                 console.log('👆 Clic sur:', bubble.textContent.trim());
-                playHarpNote(note.freq, note.name);
+                playTibetanBowl(bowl.freq, bowl.name);
 
                 if (!isAudioReady) {
                     isAudioReady = true;
-                    console.log('✅ Audio activé ! Survolez les bulles pour entendre les notes de harpe.');
+                    console.log('✅ Audio activé ! Survolez les bulles pour entendre les bols tibétains. 🔔');
                 }
             });
         });
