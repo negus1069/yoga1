@@ -145,6 +145,33 @@
         }
 
         /* Petites bulles pour les types de yoga */
+        .yoga-bubbles-rail {
+            position: absolute;
+            top: 8%;
+            right: 2%;
+            width: 260px;
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 0.85rem;
+            justify-items: center;
+            align-content: start;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .yoga-bubbles-rail .yoga-bubble {
+            pointer-events: auto;
+            position: static !important;
+            top: auto !important;
+            right: auto !important;
+            left: auto !important;
+            bottom: auto !important;
+            animation: none !important;
+            margin: 0 !important;
+            text-align: center;
+            padding: 0.4rem;
+        }
+
         .yoga-bubble {
             position: absolute;
             background: rgba(255, 255, 255, 0.9);
@@ -1027,6 +1054,10 @@
             }
 
             /* Masquer les bulles yoga sur mobile */
+            .yoga-bubbles-rail {
+                display: none;
+            }
+
             .yoga-bubble {
                 display: none;
             }
@@ -1081,30 +1112,32 @@
 
     <!-- Hero Section -->
     <section class="hero" id="accueil">
-        <!-- Petites bulles pour les types de yoga - positionnées en désordre autour de la photo -->
-        <div class="yoga-bubble" style="width: 100px; height: 100px; top: 12%; right: 4%; animation-delay: 0s;">
-            Hatha
-        </div>
-        <div class="yoga-bubble" style="width: 90px; height: 90px; top: 28%; right: 2%; animation-delay: 2s;">
-            Yin
-        </div>
-        <div class="yoga-bubble" style="width: 110px; height: 110px; top: 18%; right: 12%; animation-delay: 1s;">
-            Vinyasa
-        </div>
-        <div class="yoga-bubble" style="width: 95px; height: 95px; top: 45%; right: 5%; animation-delay: 3s;">
-            Nidra
-        </div>
-        <div class="yoga-bubble" style="width: 105px; height: 105px; top: 62%; right: 3%; animation-delay: 1.5s;">
-            Pilates
-        </div>
-        <div class="yoga-bubble" style="width: 115px; height: 115px; top: 52%; right: 13%; animation-delay: 2.5s;">
-            Méditation
-        </div>
-        <div class="yoga-bubble" style="width: 108px; height: 108px; top: 78%; right: 8%; animation-delay: 3.5s;">
-            Bain sonore
-        </div>
-        <div class="yoga-bubble" style="width: 120px; height: 120px; top: 85%; right: 22%; animation-delay: 4.5s;">
-            Renfo Musculaire
+        <!-- Petites bulles pour les types de yoga -->
+        <div class="yoga-bubbles-rail">
+            <div class="yoga-bubble" style="width: 100px; height: 100px; animation-delay: 0s;">
+                Hatha
+            </div>
+            <div class="yoga-bubble" style="width: 90px; height: 90px; animation-delay: 2s;">
+                Yin
+            </div>
+            <div class="yoga-bubble" style="width: 110px; height: 110px; animation-delay: 1s;">
+                Vinyasa
+            </div>
+            <div class="yoga-bubble" style="width: 95px; height: 95px; animation-delay: 3s;">
+                Nidra
+            </div>
+            <div class="yoga-bubble" style="width: 105px; height: 105px; animation-delay: 1.5s;">
+                Pilates
+            </div>
+            <div class="yoga-bubble" style="width: 115px; height: 115px; animation-delay: 2.5s;">
+                Méditation
+            </div>
+            <div class="yoga-bubble" style="width: 108px; height: 108px; animation-delay: 3.5s;">
+                Bain sonore
+            </div>
+            <div class="yoga-bubble" style="width: 120px; height: 120px; animation-delay: 4.5s;">
+                Renfo Musculaire
+            </div>
         </div>
 
         <div class="hero-content">
