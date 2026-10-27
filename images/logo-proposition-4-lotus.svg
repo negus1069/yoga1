@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 100" role="img" aria-labelledby="title">
+  <title id="title">Angèle OM Yoga — lotus</title>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4">
+    <path d="M50 68C34 55 36 37 50 22c14 15 16 33 0 46Z" stroke="#A96E50"/>
+    <path d="M48 67C29 68 17 58 13 42c18-1 31 7 35 25ZM52 67c19 1 31-9 35-25-18-1-31 7-35 25Z" stroke="#8B9D83"/>
+    <path d="M24 75c16 6 36 6 52 0" stroke="#A96E50"/>
+  </g>
+  <text x="112" y="49" fill="#4A403A" font-family="Georgia, 'Times New Roman', serif" font-size="36">Angèle</text>
+  <text x="115" y="75" fill="#A96E50" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="600" letter-spacing="5">OM YOGA</text>
+</svg>
